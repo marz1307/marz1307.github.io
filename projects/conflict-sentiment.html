@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conflict Sentiment Analysis · Marvis Osazuwa</title>
+<meta name="description" content="A comparative methodology study running three sentiment engines and a five-topic LDA over 8,158 news articles. Methodological NLP, descriptive of media framing.">
+<link rel="canonical" href="https://marz1307.github.io/projects/conflict-sentiment.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/conflict-sentiment.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/conflict-sentiment.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/conflict-sentiment.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">M.O.</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="active" href="/projects/">Work</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a class="lang-toggle" href="/de/projects/conflict-sentiment.html" aria-label="Auf Deutsch wechseln">DE</a>
+      <button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / Conflict Sentiment Analysis</p>
+    <p class="caption">Case study / 2026</p>
+    <h1 class="case-title" style="margin-top:12px;">Conflict Sentiment Analysis</h1>
+    <p class="case-sub">A comparative methodology study quantifying how 8,158 English-language news articles framed the Russia and Ukraine conflict across 68 publishers and 18 countries. Three sentiment engines, one topic model, descriptive of media framing.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Role</span><span class="value">Solo build, end to end</span></div>
+      <div><span class="label">Domain</span><span class="value">NLP, Media Analysis</span></div>
+      <div><span class="label">Year</span><span class="value">2026</span></div>
+      <div><span class="label">Stack</span><span class="value">Python, RoBERTa, VADER, TextBlob, gensim LDA</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">4 min read</p>
+  </header>
+
+  <figure class="case-hero-thumb">
+            <picture>
+      <source srcset="/assets/thumbnails/conflict-sentiment.webp 1x, /assets/thumbnails/conflict-sentiment@2x.webp 2x" type="image/webp">
+      <img src="/assets/thumbnails/conflict-sentiment.webp" alt="Conflict Sentiment Analysis thumbnail with sentiment polarity wave" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Problem.</h2>
+      <p>How news framing differs across publishers, countries, and topics is a methodologically interesting question with active academic literature behind it. The harder version of the question is whether a single sentiment engine is enough, or whether the answer changes depending on which engine you trust.</p>
+      <p>This project quantifies how 8,158 English-language news articles framed the Russia and Ukraine conflict across 68 publishers and 18 countries, and tests three sentiment engines plus a topic model on the same corpus to surface where they agree and where they diverge. The work is descriptive of media framing, not of the underlying events.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>My contribution.</h2>
+      <p>Solo, end to end:</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li>Built the corpus ingestion and cleaning pipeline. URL stripping, alphabet-only normalisation, lowercase, regex tokenisation, stopword removal, WordNet lemmatisation across both verb and noun parts of speech.</li>
+        <li>Wired three complementary sentiment engines on the same corpus behind an abstract <code>SentimentEngine</code> base class with a registry pattern. Adding a fourth engine is one class plus one registry entry.</li>
+        <li>Built a five-topic gensim LDA model over the cleaned corpus to surface what each article is talking about, not just how it talks about it. Pinned <code>random_state</code> for reproducibility.</li>
+        <li>Cross-tabulated sentiment by publisher, country, and topic. The transformer's signed sentiment score is the primary cross-publisher metric. The lexicon engines provide an interpretable check.</li>
+        <li>Wrote the pytest suite with the transformer engine fully mocked so CI does not download gigabytes of weights on every run. Lazy load on real use, mocked load in tests.</li>
+        <li>Set up the GitHub Actions matrix CI on Python 3.10, 3.11, and 3.12 with NLTK resource caching, ruff and black gating.</li>
+      </ul>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Methodology and the multi-engine question.</h2>
+      <p>The reason the project runs three engines is that lexicon-based sentiment (TextBlob, VADER) and transformer-based sentiment (RoBERTa) sometimes disagree, and the disagreement itself is informative.</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li><strong>TextBlob</strong> (lexical baseline). Naive Bayes pattern polarity from a movie-review prior. Cheap, interpretable, but misaligned with conflict language.</li>
+        <li><strong>VADER</strong> (social and news lexicon). Handles intensifiers, negation, and the punctuation patterns common in headlines.</li>
+        <li><strong>CardiffNLP RoBERTa</strong> (<code>cardiffnlp/twitter-roberta-base-sentiment-latest</code>). Contextual transformer fine-tuned on roughly 124M tweets. Captures interactions that lexicons miss, and is the only engine producing calibrated three-class probabilities. Signed confidence (positive = +conf, negative = -conf, neutral = 0) is used for cross-publisher aggregation.</li>
+      </ul>
+      <p>When all three agree, the signal is strong. When the transformer says negative and the lexicon says neutral, you typically have hedged or sarcastic language that the lexicon misses. When the lexicon says strongly positive and the transformer says mildly negative, you typically have stylistic positivity that the lexicon scores up but the transformer reads in context.</p>
+      <p>The five-topic LDA gives the secondary axis. Sentiment on the same conflict varies sharply by topic in ways the headline number hides.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Architecture.</h2>
+      <pre style="font-family:var(--font-mono);font-size:13px;line-height:1.6;background:var(--code-bg);padding:16px;border-radius:2px;overflow-x:auto;">                         configs/default.yaml
+                                  |
+                                  v
+data/raw/*.xls -&gt; loader -&gt; cleaner -&gt; preprocessor (URL strip, lowercase, tokenize, stopword, lemmatize)
+                                                    |
+                       +----------------------------+----------------------------+
+                       |                            |                            |
+                       v                            v                            v
+                 TextBlobEngine             VaderEngine              TransformerEngine (RoBERTa)
+                       \                           |                           /
+                        \                          v                          /
+                         +------------&gt; sentiment_results.csv &lt;-------------+
+                                                  |
+                              +-------------------+--------------------+
+                              v                                        v
+                    LDATopicModel (gensim)                     analysis (publisher,
+                              |                                country, temporal,
+                              v                                wordfreq)
+                    topic_assignments.csv                              |
+                    topic_summaries.json                               v
+                                                              reports/figures</pre>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Ethical considerations.</h2>
+      <p>This is methodological research, not commentary. The framing question (how publishers cover a conflict) is well-established in media studies. The contribution is the multi-engine triangulation. No conclusions are drawn about which publisher is right, only about how their framings differ.</p>
+      <p>The English-only corpus excludes Russian, Ukrainian, Arabic, and Mandarin reporting, and the transformer's training distribution skews Western, so non-Western voices may be systematically misclassified. Aggregates are relative comparisons, not ground-truth severity. Cross-reference with independent sources before drawing policy or operational conclusions.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Stack.</h2>
+      <p class="mono" style="font-size:14px;color:var(--ink-muted);">Python &middot; HuggingFace Transformers &middot; PyTorch &middot; NLTK &middot; gensim &middot; pandas &middot; pytest &middot; ruff &middot; black &middot; GitHub Actions</p>
+      <p style="margin-top:24px;"><a class="btn btn-primary" href="https://github.com/marz1307/Conflict-sentiment-analysis" rel="noopener">View on GitHub</a></p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="/projects/football-scouting.html">&larr; Previous: Big Data Player Scouting</a>
+      <a href="/projects/steam-recommender.html">Next: Steam Games Recommender &rarr;</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">Email</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Open to Germany, EMEA, the UK, remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Built with stubbornness.</div>
+  </div>
+</footer>
+</body>
+</html>

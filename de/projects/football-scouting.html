@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Big Data Player Scouting · Marvis Osazuwa</title>
+<meta name="description" content="Eine PySpark-Pipeline, die Fußballer quer durch fünf europäische Ligen mit UEFA-Event-Daten rankt. Veröffentlichte Thesis, öffentlicher Code.">
+<link rel="canonical" href="https://marz1307.github.io/de/projects/football-scouting.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/football-scouting.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/football-scouting.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/football-scouting.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de/">M.O.</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="active" href="/de/projects/">Projekte</a>
+      <a href="/de/blog/">Blog</a>
+      <a href="/de/about.html">Über</a>
+      <a href="/de/contact.html">Kontakt</a>
+      <a class="lang-toggle" href="/projects/football-scouting.html" aria-label="Switch to English">EN</a>
+      <button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <svg class="topo topo-corner" viewBox="0 0 600 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M120,310 C140,200 240,120 360,140 C470,158 540,260 520,360 C498,470 380,520 270,490 C170,464 100,400 120,310 Z"/>
+        <path d="M150,320 C170,225 255,158 360,178 C455,196 510,278 492,360 C472,450 374,490 280,464 C195,440 132,398 150,320 Z"/>
+        <path d="M180,330 C200,250 270,196 358,214 C440,230 482,300 466,366 C448,438 366,468 290,442 C218,420 162,398 180,330 Z"/>
+        <path d="M212,338 C228,272 286,228 354,244 C420,258 454,316 442,372 C426,432 360,452 298,432 C238,414 198,392 212,338 Z"/>
+        <path d="M242,350 C256,300 302,266 350,278 C396,290 422,332 412,374 C400,422 354,438 308,422 C262,406 232,392 242,350 Z"/>
+        <path d="M270,362 C282,326 318,302 350,310 C382,318 398,348 388,376 C378,408 348,420 318,410 C288,400 264,392 270,362 Z"/>
+        <path d="M298,372 C306,348 326,332 348,338 C368,344 378,362 372,380 C364,400 346,408 326,402 C308,396 294,392 298,372 Z"/>
+        <path d="M322,380 C328,366 340,358 352,362 C362,366 368,376 364,386 C358,396 348,400 338,398 C328,394 320,392 322,380 Z"/>
+      </g>
+    </svg>
+    <p class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/projects/">Projekte</a> / Big Data Player Scouting</p>
+    <p class="caption">Case Study / 2022 bis 2023</p>
+    <h1 class="case-title" style="margin-top:12px;">Big Data Player Scouting</h1>
+    <p class="case-sub">Eine PySpark-Pipeline, die Fußballer quer durch fünf europäische Ligen mit UEFA-Event-Daten rankt. Meine MSc Big Data Analytics Thesis, veröffentlicht und open-source.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Rolle</span><span class="value">Researcher und Autor</span></div>
+      <div><span class="label">Zeitraum</span><span class="value">September 2022 bis Januar 2023</span></div>
+      <div><span class="label">Kontext</span><span class="value">MSc Thesis, Bahcesehir University</span></div>
+      <div><span class="label">Stack</span><span class="value">Python · PySpark · Jupyter · Git</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">3 min Lesezeit</p>
+    <div class="repo-cta">
+      <a class="btn btn-secondary" href="https://github.com/marz1307/Monitoring-Player-Performance-and-Scouting-in-Football" target="_blank" rel="noopener">↗ Quellcode auf GitHub ansehen</a>
+    </div>
+  </header>
+  <figure class="case-hero-thumb">
+    <picture>
+      <source srcset="/assets/thumbnails/football-scouting.webp 1x, /assets/thumbnails/football-scouting@2x.webp 2x" type="image/webp">
+      <img src="/assets/thumbnails/football-scouting.webp" alt="Big Data Player Scouting Thumbnail mit Fußballfeld-Umriss" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Scouting ist ein Data-Science-Problem.</h2>
+      <p>Moderne Fußballklubs scouten Spieler aus einer Population von Zehntausenden quer durch Ligen, Altersklassen und Positionen. Das Recruitment-Problem ist im Kern ein Data-Science-Problem: Spieler nach Dimensionen ranken, die On-Pitch-Beitrag tatsächlich vorhersagen, und Kandidaten heraussuchen, die zum Spielstil eines Klubs passen. Meine MSc-Thesis hat getestet, wie Big-Data-Analytics diese Entscheidung unterstützen kann.</p>
+      <p>Tore und Vorlagen sind nachlaufende Indikatoren, die Stürmer bevorzugen und Off-Ball-Arbeit ignorieren. Coaches wissen das. Die Infrastruktur, um es im großen Maßstab besser zu machen, ist außerhalb der größten Klubs nur langsam angekommen. Meine Thesisfrage: Können wir mit Event-Daten quer durch mehrere Ligen Spieler nach Spielsignatur statt nach Rohleistung ranken und empfehlen?</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Was ich mit 500+ Spielern und 100+ Spielen gemacht habe.</h2>
+      <p>Die Daten kamen von Pappalardo et al. (2019), einem öffentlichen Event-Level-Datensatz, der die Saison 2017 bis 2018 in La Liga, Serie A, Premier League, Bundesliga und Ligue 1 abdeckt, plus die WM 2018 und Euro 2016. Ich habe die rohen Events in PySpark verpackt, um das Volumen sauber zu handhaben, und dann KPIs über mehrere Dimensionen entwickelt: Ball Progression, Defensive Contribution, Attacking Threat, Discipline und Off-Ball-Movement-Signale.</p>
+      <p>Darüber habe ich ein Ranking-Modell gebaut, das die KPIs nach Position und Stilkontext gewichtet, dann eine Recommendation-Schicht, die Spieler mit ähnlicher Stilsignatur zu einem Referenzspieler hervorhebt. Das ist der spannende Teil. Scouts interessiert weniger "wer ist der beste Spieler" als "wer spielt wie dieser, aber zu einem Preis, den wir uns leisten können".</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Was dabei rauskam.</h2>
+      <p>Eine funktionierende Pipeline, eine veröffentlichte Thesis im Turkish National Thesis Centre und ein öffentliches GitHub-Repo. Die Thesis selbst hat einige bisher unbemerkte Korrelationen zwischen Spieleraktionen und Team-Spielstil gefunden, die ich im Paper im Detail beschreibe.</p>
+      <p style="margin-top:24px;">
+        <a class="arrow-link" href="https://github.com/marz1307/Monitoring-Player-Performance-and-Scouting-in-Football" target="_blank" rel="noopener">→ GitHub Repository</a>
+      </p>
+      <p><a class="arrow-link" href="https://tez.yok.gov.tr/UlusalTezMerkezi/" target="_blank" rel="noopener">→ Turkish National Thesis Centre</a></p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case-Study-Navigation">
+      <a href="/de/projects/pharma-side-effects.html">← Vorheriges: Pharmazeutische Nebenwirkungs-Klassifikation</a>
+      <a href="/de/projects/conflict-sentiment.html">Weiter: Conflict Sentiment Analysis →</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Offen für Deutschland, EMEA, UK, Remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Mit Hartnäckigkeit gebaut.</div>
+  </div>
+</footer>
+</body>
+</html>

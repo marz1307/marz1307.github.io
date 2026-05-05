@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Economic Resilience Dashboard · Marvis Osazuwa</title>
+<meta name="description" content="Single-Screen-Power-BI-Report über 20 Jahre IMF-World-Economic-Outlook-Daten zu 26 einkommensstarken Volkswirtschaften, der zeigt, wie sich fortgeschrittene Volkswirtschaften 2008 bis 2010 verhalten haben und wie sie ins Jahr 2020 gegangen sind.">
+<link rel="canonical" href="https://marz1307.github.io/de/projects/economic-resilience.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/economic-resilience.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/economic-resilience.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/economic-resilience.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de/">M.O.</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="active" href="/de/projects/">Projekte</a>
+      <a href="/de/blog/">Blog</a>
+      <a href="/de/about.html">Über</a>
+      <a href="/de/contact.html">Kontakt</a>
+      <a class="lang-toggle" href="/projects/economic-resilience.html" aria-label="Switch to English">EN</a>
+      <button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <p class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/projects/">Projekte</a> / Economic Resilience Dashboard</p>
+    <p class="caption">Case Study / 2025 &nbsp;<span style="display:inline-block;border:1px solid var(--accent);color:var(--accent);font-family:var(--font-mono);font-size:10px;font-weight:600;padding:2px 6px;border-radius:2px;letter-spacing:0.05em;">BI</span></p>
+    <h1 class="case-title" style="margin-top:12px;">Economic Resilience Dashboard</h1>
+    <p class="case-sub">Ein Single-Screen-Power-BI-Report über 20 Jahre IMF-World-Economic-Outlook-Daten zu 26 einkommensstarken Volkswirtschaften. Konzipiert als Briefing-Oberfläche für politik-affine Nicht-Spezialisten, mit einem Python-Validator, der die Aussagen des Dashboards gegen die Quell-xlsx belegt.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Rolle</span><span class="value">Eigenständig umgesetzt, end-to-end</span></div>
+      <div><span class="label">Bereich</span><span class="value">Makroökonomie, Power BI</span></div>
+      <div><span class="label">Jahr</span><span class="value">2025</span></div>
+      <div><span class="label">Stack</span><span class="value">Power BI, DAX, Power Query, Python-Validator</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">3 min Lesezeit</p>
+  </header>
+
+  <figure class="case-hero-thumb">
+            <picture>
+      <source srcset="/assets/thumbnails/economic-resilience.webp 1x, /assets/thumbnails/economic-resilience@2x.webp 2x" type="image/webp">
+      <img src="/assets/thumbnails/economic-resilience.webp" alt="Thumbnail Economic Resilience Dashboard mit absteigenden Wirtschaftsindikator-Balken" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Problem.</h2>
+      <p>Wie haben fortgeschrittene Volkswirtschaften auf die globale Finanzkrise von 2008 bis 2010 reagiert, und in welcher Verfassung waren diese Volkswirtschaften, als sie 2020 in den nächsten Schock gingen? Das ist eine Frage, die Makroökonomen über lange Papers und IMF-Reports beantworten.</p>
+      <p>Ich wollte sehen, ob ein Single-Screen-Power-BI-Report genug Signal tragen kann, um als Briefing-Oberfläche für jemanden nützlich zu sein, der diese Papers nicht liest. Die Vorgabe "ein Bildschirm, kein Scrollen" zwingt jede Visualisierung, ihren Platz zu rechtfertigen.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Mein Beitrag.</h2>
+      <p>Single-Screen-Power-BI-Report plus Python-Validator, eigenständig verantwortet:</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li>20 Jahre IMF-World-Economic-Outlook-Daten beschafft (Vintage Oktober 2021), gefiltert auf die 26 einkommensstarken Volkswirtschaften, die durchgängig über das gesamte Fenster 2001 bis 2020 berichten. Auswahlregel ist dokumentiert und reproduzierbar.</li>
+        <li>Star-Schema-Datenmodell mit einer <code>IMF_Complete</code>-Faktentabelle (520 Faktenzeilen, 26 Länder x 20 Jahre), n:1 verknüpft mit einer <code>CountryGroupings</code>-Dimension, die World-Bank-Region- und Einkommensklassifikationen mitführt.</li>
+        <li>Acht Kernindikatoren (BIP-Wachstum, Staatsverschuldung in Prozent des BIP, Inflation, Arbeitslosigkeit, Leistungsbilanzsaldo, Bruttoersparnis, weit gefasste Geldmenge und Bruttoinvestitionen) speisen neun DAX-Measures.</li>
+        <li>Ein <code>Metric Selector</code>-Field-Parameter blendet diese acht Indikatoren in einem einzigen Dropdown ein, sodass dieselbe Visualisierung über alle hinweg pivotiert.</li>
+        <li>Krisenfenster-Hervorhebung auf den temporalen Visualisierungen: 2008 bis 2010 und 2020 sind visuell betont, sodass das Schock-und-Erholungs-Muster sofort sichtbar wird.</li>
+        <li>Python-Begleit-Validator (pandas + openpyxl + pytest) mit CI. Jeder im README zitierte Datensatz-Deskriptor wird bei jedem Push gegen den tatsächlichen xlsx-Inhalt geprüft.</li>
+      </ul>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Datenmodell.</h2>
+      <pre style="font-family:var(--font-mono);font-size:13px;line-height:1.6;background:var(--code-bg);padding:16px;border-radius:2px;overflow-x:auto;">+----------------------+              +-----------------------+
+|     IMF_Complete     |  many-to-1   |    CountryGroupings   |
+|----------------------|------------- |-----------------------|
+|  ISO     (FK)        |   on ISO     |  Code   (PK)          |
+|  Country             |              |  Economy              |
+|  Year                |              |  Region               |
+|  8 core indicators   |              |  Income group         |
++----------------------+              +-----------------------+
+   26 countries x 20 yrs                  218 reference rows
+   = 520 fact rows</pre>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Was das Dashboard sichtbar macht.</h2>
+      <p>Die Volkswirtschaften, die sich 2008 bis 2010 am schnellsten erholt haben, waren nicht immer diejenigen, die 2020 am stärksten dastanden. Es gibt einen langsamen, strukturellen Drift im Datensatz. Manche Volkswirtschaften haben 2008 Schulden aufgenommen und vor 2020 nie ganz abgebaut, was ihre fiskalische Reaktion auf den nächsten Schock eingeschränkt hat. Das Dashboard macht das auf einen Blick sichtbar, über die vergleichenden Schulden-Trajektorien-Ansichten.</p>
+      <p>Die Länder-Vergleichs-Ansicht erlaubt, jede Teilmenge der 26 Volkswirtschaften nebeneinander zu zerlegen. Für Politik-Briefings zu einer spezifischen Peer-Group (G7, EU-27-Auswahl, Anglosphäre) ist das die Antwort auf "Zeig mir, wie diese Länder über alle acht Indikatoren in einem Bildschirm vergleichen".</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Warum dies als BI-Showcase im Portfolio steht.</h2>
+      <p>Der Großteil meiner Arbeit zeigt sich als Code oder Pipelines. Dies ist das Gegengewicht: Beleg, dass ich eine analytische Oberfläche für nicht-technische Entscheider liefern kann, mit Datenmodell, DAX-Measures und visueller Hierarchie, alles auf ein Single-Screen-Briefing hin entworfen.</p>
+      <p>Der Python-Validator ist die Brücke zurück zur Engineering-Disziplin. Ein Dashboard, das "26 einkommensstarke Volkswirtschaften" behauptet, ist ein Dashboard, das in der CI scheitern sollte, sobald man den Datensatz tauscht und sich die Anzahl ändert. Der Validator macht genau das.</p>
+      <p>Die .pbix-Datei liegt im Repo für alle, die sie in Power BI Desktop (kostenloser Download von Microsoft) öffnen und erkunden wollen.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Stack.</h2>
+      <p class="mono" style="font-size:14px;color:var(--ink-muted);">Power BI Desktop &middot; DAX &middot; Power Query &middot; Field Parameters &middot; IMF World Economic Outlook (Oktober 2021) &middot; World-Bank-Länder- und Regionsklassifikationen &middot; Python (pandas, openpyxl, pytest) &middot; GitHub Actions</p>
+      <p style="margin-top:24px;"><a class="btn btn-primary" href="https://github.com/marz1307/Economic-Resilience-Dashboard" rel="noopener">Auf GitHub ansehen</a></p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case-Study-Navigation">
+      <a href="/de/projects/building-energy-loads.html">&larr; Vorheriges: Building Energy Loads</a>
+      <a href="/de/projects/">Zurück zu den Projekten &rarr;</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Offen für Deutschland, EMEA, UK, Remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Mit Hartnäckigkeit gebaut.</div>
+  </div>
+</footer>
+</body>
+</html>

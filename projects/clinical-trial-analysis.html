@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clinical Trial Data Analysis · Marvis Osazuwa</title>
+<meta name="description" content="Statistical analysis and visualisation of clinical trial outcomes in Python, with reproducible notebooks and clear methodology.">
+<link rel="canonical" href="https://marz1307.github.io/projects/clinical-trial-analysis.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/clinical-trial-analysis.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/clinical-trial-analysis.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/clinical-trial-analysis.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">M.O.</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="active" href="/projects/">Work</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a class="lang-toggle" href="/de/projects/clinical-trial-analysis.html" aria-label="Auf Deutsch wechseln">DE</a>
+      <button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <svg class="topo topo-corner" viewBox="0 0 600 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M120,310 C140,200 240,120 360,140 C470,158 540,260 520,360 C498,470 380,520 270,490 C170,464 100,400 120,310 Z"/>
+        <path d="M150,320 C170,225 255,158 360,178 C455,196 510,278 492,360 C472,450 374,490 280,464 C195,440 132,398 150,320 Z"/>
+        <path d="M180,330 C200,250 270,196 358,214 C440,230 482,300 466,366 C448,438 366,468 290,442 C218,420 162,398 180,330 Z"/>
+        <path d="M212,338 C228,272 286,228 354,244 C420,258 454,316 442,372 C426,432 360,452 298,432 C238,414 198,392 212,338 Z"/>
+        <path d="M242,350 C256,300 302,266 350,278 C396,290 422,332 412,374 C400,422 354,438 308,422 C262,406 232,392 242,350 Z"/>
+        <path d="M270,362 C282,326 318,302 350,310 C382,318 398,348 388,376 C378,408 348,420 318,410 C288,400 264,392 270,362 Z"/>
+        <path d="M298,372 C306,348 326,332 348,338 C368,344 378,362 372,380 C364,400 346,408 326,402 C308,396 294,392 298,372 Z"/>
+        <path d="M322,380 C328,366 340,358 352,362 C362,366 368,376 364,386 C358,396 348,400 338,398 C328,394 320,392 322,380 Z"/>
+      </g>
+    </svg>
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / Clinical Trial Data Analysis</p>
+    <p class="caption">Case study / 2024</p>
+    <h1 class="case-title" style="margin-top:12px;">Clinical Trial Data Analysis</h1>
+    <p class="case-sub">Statistical analysis and visualisation of clinical trial outcomes in Python, with reproducible notebooks and a clear methodology trail.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Role</span><span class="value">Author</span></div>
+      <div><span class="label">Year</span><span class="value">2024</span></div>
+      <div><span class="label">Context</span><span class="value">Side project · Healthcare sector</span></div>
+      <div><span class="label">Stack</span><span class="value">Python · Pandas · NumPy · Matplotlib · Statistical methods</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">3 min read</p>
+    <div class="repo-cta">
+      <a class="btn btn-secondary" href="https://github.com/marz1307/Clinical-Trial-Data-Analysis" target="_blank" rel="noopener">↗ View source on GitHub</a>
+    </div>
+  </header>
+
+  <figure class="case-hero-thumb">
+    <picture>
+      <source srcset="/assets/thumbnails/clinical-trial-analysis.webp 1x, /assets/thumbnails/clinical-trial-analysis@2x.webp 2x" type="image/webp">
+      <img src="/assets/thumbnails/clinical-trial-analysis.webp" alt="Clinical Trial Data Analysis thumbnail with ascending bar chart" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Outcomes data is messy by design.</h2>
+      <p>Clinical trial datasets sit at the intersection of small sample sizes, strict measurement protocols, and downstream decisions that affect real patients. The analysis has to handle missing values without erasing them, run statistical tests that respect the trial design, and surface effects in a way a non-statistician can act on.</p>
+      <p>This project is a methodical walk-through of one such dataset: load it, profile it, test the hypotheses, visualise the effects, and write the conclusion in language the trial sponsor would actually read.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Approach.</h2>
+      <p>The analysis follows the standard sequence and writes each step out in a reproducible Jupyter notebook. Data load and schema audit. Missing-value handling with documented rules. Descriptive statistics across treatment and control arms. Hypothesis tests selected by data shape, not by reflex (parametric where assumptions hold, non-parametric where they do not). Effect size estimation alongside p-values, because p-values without effect sizes are noise.</p>
+      <p>Visualisation is restrained: distribution plots for the raw data, paired comparisons for the primary outcome, confidence-interval plots for the conclusions. Every figure has a caption that explains what it shows and what it does not show.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>What I shipped.</h2>
+      <p>A reproducible analysis notebook that runs end to end on the dataset, a methodology section that explains every choice, a conclusions section written for a non-statistician audience, and a public repository with the data-handling rules documented so the work is auditable.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Lessons.</h2>
+      <p>Most of the value in clinical-trial analysis is in the boring parts: documenting how missing values were handled, picking the right test for the data shape, and pairing every p-value with an effect size. The flashy chart matters less than the methodology trail behind it. Reviewers and sponsors trust an analysis they can re-run, not an analysis they have to take on faith.</p>
+      <p style="margin-top:24px;">
+        <a class="arrow-link" href="https://github.com/marz1307/Clinical-Trial-Data-Analysis" target="_blank" rel="noopener">→ GitHub repository</a>
+      </p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="/projects/equity-forecasting.html">← Previous: Equity Forecasting</a>
+      <a href="/projects/airwave-express.html">Next: AirWave Express Ticketing System →</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">Email</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Open to Germany, EMEA, the UK, remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Built with stubbornness.</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equity Forecasting · Marvis Osazuwa</title>
+<meta name="description" content="Reproduzierbares R-Analysepaket für die tägliche Schlusskurs-Prognose von Aktien. ARIMA, ETS und eine naive Baseline hinter einer Model Registry. 5.124 Tagesbeobachtungen von NYSE-Ticker A.">
+<link rel="canonical" href="https://marz1307.github.io/de/projects/equity-forecasting.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/equity-forecasting.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/equity-forecasting.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/equity-forecasting.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de/">M.O.</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="active" href="/de/projects/">Projekte</a>
+      <a href="/de/blog/">Blog</a>
+      <a href="/de/about.html">Über</a>
+      <a href="/de/contact.html">Kontakt</a>
+      <a class="lang-toggle" href="/projects/equity-forecasting.html" aria-label="Switch to English">EN</a>
+      <button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <p class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/projects/">Projekte</a> / Equity Forecasting</p>
+    <p class="caption">Case Study / 2026</p>
+    <h1 class="case-title" style="margin-top:12px;">Equity Forecasting</h1>
+    <p class="case-sub">Ein reproduzierbares R-Analysepaket für die tägliche Schlusskurs-Prognose von Aktien. ARIMA, ETS und eine naive Baseline hinter einer Model Registry, mit formalen Stationaritätstests und Residuen-Diagnostik.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Rolle</span><span class="value">Eigenständig umgesetzt, end-to-end</span></div>
+      <div><span class="label">Bereich</span><span class="value">Finance, Time Series</span></div>
+      <div><span class="label">Jahr</span><span class="value">2026</span></div>
+      <div><span class="label">Stack</span><span class="value">R, forecast, tseries, testthat</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">3 min Lesezeit</p>
+  </header>
+
+  <figure class="case-hero-thumb">
+            <picture>
+      <source srcset="/assets/thumbnails/equity-forecasting.webp 1x, /assets/thumbnails/equity-forecasting@2x.webp 2x" type="image/webp">
+      <img src="/assets/thumbnails/equity-forecasting.webp" alt="Thumbnail Equity Forecasting mit Zeitreihenlinie und Forecast-Konus" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Problem.</h2>
+      <p>Eine belastbare kurzfristige Punktprognose aus einer verrauschten, nicht-stationären Finanzzeitreihe zu bauen, ist ein Lehrbuchproblem mit viel Folklore drumherum. Die meisten öffentlichen Beispiele überspringen die Stationaritätstests, überspringen die Residuen-Diagnostik und berichten zu einem einzigen Modell. Dieses Projekt baut die end-to-end-Pipeline ordentlich: laden, validieren, diagnostizieren, transformieren, Kandidaten fitten, evaluieren, berichten.</p>
+      <p>Das eingecheckte Arbeitsbeispiel nutzt 5.124 Tagesbeobachtungen von NYSE-Ticker A von Dezember 1999 bis Mai 2023, mit Schlusskursen zwischen 7,76 USD und 113,70 USD.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Mein Beitrag.</h2>
+      <p>Eigenständig, end-to-end:</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li>Schema-Validierung beim Daten-Load. Erwartete Spalten, Typen und chronologische Reihenfolge an der Grenze erzwungen.</li>
+        <li>EDA: Verteilungs-Summary, Quantile, Series-Plot über die volle Stichprobe und STL-Decomposition-Strengths.</li>
+        <li>Transformationen: optionaler Log, Differencing ganzzahliger Ordnung, alles konfigurierbar.</li>
+        <li>Stationaritätstests. ADF und KPSS in eine einzige Entscheidungsregel überführt, statt jeden isoliert zu fahren und sich widersprechende Verdikte zu erhalten.</li>
+        <li>Modell-Kandidaten registriert über ein <code>MODEL_REGISTRY</code>-Pattern. ARIMA, saisonales ARIMA per <code>auto.arima</code>, ETS, naive Baseline. Neue Kandidaten lassen sich registrieren, indem man eine einzige Funktion hinzufügt, statt die Pipeline anzufassen.</li>
+        <li>Residuen-Diagnostik. Ljung-Box auf Autokorrelation, Shapiro-Wilk auf Normalität, Mittelwert- und Varianz-Checks im Summary.</li>
+        <li>Forecast-Evaluation gegen die naive Baseline als Untergrenze. RMSE, MAE, MAPE.</li>
+        <li>testthat-Suite mit synthetischer Series-Fixture, R-CMD-check-CI-Matrix über mehrere R-Versionen, lintr-Config gated CI.</li>
+      </ul>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Warum dieses Setup wichtig ist.</h2>
+      <p>Finanzzeitreihen scheitern still. Ein Modell mit gutem RMSE auf den Trainingsdaten kann auf der Residuen-Ebene leise kaputt sein (Autokorrelation in den Residuen heißt, das Modell hat die Struktur nicht erfasst), und man merkt es erst, wenn die Live-Daten anfangen, sich schlecht zu benehmen. Der Ljung-Box- plus Shapiro-Wilk-Check auf der Residuen-Stufe ist die Diagnostik, die das abfängt, bevor man die Prognose ausliefert.</p>
+      <p>Das <code>MODEL_REGISTRY</code>-Pattern ist die architektonische Entscheidung, die die Pipeline tatsächlich wiederverwendbar macht. Einen neuen Kandidaten hinzufügen (Prophet, TBATS, neuronaler State Space) ist ein einziger Registrierungsaufruf. Der Evaluation-, Diagnostik- und Reporting-Code ändert sich nicht.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Architektur.</h2>
+      <pre style="font-family:var(--font-mono);font-size:13px;line-height:1.6;background:var(--code-bg);padding:16px;border-radius:2px;overflow-x:auto;">data-raw/A.csv
+   |
+   v
+load_share_prices -&gt; validate -&gt; to_ts (daily freq, chronological)
+                                         |
+                                         v
+                                   eda + STL decomposition
+                                         |
+                                         v
+                       transform (log, difference) if needed
+                                         |
+                                         v
+                       stationarity (ADF + KPSS combined verdict)
+                                         |
+                                         v
+                       MODEL_REGISTRY = {arima, sarima, ets, naive}
+                                         |
+                                         v
+                          fit each on train, forecast horizon
+                                         |
+                                         v
+                       diagnostics (Ljung-Box, Shapiro-Wilk)
+                                         |
+                                         v
+                       evaluate vs naive baseline (RMSE, MAE, MAPE)</pre>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Stack.</h2>
+      <p class="mono" style="font-size:14px;color:var(--ink-muted);">R &middot; forecast &middot; tseries &middot; ggplot2 &middot; lubridate &middot; testthat &middot; lintr &middot; GitHub Actions (R-CMD-check-CI-Matrix über mehrere R-Versionen)</p>
+      <p style="margin-top:24px;"><a class="btn btn-primary" href="https://github.com/marz1307/Equity-forecasting" rel="noopener">Auf GitHub ansehen</a></p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case-Study-Navigation">
+      <a href="/de/projects/steam-recommender.html">&larr; Vorheriges: Steam Games Recommender</a>
+      <a href="/de/projects/clinical-trial-analysis.html">Weiter: Clinical Trial Data Analysis &rarr;</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Offen für Deutschland, EMEA, UK, Remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Mit Hartnäckigkeit gebaut.</div>
+  </div>
+</footer>
+</body>
+</html>

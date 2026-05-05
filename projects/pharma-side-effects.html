@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pharmaceutical Side Effect Classification · Marvis Osazuwa</title>
+<meta name="description" content="Production-grade Python package classifying medicine adverse events into ten clinical categories. sklearn pipeline, end-to-end serializable, CI matrix.">
+<link rel="canonical" href="https://marz1307.github.io/projects/pharma-side-effects.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/pharma-side-effects.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/pharma-side-effects.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/pharma-side-effects.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">M.O.</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="active" href="/projects/">Work</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a class="lang-toggle" href="/de/projects/pharma-side-effects.html" aria-label="Auf Deutsch wechseln">DE</a>
+      <button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / Pharmaceutical Side Effect Classification</p>
+    <p class="caption">Case study / 2026</p>
+    <h1 class="case-title" style="margin-top:12px;">Pharmaceutical Side Effect Classification</h1>
+    <p class="case-sub">A production-grade Python package that classifies free-text adverse-event descriptions into a MedDRA-style taxonomy of ten clinical categories.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Role</span><span class="value">Solo build, end to end</span></div>
+      <div><span class="label">Domain</span><span class="value">Healthcare, Pharmacovigilance</span></div>
+      <div><span class="label">Year</span><span class="value">2026</span></div>
+      <div><span class="label">Stack</span><span class="value">Python, scikit-learn, TF-IDF, pytest</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">3 min read</p>
+  </header>
+
+  <figure class="case-hero-thumb">
+            <picture>
+      <source srcset="/assets/thumbnails/pharma-side-effects.webp 1x, /assets/thumbnails/pharma-side-effects@2x.webp 2x" type="image/webp">
+      <img src="/assets/thumbnails/pharma-side-effects.webp" alt="Pharmaceutical Side Effect Classification thumbnail with stacked classification bars" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Problem.</h2>
+      <p>Manual triage of pharmaceutical adverse-event reports is slow, inconsistent, and expensive at scale. The pharmacovigilance teams that classify these reports against standardised taxonomies are bottlenecked by volume, and the classification quality varies analyst by analyst.</p>
+      <p>The question this project asked: can a multi-class classifier match human-quality triage accurately enough to be worth deploying as a decision-support tool? And, since pharmacovigilance is a regulated domain, can the explainable baseline get close enough to the more complex model that you can ship the explainable one?</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>My contribution.</h2>
+      <p>Solo, end to end:</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li>Built the feature pipeline. TF-IDF vectorisation of medicine name, composition, indications, and side-effect text, plus manufacturer ordinal encoding (with safe handling of unseen manufacturers at inference) and review-percentage features, all behind a single sklearn <code>ColumnTransformer</code> + <code>FeatureUnion</code>.</li>
+        <li>Trained two complementary models on 11,825 marketed medicines mapped to a MedDRA-style taxonomy of ten clinical categories. Random Forest as the primary model, Logistic Regression as the interpretable comparison.</li>
+        <li>Wrapped both in a serializable sklearn <code>Pipeline</code> so <code>joblib.dump</code> produces one end-to-end artifact and inference does not require manual feature prep.</li>
+        <li>Externalised every hyperparameter to a YAML config loaded into frozen dataclasses. No magic numbers in code.</li>
+        <li>Wrote the CLI (<code>train</code>, <code>predict</code>) and the pytest suite (synthetic 60-row fixture so tests do not depend on the 4 MB xls).</li>
+        <li>Set up the GitHub Actions matrix CI on Python 3.10, 3.11, and 3.12 with ruff and black gating.</li>
+      </ul>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Architecture.</h2>
+      <pre style="font-family:var(--font-mono);font-size:13px;line-height:1.6;background:var(--code-bg);padding:16px;border-radius:2px;overflow-x:auto;">+------------------+    +-----------------------+    +------------------+
+| Medicine_Details | -&gt; | Category mapping      | -&gt; | Stratified split |
+| (.xls, 11,825)   |    | (10 MedDRA-aligned    |    | (80/20, seed 42) |
++------------------+    |  categories)          |    +------------------+
+                        +-----------------------+              |
+                                                               v
+                                              +----------------------------+
+                                              | sklearn Pipeline           |
+                                              |   ColumnTransformer        |
+                                              |     TF-IDF (name, comp,    |
+                                              |             uses, side fx) |
+                                              |     OrdinalEncoder (mfr)   |
+                                              |     StandardScaler (rev %) |
+                                              |   Classifier               |
+                                              |     RF or LR (registry)    |
+                                              +----------------------------+
+                                                               |
+                                                               v
+                                              joblib artifact + metrics + plots</pre>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Results.</h2>
+      <p>The training pipeline emits accuracy, macro F1, weighted F1, per-class precision and recall, and a confusion matrix figure. Both models perform well on the held-out stratified 20% test set; the interpretable Logistic Regression baseline lands close enough to the Random Forest that the comparison itself becomes the finding.</p>
+      <p>Specific metric values are not pinned in this write-up because the repo is configured to regenerate them deterministically via <code>make train</code>. Anyone cloning the repo runs one command and gets the current numbers from the current code, not a stale screenshot.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Lessons.</h2>
+      <p>The most useful finding was not the headline accuracy number. It was that the much simpler model came within a couple of percentage points of the more complex one. That tells you something specific about the data: the categorical signal is strong enough that you do not need a deep architecture to extract it, and a shallow interpretable model is genuinely competitive. In a regulated domain like pharmacovigilance where every model decision needs to be explainable, that finding changes the deployment calculus. You ship the explainable model unless you absolutely need the marginal extra points.</p>
+      <p>The second lesson was about scope discipline. A first version of this had a Streamlit demo, a Hugging Face transformer baseline, and a deployment workflow. None of it was finished. I cut all three and shipped the production-grade core: feature pipeline, two models, evaluation, inference CLI, tests, CI matrix. Less surface area, more depth.</p>
+      <p>The third lesson was about leaks. The original prototype encoded manufacturer with a one-shot <code>LabelEncoder</code> outside the pipeline, which would crash at inference on any unseen manufacturer. Moving the encoding inside the pipeline as <code>OrdinalEncoder(handle_unknown="use_encoded_value")</code> is the kind of fix that does not show up in the metrics table but is the difference between a model that ships and a model that breaks the first time it sees production data.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Stack.</h2>
+      <p class="mono" style="font-size:14px;color:var(--ink-muted);">Python &middot; scikit-learn &middot; pandas &middot; numpy &middot; TF-IDF &middot; Random Forest &middot; Logistic Regression &middot; joblib &middot; pytest &middot; ruff &middot; black &middot; GitHub Actions</p>
+      <p style="margin-top:24px;"><a class="btn btn-primary" href="https://github.com/marz1307/Pharma-side-effects" rel="noopener">View on GitHub</a></p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="/projects/force24.html">&larr; Previous: Account Intelligence Platform</a>
+      <a href="/projects/football-scouting.html">Next: Big Data Player Scouting &rarr;</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">Email</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Open to Germany, EMEA, the UK, remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Built with stubbornness.</div>
+  </div>
+</footer>
+</body>
+</html>

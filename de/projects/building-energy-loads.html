@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building Energy Loads · Marvis Osazuwa</title>
+<meta name="description" content="R-Analysepaket, das Heiz- und Kühllasten aus Gebäudegeometrie vorhersagt. 768 simulierte Konfigurationen, schrittweise lineare Regression mit voller Diagnostik-Disziplin.">
+<link rel="canonical" href="https://marz1307.github.io/de/projects/building-energy-loads.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/building-energy-loads.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/building-energy-loads.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/building-energy-loads.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de/">M.O.</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="active" href="/de/projects/">Projekte</a>
+      <a href="/de/blog/">Blog</a>
+      <a href="/de/about.html">Über</a>
+      <a href="/de/contact.html">Kontakt</a>
+      <a class="lang-toggle" href="/projects/building-energy-loads.html" aria-label="Switch to English">EN</a>
+      <button id="theme-toggle" class="theme-toggle" type="button">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <p class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/projects/">Projekte</a> / Building Energy Loads</p>
+    <p class="caption">Case Study / 2025</p>
+    <h1 class="case-title" style="margin-top:12px;">Building Energy Loads</h1>
+    <p class="case-sub">Ein R-Analysepaket, das Heiz- und Kühllasten aus acht Gebäudegeometrie-Parametern über 768 simulierte Konfigurationen vorhersagt. Schrittweise lineare Regression mit vollständiger Residuen- und Kollinearitäts-Diagnostik.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Rolle</span><span class="value">Eigenständig umgesetzt, end-to-end</span></div>
+      <div><span class="label">Bereich</span><span class="value">Engineering, Statistik</span></div>
+      <div><span class="label">Jahr</span><span class="value">2025</span></div>
+      <div><span class="label">Stack</span><span class="value">R, stats::step, car (VIF), ggplot2, testthat</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">3 min Lesezeit</p>
+  </header>
+
+  <figure class="case-hero-thumb">
+            <picture>
+      <source srcset="/assets/thumbnails/building-energy-loads.webp 1x, /assets/thumbnails/building-energy-loads@2x.webp 2x" type="image/webp">
+      <img src="/assets/thumbnails/building-energy-loads.webp" alt="Thumbnail Building Energy Loads mit überlappenden Gebäudeansichten" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Problem.</h2>
+      <p>Die Vorhersage von Heiz- und Kühllasten aus der Gebäudegeometrie ist ein klassisches Problem der Energietechnik. Architekten, die in der frühen Entwurfsphase Entscheidungen treffen (Wandfläche, Glasfläche, Dachfläche, Ausrichtung), müssen wissen, wie diese Entscheidungen in HLK-Auslegung und jährliche Energiekosten durchschlagen, bevor das Gebäude steht.</p>
+      <p>Der Datensatz simuliert 768 Gebäudekonfigurationen über acht Designparameter und berichtet die resultierenden Heiz- und Kühllasten. Die Frage, die dieses Projekt stellt: Welche Designentscheidungen wiegen am stärksten, und kann ein kleines lineares Modell die Last in der Entwurfsphase belastbar vorhersagen?</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Mein Beitrag.</h2>
+      <p>End-to-end-R-Analysepaket, eigenständig verantwortet:</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li>Datenlader mit Schema-Validierung. Erwartete Spalten, erwartete Typen, NA-Behandlung an der Grenze erzwungen.</li>
+        <li>Deskriptive Statistik über alle acht Prädiktoren und beide Zielgrößen (Heizlast, Kühllast).</li>
+        <li>Korrelationsanalyse zur Aufdeckung von Multikollinearität. Relative Kompaktheit, Oberfläche und Wandfläche clustern stark.</li>
+        <li>Schrittweise lineare Regression zur Variablenauswahl, getrennt für Heizlast und Kühllast. Implementiert mit base <code>stats::step</code> und bidirektionalem AIC.</li>
+        <li>Variance-Inflation-Factor-Checks per <code>car::vif</code> auf den ausgewählten Modellen, plus Normalitäts- (Shapiro-Wilk) und Heteroskedastizitäts-Tests (Breusch-Pagan-Stil) auf den Residuen.</li>
+        <li>Standard-Diagnostik-Plots: Residuen vs Fitted, Q-Q-Normalität, Scale-Location, Leverage.</li>
+        <li>testthat-Suite mit synthetischer 200-Zeilen-Fixture, lintr-Config, R-CMD-check-CI-Matrix über mehrere R-Versionen.</li>
+      </ul>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Was die Analyse ergeben hat.</h2>
+      <p>Glasfläche und Dachtyp tragen mehr Signal, als ich zu Beginn erwartet hatte. Relative Kompaktheit fällt unter schrittweiser Selektion heraus, weil die Oberfläche denselben Informationsgehalt mitführt, und das Modell ist ohne beide besser interpretierbar.</p>
+      <p>Das Kühllast-Modell hat merklich breitere Residuen als das Heizlast-Modell. Das sagt etwas über die zugrundeliegende Physik aus: Kühlbedarf hängt vom solaren Eintrag ab, der über Ausrichtung und Verglasung nicht-linear interagiert. Ein lineares Modell erfasst die Heizseite gut und liefert einen brauchbaren ersten Aufschlag auf der Kühlseite, aber die Kühlseite verdient für den Produktiveinsatz ein baumbasiertes oder interaktionsreiches Modell.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Warum dieses Projekt neben den größeren Arbeiten steht.</h2>
+      <p>Dies ist eine kleine, fokussierte Übung in statistischer Modellierung. Es ist kein Produktivsystem. Was es zeigt, ist die Diagnostik-Disziplin: Jedes Modell bekommt seine Residuen geprüft, jede Variable ihren Korrelations-Cluster untersucht, jede Aussage über Wichtigkeit gegen die alternativen Erklärungen verteidigt.</p>
+      <p>Dieselbe Disziplin taucht in den größeren Pipelines wieder auf. Lineage und Tests sind nicht glamourös, aber sie sind der Unterschied zwischen einem Modell, das ausgeliefert wird, und einem, das beim ersten Kontakt mit echten Daten bricht.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Stack.</h2>
+      <p class="mono" style="font-size:14px;color:var(--ink-muted);">R &middot; stats::step (schrittweise Selektion) &middot; car (VIF und Diagnostik) &middot; ggplot2 &middot; readxl &middot; testthat &middot; lintr &middot; GitHub Actions (R-CMD-check)</p>
+      <p style="margin-top:24px;"><a class="btn btn-primary" href="https://github.com/marz1307/Building-energy-loads" rel="noopener">Auf GitHub ansehen</a></p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case-Study-Navigation">
+      <a href="/de/projects/airwave-express.html">&larr; Vorheriges: AirWave Express Ticketing System</a>
+      <a href="/de/projects/economic-resilience.html">Weiter: Economic Resilience Dashboard &rarr;</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Offen für Deutschland, EMEA, UK, Remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Mit Hartnäckigkeit gebaut.</div>
+  </div>
+</footer>
+</body>
+</html>
