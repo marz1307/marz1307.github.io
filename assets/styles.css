@@ -251,13 +251,32 @@ section { padding: 64px 0; }
   border-radius: 2px;
   line-height: 1.4;
 }
-.chip img.chip-icon {
+.chip img.chip-icon,
+.chip svg.chip-icon {
   width: 14px;
   height: 14px;
   display: inline-block;
   flex-shrink: 0;
 }
+.chip svg.chip-icon { fill: currentColor; }
 .chip-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+/* a11y: visible focus rings on every interactive surface */
+:where(a, button, .card, .arrow-link, .lang-toggle, .theme-toggle):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* touch targets: WCAG 2.5.5 >= 40px on nav and toggles */
+.nav a,
+.lang-toggle,
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 10px;
+}
 
 /* hero */
 .hero { padding-top: 64px; padding-bottom: 64px; position: relative; overflow: hidden; }
