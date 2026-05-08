@@ -63,8 +63,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/contact.html"/>
     <changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
-  <url><loc>https://marz1307.github.io/projects/force24.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marz1307.github.io/projects/force24.html</loc><priority>0.9</priority></url>
   <url><loc>https://marz1307.github.io/de/projects/force24.html</loc><priority>0.8</priority></url>
+  <url><loc>https://marz1307.github.io/projects/agentic-elt.html</loc><priority>0.9</priority></url>
+  <url><loc>https://marz1307.github.io/de/projects/agentic-elt.html</loc><priority>0.8</priority></url>
   <url><loc>https://marz1307.github.io/projects/pharma-side-effects.html</loc><priority>0.8</priority></url>
   <url><loc>https://marz1307.github.io/de/projects/pharma-side-effects.html</loc><priority>0.7</priority></url>
   <url><loc>https://marz1307.github.io/projects/football-scouting.html</loc><priority>0.7</priority></url>

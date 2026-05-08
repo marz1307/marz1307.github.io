@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic ELT Data Platform · Marvis Osazuwa</title>
+<meta name="description" content="MSc-Dissertation: eine agentische ELT-Datenplattform für Customer Intelligence mit Drei-Modell-Churn-Stack und einem Model-Context-Protocol-Endpoint.">
+<link rel="canonical" href="https://marz1307.github.io/de/projects/agentic-elt.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/agentic-elt.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/agentic-elt.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/agentic-elt.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de/">M.O.</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="active" href="/de/projects/">Projekte</a>
+      <a href="/de/blog/">Blog</a>
+      <a href="/de/about.html">Über</a>
+      <a href="/de/contact.html">Kontakt</a>
+      <a class="lang-toggle" href="/projects/agentic-elt.html" aria-label="Switch to English">EN</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Farbschema umschalten">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <svg class="topo topo-corner" viewBox="0 0 600 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M120,310 C140,200 240,120 360,140 C470,158 540,260 520,360 C498,470 380,520 270,490 C170,464 100,400 120,310 Z"/>
+        <path d="M150,320 C170,225 255,158 360,178 C455,196 510,278 492,360 C472,450 374,490 280,464 C195,440 132,398 150,320 Z"/>
+        <path d="M180,330 C200,250 270,196 358,214 C440,230 482,300 466,366 C448,438 366,468 290,442 C218,420 162,398 180,330 Z"/>
+        <path d="M212,338 C228,272 286,228 354,244 C420,258 454,316 442,372 C426,432 360,452 298,432 C238,414 198,392 212,338 Z"/>
+        <path d="M242,350 C256,300 302,266 350,278 C396,290 422,332 412,374 C400,422 354,438 308,422 C262,406 232,392 242,350 Z"/>
+        <path d="M270,362 C282,326 318,302 350,310 C382,318 398,348 388,376 C378,408 348,420 318,410 C288,400 264,392 270,362 Z"/>
+        <path d="M298,372 C306,348 326,332 348,338 C368,344 378,362 372,380 C364,400 346,408 326,402 C308,396 294,392 298,372 Z"/>
+        <path d="M322,380 C328,366 340,358 352,362 C362,366 368,376 364,386 C358,396 348,400 338,398 C328,394 320,392 322,380 Z"/>
+      </g>
+    </svg>
+    <p class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/projects/">Projekte</a> / Agentic ELT Data Platform</p>
+    <p class="caption">Case Study / 2026</p>
+    <h1 class="case-title" style="margin-top:12px;">Agentic ELT Data Platform for Customer Intelligence</h1>
+    <p class="case-sub">Eine MSc-Dissertation in einer Live-B2B-SaaS-Marketing-Automation-Umgebung: eine JSONB-first ELT-Pipeline, ein 48-Modell-dbt-Warehouse, ein Drei-Modell-Churn-Intelligence-Stack und ein Model-Context-Protocol-Endpoint, der das Ganze für agentische LLM-Workflows zugänglich macht.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Rolle</span><span class="value">Eigenständige Verantwortung für Forschung und Engineering</span></div>
+      <div><span class="label">Zeitraum</span><span class="value">September 2025 bis Mai 2026</span></div>
+      <div><span class="label">Kontext</span><span class="value">MSc-Dissertation, University of Salford, in Zusammenarbeit mit Eden Smith</span></div>
+      <div><span class="label">Stack</span><span class="value">Python · PostgreSQL · Dagster · dbt · PostgresML · MCP</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">6 min Lesezeit &nbsp;·&nbsp; Repository: privat (akademisches NDA)</p>
+
+    <div class="confidentiality">
+      Akademisches Forschungsprojekt unter NDA mit einem Industriepartner. Architektur, Methodik und Headline-Ergebnisse werden korrekt beschrieben. Kundendetails, Schemadetails und Code-Auszüge werden nicht reproduziert. Durchgehend GDPR-konforme Pseudonymisierung.
+    </div>
+  </header>
+  <figure class="case-hero-thumb">
+    <picture>
+      <source srcset="/assets/thumbnails/de/agentic-elt.webp" type="image/webp">
+      <img src="/assets/thumbnails/de/agentic-elt.webp" alt="Agentic ELT Data Platform Thumbnail mit geschichtetem Datenfluss und MCP-Knoten" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Hero-Opener.</h2>
+      <p>Ich mache Daten vertrauenswürdig, dann mache ich sie vorhersagefähig. Diese Dissertation ist der Beleg.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Das Problem.</h2>
+      <p>Standardmäßige ELT-Werkzeuge und klassisches ETL setzen stabile Schemata und gut funktionierende APIs voraus. In einer realen B2B-SaaS-Umgebung trifft das nicht zu: Schema-Drift, leere Primary-Keys, HTTP-429-Ratelimits, Mid-Pagination-500s, verspätete SFTP-Dateien. Gleichzeitig dominiert in der Churn-Forschung B2C-Telekommunikation. B2B-SaaS (weniger Accounts, höherer Umsatz pro Account, mehrstufige Kündigungspfade) wird kaum erforscht. Beide Lücken habe ich in einem einzigen Live-Deployment in vollständiger Eigenverantwortung adressiert.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Was ich gebaut habe.</h2>
+
+      <h3 style="margin-top:16px;margin-bottom:8px;">1. JSONB-first ELT-Pipeline (eigenentwickelt).</h3>
+      <p><strong>Ingestion (Python 3.11).</strong> Eigenentwickelte Extraktoren pro Vendor, jeder mit eigener Auth, Paginierung und Fehlerbehandlung. Per-Account-Isolation, sodass ein Mid-Pagination-500 in einem Account keine Kaskade auslöst. Multi-Stage-Backoff mit <code>Retry-After</code>-Beachtung. Deterministische <code>_ingestion_id</code> via SHA-256-Content-Hashing für leere Primary-Keys. SFTP-File-Level-Cursors mit Lookback für verspätete Dateien. <strong>82 pytest-Tests</strong> über Cursor-Persistenz, Hashing und Retry-Logik.</p>
+      <p><strong>Orchestrierung.</strong> Dagster Software-Defined Assets, sodass ein Vendor-Fehler nicht zu den anderen kaskadiert. Geplante tägliche Ingestion, nachgelagerte dbt-Transformation und wöchentliches ML-Scoring.</p>
+      <p><strong>Raw-Layer.</strong> Append-only PostgreSQL 16 mit JSONB-Spalten und GIN-Indizes. 19 Tabellen, <strong>über 1 Million ingestierte Datensätze</strong>, volle Quelltreue, deterministisches Replay. GIN-indizierte Lookups auf der größten Tabelle (größte Tabelle enthält die Invoice-Faktendatensätze) unter 200 ms.</p>
+      <p><strong>Transformation.</strong> dbt Core 1.9, <strong>48 Modelle</strong> über Staging (20 Views), Intermediate (7 Tabellen inklusive MDM-artigem Cross-Source-Account-Spine, rekursiver Kundenhierarchie und Gaps-and-Islands-Engagement-Streaks), Star-Schema-Marts (5) und ML-Feature-Layer (3). Automatisierte Tests fingen <strong>14 Datenqualitätsprobleme</strong> ab, einschließlich UUID-Casing-Konflikten, die bis zu 100 % der Cross-Source-Matches betroffen hätten.</p>
+
+      <h3 style="margin-top:24px;margin-bottom:8px;">2. Drei-Modell-Churn-Intelligence-Stack.</h3>
+      <p>Jedes Modell beantwortet eine andere operative Frage:</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li><strong>Survival-Modell: <code>GradientBoostingSurvivalAnalysis</code> (scikit-survival).</strong> <em>Wann</em> wird ein Account abwandern? Kreuzvalidierter <strong>C-Index 0,9449</strong>.</li>
+        <li><strong>Health-Score: XGBoost via PostgresML (in-Database-Training).</strong> <em>Wie wahrscheinlich</em> ist Churn? Kreuzvalidierter <strong>AUC 0,950</strong> gegenüber 0,888 Logistic-Baseline. SHAP-Attributionen pro Vorhersage.</li>
+        <li><strong>Causal-Modell: DR-Learner (econml).</strong> <em>Würde CSM-Outreach diesem Account tatsächlich helfen</em>? Anpassung des naiven <strong>+49,56-Prozentpunkt-CSM-Effekts auf +12,64 Prozentpunkte</strong> nach Confounder-Adjustierung, wodurch reaktive Zuweisungs-Selektionsbias sichtbar wurde.</li>
+      </ul>
+      <p>Mit strikter <strong>prospektiver Kohorte</strong> (84-Tage-Beobachtungsfenster gefolgt von 90-Tage-Outcome-Fenster) zur Leakage-Vermeidung. 29 Features in 8 thematischen Gruppen.</p>
+
+      <h3 style="margin-top:24px;margin-bottom:8px;">3. Serving und Agentic-Schnittstelle.</h3>
+      <p><strong>FastAPI</strong>-Service mit JWT-Auth und PostgreSQL <strong>Row-Level Security</strong> für CSM-spezifisches Scoping.</p>
+      <p><strong>Angular 21</strong>-Dashboard mit SHAP-Erklärungen für das Customer-Success-Team.</p>
+      <p><strong>Model-Context-Protocol-(MCP)-Endpoint</strong>, sodass ein LLM-Agent Account-Risiko, Treiber und Interventionsempfehlungen direkt abfragen kann. Das ist der Differenzierungsfaktor: agentische Workflows über der Customer-Intelligence-Schicht.</p>
+
+      <h3 style="margin-top:24px;margin-bottom:8px;">4. Priorisierungs-Framework.</h3>
+      <p>Zeitliche Dringlichkeit (Survival), Risikoklassifikation (Health-Score) und Interventions-Responsiveness (CATE aus dem Causal-Modell) in eine Tier-Rangfolge kombiniert. Ergebnis: <strong>403 P1/P2-Accounts mit ~£300k MRR-Risiko</strong>, bereit für priorisierte CSM-Aktionen.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Architektonische Entscheidungen.</h2>
+      <p><strong>JSONB-first Raw-Layer.</strong> Schema-Drift in Vendor-APIs ist Realität. Rohpayloads als JSONB mit GIN-Indizes ermöglichen jederzeit Replay, vollständigen Audit zurück zur Quelle und Schema-Anpassungen ohne Pipeline-Rebuild.</p>
+      <p><strong>Drei Modelle, drei Fragen.</strong> Survival, Klassifikation und Causal Inference beantworten jeweils etwas anderes. Die meisten "Churn-Modelle" liefern nur Klassifikation und tun so, als beantworte das alle drei.</p>
+      <p><strong>Ehrliche kausale Korrektur.</strong> Der naive CSM-Effekt (+49,56 Prozentpunkte) war Selektionsbias als Treatment-Effekt verkleidet. Die DR-Learner-Korrektur (+12,64 Prozentpunkte) ist die ehrliche Zahl: deutlich positiv, aber ein Viertel der naiven Schätzung.</p>
+      <p><strong>MCP als nächste Schnittstellengeneration.</strong> Dashboards informieren, Agenten handeln. Die Customer-Intelligence-Schicht über MCP zugänglich zu machen, eröffnet agentische Arbeitsabläufe für CSMs. In Produktion ist dieses Muster heute selten umgesetzt. Das ist die Arbeit, die ich im industriellen Maßstab weitertragen will.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Bemerkenswerte Ergebnisse.</h2>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li>Über 1 Million Datensätze aus mehreren Vendor-APIs ingestiert, ohne stillen Verlust</li>
+        <li>48 dbt-Modelle, 14 Datenqualitätsprobleme abgefangen und vor Produktion gelöst</li>
+        <li>C-Index 0,9449 (Survival), AUC 0,950 (Health-Score), messbare kausale Korrektur (+49,56 Prozentpunkte naiv auf +12,64 Prozentpunkte adjustiert)</li>
+        <li>403 priorisierte Accounts mit etwa £300k MRR-Risiko, markiert für Retention</li>
+        <li>Cursor-sichere Neustarts: vollständiger Vendor-Lauf (etwa 47 Minuten) mid-flight in unter 5 Minuten wiederaufnehmbar</li>
+        <li>DSGVO-konforme Pseudonymisierung unter NDA durchgängig</li>
+      </ul>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Was diese Dissertation belegt.</h2>
+      <p>End-to-End-Verantwortung: API-Extraktoren, Warehouse-Modellierung, Multi-Modell-ML, Causal Inference, REST- und MCP-Serving und ein Analytics-Dashboard, alles von mir entworfen, gebaut und getestet, in der akademischen Betreuung verteidigt und gegen eine reale Produktionsumgebung deployt. Konzipiert für tatsächliche API-Fehlerszenarien, nicht für idealisierte. Produktionsorientiert: Tests, RLS, JWT, deterministische IDs, Append-only-Audit-Trail, DSGVO-konforme Pseudonymisierung unter NDA.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Stack.</h2>
+      <p class="mono" style="font-size:14px;color:var(--ink-muted);">Python 3.11 &middot; PostgreSQL 16 (JSONB + GIN) &middot; Dagster &middot; dbt Core 1.9 &middot; PostgresML &middot; XGBoost &middot; scikit-survival &middot; econml (DR-Learner) &middot; SHAP &middot; FastAPI &middot; Angular 21 &middot; Model Context Protocol (MCP) &middot; pytest</p>
+      <p style="margin-top:24px;"><span class="mono muted" style="font-size:13px;">Repository: privat (akademisches NDA)</span></p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case-Study-Navigation">
+      <a href="/de/projects/force24.html">&larr; Vorheriges: Account Intelligence Platform</a>
+      <a href="/de/projects/pharma-side-effects.html">Weiter: Pharmazeutische Nebenwirkungs-Klassifikation &rarr;</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Offen für Deutschland, EMEA, UK, Remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Mit Hartnäckigkeit gebaut.</div>
+  </div>
+</footer>
+</body>
+</html>
