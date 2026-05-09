@@ -54,12 +54,12 @@
     <p class="breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / Agentic ELT Data Platform</p>
     <p class="caption">Case study / 2026</p>
     <h1 class="case-title" style="margin-top:12px;">Agentic ELT Data Platform for Customer Intelligence</h1>
-    <p class="case-sub">An MSc dissertation on a live B2B SaaS marketing automation environment: a JSONB-first ELT pipeline, a 48-model dbt warehouse, a three-model churn intelligence stack, and a Model Context Protocol endpoint surfacing it all to agentic LLM workflows.</p>
+    <p class="case-sub">An MSc dissertation in a live B2B SaaS environment under NDA: a JSONB-first ELT pipeline, a 48-model dbt warehouse, a three-model churn intelligence stack, and a Model Context Protocol endpoint surfacing it all to agentic LLM workflows.</p>
 
     <div class="metadata-strip">
       <div><span class="label">Role</span><span class="value">Sole researcher and engineer</span></div>
       <div><span class="label">Dates</span><span class="value">September 2025 to May 2026</span></div>
-      <div><span class="label">Context</span><span class="value">MSc Dissertation, University of Salford, in collaboration with Eden Smith</span></div>
+      <div><span class="label">Context</span><span class="value">MSc Dissertation, University of Salford. Live B2B SaaS environment under NDA.</span></div>
       <div><span class="label">Stack</span><span class="value">Python · PostgreSQL · Dagster · dbt · PostgresML · MCP</span></div>
     </div>
     <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">6 min read &nbsp;·&nbsp; Repository: private (academic NDA)</p>
@@ -92,7 +92,7 @@
       <h3 style="margin-top:16px;margin-bottom:8px;">1. Custom JSONB-first ELT pipeline.</h3>
       <p><strong>Ingestion (Python 3.11).</strong> Custom extractors per vendor, each handling its own auth, pagination, and failure mode. Per-account isolation so a mid-pagination 500 in one account does not cascade. Multi-stage backoff respecting <code>Retry-After</code>. Deterministic <code>_ingestion_id</code> via SHA-256 content hashing for null primary keys. SFTP file-level cursors with lookback for late files. <strong>82 pytest tests</strong> covering cursor persistence, hashing, retry logic.</p>
       <p><strong>Orchestration.</strong> Dagster software-defined assets, so a failure in one vendor extraction does not cascade to the others. Scheduled daily ingestion, downstream dbt transformation, and weekly ML scoring.</p>
-      <p><strong>Raw layer.</strong> Append-only PostgreSQL 16 with JSONB columns and GIN indexes. 19 tables, <strong>over 1 million records ingested</strong>, full source fidelity, deterministic replay. GIN-indexed lookups on the largest table (largest table holds the invoice fact records) under 200ms.</p>
+      <p><strong>Raw layer.</strong> Append-only PostgreSQL 16 with JSONB columns and GIN indexes. 19 tables, <strong>over 1 million records ingested</strong>, full source fidelity, deterministic replay. GIN-indexed lookups on the largest table under 200ms.</p>
       <p><strong>Transformation.</strong> dbt Core 1.9, <strong>48 models</strong> across staging (20 views), intermediate (7 tables including an MDM-style cross-source account spine, a recursive-CTE customer hierarchy, and gaps-and-islands engagement streaks), star-schema marts (5), and an ML feature layer (3). Automated tests caught <strong>14 data-quality issues</strong> including UUID-casing conflicts that would have affected up to 100% of cross-source matches if missed.</p>
 
       <h3 style="margin-top:24px;margin-bottom:8px;">2. Three-model churn intelligence stack.</h3>
@@ -100,7 +100,7 @@
       <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
         <li><strong>Survival model: <code>GradientBoostingSurvivalAnalysis</code> (scikit-survival).</strong> <em>When</em> will an account churn? Cross-validated <strong>C-index 0.9449</strong>.</li>
         <li><strong>Health score: XGBoost via PostgresML (in-database training).</strong> <em>How likely</em> is churn? Cross-validated <strong>AUC 0.950</strong> vs 0.888 logistic baseline. SHAP attributions surfaced for every prediction.</li>
-        <li><strong>Causal model: DR-Learner (econml).</strong> <em>Would CSM outreach actually help</em> this account? Adjusted the naive <strong>+49.56pp CSM-effect down to +12.64pp</strong> after confounder adjustment, surfacing reactive-assignment selection bias that had been hidden in the raw correlation.</li>
+        <li><strong>Causal model: DR-Learner (econml).</strong> <em>Would CSM outreach actually help</em> this account? The naïve correlation between CSM assignment and retention was substantially inflated by reactive-assignment selection bias, since CSMs were being assigned to accounts that were already deteriorating. The DR-Learner correction surfaced the honest treatment effect, materially smaller than the naïve estimate but defensibly positive. This is the kind of correction enterprise risk-modelling teams hire for.</li>
       </ul>
       <p>Designed with a strict <strong>prospective cohort</strong> (84-day observation window followed by a 90-day outcome window) to prevent leakage. 29 features across 8 thematic groups (billing, engagement volume, engagement trajectory, support, integration, cross-level hierarchy aggregations).</p>
 
@@ -110,14 +110,14 @@
       <p><strong>Model Context Protocol (MCP) endpoint</strong> so an LLM agent can query account risk, drivers, and intervention recommendations directly. This is the differentiator: agentic workflows over the customer intelligence layer, accessible to any MCP-compatible client.</p>
 
       <h3 style="margin-top:24px;margin-bottom:8px;">4. Prioritisation framework.</h3>
-      <p>Combined temporal urgency (survival), risk classification (health score), and intervention responsiveness (CATE from the causal model) into a single tier ranking. Output: <strong>403 P1/P2 accounts representing ~£300k MRR at risk</strong>, ready for prioritised CSM action with a defensible ranking that explains itself.</p>
+      <p>Combined temporal urgency (survival), risk classification (health score), and intervention responsiveness (CATE from the causal model) into a single tier ranking. Output: a defensible, explainable prioritisation list ready for CSM action, with each recommendation traceable back to its underlying model evidence.</p>
     </section>
 
     <section class="case-section reveal">
       <h2>Architectural decisions worth defending.</h2>
       <p><strong>JSONB-first raw layer.</strong> Schema drift in upstream vendor APIs is a fact of life. Storing raw payloads as JSONB with GIN indexes means I can replay history at any point, audit any record back to its source, and adapt to schema changes without rebuilding the pipeline. Append-only ensures every transformation is reproducible from raw.</p>
       <p><strong>Three models, three questions.</strong> Survival, classification, and causal inference each answer something different. Most "churn models" only do classification and pretend it answers all three. By separating the questions, I produce three different operational outputs the Customer Success team can act on.</p>
-      <p><strong>Honest causal correction.</strong> The naive CSM-effect estimate (+49.56pp) was selection bias dressed as treatment effect: CSMs were assigned to accounts that were already deteriorating. The DR-Learner correction (+12.64pp) is the honest number, meaningfully positive, but a quarter of the naive estimate. This is the kind of correction enterprise risk-modelling teams hire for, and I would rather show the smaller honest number than the inflated naive one.</p>
+      <p><strong>Honest causal correction over naïve correlation.</strong> Most churn-intervention systems report the raw correlation between treatment and outcome and call it a treatment effect. That's selection bias dressed up as causation. The DR-Learner correction surfaces the honest number, meaningfully positive but materially smaller than the naïve estimate. I'd rather show the smaller honest number than the inflated naïve one. Enterprise risk-modelling teams test for exactly this.</p>
       <p><strong>MCP as the next-generation interface.</strong> Dashboards inform; agents act. Exposing the customer intelligence layer through MCP means an LLM agent can pull a per-account risk profile, ask why, and recommend the next intervention, all without a CSM context-switching to a dashboard. Few engineers have shipped this pattern end to end in production today. It is the work I want to take into industry at scale.</p>
     </section>
 
@@ -126,9 +126,8 @@
       <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
         <li>Over 1 million records ingested across multiple vendor APIs with zero silent loss.</li>
         <li>48 dbt models, 14 data-quality issues caught and resolved before production.</li>
-        <li>C-index 0.9449 (survival), AUC 0.950 (health score), measurable causal correction (+49.56pp adjusted to +12.64pp).</li>
-        <li>403 prioritised accounts representing ~£300k MRR flagged for retention.</li>
-        <li>Cursor-safe restarts: full vendor run (~47 minutes) recoverable mid-flight in under 5 minutes.</li>
+        <li>C-index 0.9449 (survival), AUC 0.950 (health score), measurable causal correction surfacing reactive-assignment selection bias.</li>
+        <li>Cursor-safe restarts: full vendor run recoverable mid-flight in under 5 minutes.</li>
         <li>GDPR-compliant pseudonymisation under NDA throughout.</li>
       </ul>
     </section>
