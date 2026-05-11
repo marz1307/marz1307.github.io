@@ -76,7 +76,7 @@
 
   <article>
     <section class="case-section reveal">
-      <h2>Hero-Opener.</h2>
+      <h2>In einem Satz.</h2>
       <p>Ich mache Daten vertrauenswürdig, dann mache ich sie vorhersagefähig. Diese Dissertation ist der Beleg.</p>
     </section>
 
@@ -99,7 +99,7 @@
       <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
         <li><strong>Survival-Modell: <code>GradientBoostingSurvivalAnalysis</code> (scikit-survival).</strong> <em>Wann</em> wird ein Account abwandern? Kreuzvalidierter <strong>C-Index 0,9449</strong>.</li>
         <li><strong>Health-Score: XGBoost via PostgresML (in-Database-Training).</strong> <em>Wie wahrscheinlich</em> ist Churn? Kreuzvalidierter <strong>AUC 0,950</strong> gegenüber 0,888 Logistic-Baseline. SHAP-Attributionen pro Vorhersage.</li>
-        <li><strong>Causal-Modell: DR-Learner (econml).</strong> <em>Würde CSM-Outreach diesem Account tatsächlich helfen</em>? Die naïve Korrelation zwischen CSM-Zuweisung und Retention war durch reaktive Zuweisungs-Selektionsbias erheblich überschätzt, da CSMs Accounts zugewiesen wurden, die bereits in Schwierigkeiten waren. Die DR-Learner-Korrektur legte den ehrlichen Behandlungseffekt offen, deutlich kleiner als die naïve Schätzung, aber belastbar positiv.</li>
+        <li><strong>Causal-Modell: DR-Learner (econml).</strong> <em>Würde CSM-Outreach diesem Account tatsächlich helfen</em>? Die naive Korrelation zwischen CSM-Zuweisung und Retention war durch reaktive Zuweisungs-Selektionsbias erheblich überschätzt, da CSMs Accounts zugewiesen wurden, die bereits in Schwierigkeiten waren. Die DR-Learner-Korrektur legte den ehrlichen Behandlungseffekt offen, deutlich kleiner als die naive Schätzung, aber belastbar positiv.</li>
       </ul>
       <p>Mit strikter <strong>prospektiver Kohorte</strong> (84-Tage-Beobachtungsfenster gefolgt von 90-Tage-Outcome-Fenster) zur Leakage-Vermeidung. 29 Features in 8 thematischen Gruppen.</p>
 
@@ -115,8 +115,8 @@
     <section class="case-section reveal">
       <h2>Architektonische Entscheidungen.</h2>
       <p><strong>JSONB-first Raw-Layer.</strong> Schema-Drift in Vendor-APIs ist Realität. Rohpayloads als JSONB mit GIN-Indizes ermöglichen jederzeit Replay, vollständigen Audit zurück zur Quelle und Schema-Anpassungen ohne Pipeline-Rebuild.</p>
-      <p><strong>Drei Modelle, drei Fragen.</strong> Survival, Klassifikation und Causal Inference beantworten jeweils etwas anderes. Die meisten "Churn-Modelle" liefern nur Klassifikation und tun so, als beantworte das alle drei.</p>
-      <p><strong>Ehrliche kausale Korrektur statt naïver Korrelation.</strong> Die meisten Churn-Interventionssysteme berichten die rohe Korrelation zwischen Treatment und Outcome und nennen es einen Treatment-Effekt. Das ist Selektionsbias als Kausalität verkleidet. Die DR-Learner-Korrektur legt die ehrliche Zahl offen, deutlich positiv, aber wesentlich kleiner als die naïve Schätzung. Enterprise-Risikomodellierungs-Teams prüfen genau darauf.</p>
+      <p><strong>Drei Modelle, drei Fragen.</strong> Survival, Klassifikation und Causal Inference beantworten jeweils etwas anderes. Die meisten "Churn-Modelle" liefern nur Klassifikation und behandeln sie, als beantworte sie alle drei.</p>
+      <p><strong>Ehrliche kausale Korrektur statt naiver Korrelation.</strong> Die meisten Churn-Interventionssysteme berichten die rohe Korrelation zwischen Treatment und Outcome und behandeln sie wie einen Treatment-Effekt. Das verwechselt Korrelation mit Kausalität bei vorliegendem Selektionsbias. Die DR-Learner-Korrektur legt die ehrliche Zahl offen, deutlich positiv, aber wesentlich kleiner als die naive Schätzung. Enterprise-Risikomodellierungs-Teams prüfen genau darauf.</p>
       <p><strong>MCP als nächste Schnittstellengeneration.</strong> Dashboards informieren, Agenten handeln. Die Customer-Intelligence-Schicht über MCP zugänglich zu machen, eröffnet agentische Arbeitsabläufe für CSMs. In Produktion ist dieses Muster heute selten umgesetzt. Das ist die Arbeit, die ich im industriellen Maßstab weitertragen will.</p>
     </section>
 

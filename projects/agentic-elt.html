@@ -77,7 +77,7 @@
 
   <article>
     <section class="case-section reveal">
-      <h2>Hero opener.</h2>
+      <h2>In one line.</h2>
       <p>I make data trustworthy, then I make it predictive. This dissertation is the proof.</p>
     </section>
 
@@ -100,7 +100,7 @@
       <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
         <li><strong>Survival model: <code>GradientBoostingSurvivalAnalysis</code> (scikit-survival).</strong> <em>When</em> will an account churn? Cross-validated <strong>C-index 0.9449</strong>.</li>
         <li><strong>Health score: XGBoost via PostgresML (in-database training).</strong> <em>How likely</em> is churn? Cross-validated <strong>AUC 0.950</strong> vs 0.888 logistic baseline. SHAP attributions surfaced for every prediction.</li>
-        <li><strong>Causal model: DR-Learner (econml).</strong> <em>Would CSM outreach actually help</em> this account? The naïve correlation between CSM assignment and retention was substantially inflated by reactive-assignment selection bias, since CSMs were being assigned to accounts that were already deteriorating. The DR-Learner correction surfaced the honest treatment effect, materially smaller than the naïve estimate but defensibly positive. This is the kind of correction enterprise risk-modelling teams hire for.</li>
+        <li><strong>Causal model: DR-Learner (econml).</strong> <em>Would CSM outreach actually help</em> this account? The naive correlation between CSM assignment and retention was substantially inflated by reactive-assignment selection bias, since CSMs were being assigned to accounts that were already deteriorating. The DR-Learner correction surfaced the honest treatment effect, materially smaller than the naive estimate but defensibly positive. This is the kind of correction enterprise risk-modelling teams hire for.</li>
       </ul>
       <p>Designed with a strict <strong>prospective cohort</strong> (84-day observation window followed by a 90-day outcome window) to prevent leakage. 29 features across 8 thematic groups (billing, engagement volume, engagement trajectory, support, integration, cross-level hierarchy aggregations).</p>
 
@@ -116,8 +116,8 @@
     <section class="case-section reveal">
       <h2>Architectural decisions worth defending.</h2>
       <p><strong>JSONB-first raw layer.</strong> Schema drift in upstream vendor APIs is a fact of life. Storing raw payloads as JSONB with GIN indexes means I can replay history at any point, audit any record back to its source, and adapt to schema changes without rebuilding the pipeline. Append-only ensures every transformation is reproducible from raw.</p>
-      <p><strong>Three models, three questions.</strong> Survival, classification, and causal inference each answer something different. Most "churn models" only do classification and pretend it answers all three. By separating the questions, I produce three different operational outputs the Customer Success team can act on.</p>
-      <p><strong>Honest causal correction over naïve correlation.</strong> Most churn-intervention systems report the raw correlation between treatment and outcome and call it a treatment effect. That's selection bias dressed up as causation. The DR-Learner correction surfaces the honest number, meaningfully positive but materially smaller than the naïve estimate. I'd rather show the smaller honest number than the inflated naïve one. Enterprise risk-modelling teams test for exactly this.</p>
+      <p><strong>Three models, three questions.</strong> Survival, classification, and causal inference each answer something different. Most "churn models" only do classification and treat it as if it answers all three. By separating the questions, I produce three different operational outputs the Customer Success team can act on.</p>
+      <p><strong>Honest causal correction over naive correlation.</strong> Most churn-intervention systems report the raw correlation between treatment and outcome and treat it as a treatment effect. That conflates correlation with causation under selection bias. The DR-Learner correction surfaces the honest number, meaningfully positive but materially smaller than the naive estimate. I would rather report the smaller honest number than the inflated naive one. Enterprise risk-modelling teams test for exactly this.</p>
       <p><strong>MCP as the next-generation interface.</strong> Dashboards inform; agents act. Exposing the customer intelligence layer through MCP means an LLM agent can pull a per-account risk profile, ask why, and recommend the next intervention, all without a CSM context-switching to a dashboard. Few engineers have shipped this pattern end to end in production today. It is the work I want to take into industry at scale.</p>
     </section>
 

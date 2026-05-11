@@ -80,7 +80,7 @@
 
     <section class="case-section reveal">
       <h2>ALS on Spark MLlib, with proper tuning.</h2>
-      <p>Alternating Least Squares is the right algorithm for implicit feedback at scale, and Spark MLlib has a clean implementation. I set up the pipeline on Databricks Community Edition, which gave me enough compute to run a proper grid search rather than fake a tuning exercise.</p>
+      <p>Alternating Least Squares is the right algorithm for implicit feedback at scale, and Spark MLlib has a clean implementation. I set up the pipeline on Databricks Community Edition, which gave me enough compute to run a proper grid search rather than a token tuning step.</p>
       <p>The parameter space covered rank, regParam, alpha, and maxIter. I wrapped the whole thing in CrossValidator, tracked every experiment in MLflow, and used the best-performing model to generate personalised recommendations for sample users.</p>
     </section>
 
