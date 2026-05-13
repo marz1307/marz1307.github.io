@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByZJaawcxAiK85qnD6nIc7iBFGzp/nf/DTzzA7Dl5Qs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
 <title>Selected work · Marvis Osazuwa</title>
 <meta name="description" content="Eleven case studies, written out properly. Each one is a case study, not a screenshot.">
 <link rel="canonical" href="https://marz1307.github.io/projects/">
@@ -67,8 +70,8 @@
           </div>
           <p class="muted">A greenfield Account Intelligence platform built over 16 weeks at Force24 for CSMs, accounts, and stakeholders, shipped with the engineering team into a live production environment. I owned the data layer end to end, integrated it into the FastAPI service through endpoint changes and Redis caching, and shipped features and enhancements across the Angular frontend. Built on the principle that dashboards should drive action, not just display data. Confidential, sanitised case study.</p>
           <div class="chip-row" style="margin-top:16px;">
-            <span class="chip">Dagster</span><span class="chip">dbt</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/postgresql" alt="" width="14" height="14">PostgreSQL</span>
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/redis" alt="" width="14" height="14">Redis</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/angular" alt="" width="14" height="14">Angular</span>
+            <span class="chip">Dagster</span><span class="chip">dbt</span><span class="chip"><img class="chip-icon" src="/assets/icons/postgresql.svg" alt="" width="14" height="14">PostgreSQL</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="/assets/icons/redis.svg" alt="" width="14" height="14">Redis</span><span class="chip"><img class="chip-icon" src="/assets/icons/angular.svg" alt="" width="14" height="14">Angular</span>
           </div>
           <p style="margin-top:16px;"><a class="arrow-link" href="/projects/force24.html">Read the case study →</a></p>
         </div>
@@ -86,7 +89,7 @@
           </div>
           <p class="muted">MSc dissertation in a live B2B SaaS environment under NDA. End-to-end JSONB-first ELT platform and three-model churn intelligence stack (survival, XGBoost via PostgresML, and DR-Learner causal inference) surfaced via FastAPI, Angular, and an MCP endpoint for agentic LLM access. Over 1 million records ingested across multiple vendor APIs, 48 dbt models.</p>
           <div class="chip-row" style="margin-top:16px;">
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/postgresql" alt="" width="14" height="14">PostgreSQL</span><span class="chip">dbt</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="/assets/icons/postgresql.svg" alt="" width="14" height="14">PostgreSQL</span><span class="chip">dbt</span>
             <span class="chip">Dagster</span><span class="chip">PostgresML</span><span class="chip">XGBoost</span><span class="chip">MCP</span>
           </div>
           <p style="margin-top:16px;"><a class="arrow-link" href="/projects/agentic-elt.html">Read the case study →</a></p>
@@ -106,8 +109,8 @@
           </div>
           <p class="muted">Production-grade Python package classifying free-text adverse-event descriptions into a MedDRA-style taxonomy of ten clinical categories across 11,825 marketed medicines. Single sklearn Pipeline with ColumnTransformer for TF-IDF text features and ordinal manufacturer encoding, joblib-serialized end to end. Pydantic config, CLI entrypoints, pytest fixtures, GitHub Actions CI matrix on Python 3.10, 3.11, 3.12.</p>
           <div class="chip-row" style="margin-top:16px;">
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/scikitlearn" alt="" width="14" height="14">scikit-learn</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/pandas" alt="" width="14" height="14">pandas</span>
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/pytest" alt="" width="14" height="14">pytest</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/githubactions" alt="" width="14" height="14">GitHub Actions</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="/assets/icons/scikitlearn.svg" alt="" width="14" height="14">scikit-learn</span><span class="chip"><img class="chip-icon" src="/assets/icons/pandas.svg" alt="" width="14" height="14">pandas</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/pytest.svg" alt="" width="14" height="14">pytest</span><span class="chip"><img class="chip-icon" src="/assets/icons/githubactions.svg" alt="" width="14" height="14">GitHub Actions</span>
           </div>
           <p style="margin-top:16px;"><a class="arrow-link" href="/projects/pharma-side-effects.html">Read the case study →</a> &nbsp; <a class="arrow-link" href="https://github.com/marz1307/Pharma-side-effects" rel="noopener">View on GitHub →</a></p>
         </div>
@@ -126,7 +129,7 @@
           </div>
           <p class="muted">Ranking and recommending football talent across five top European leagues using event data and PlayeRank metrics. Hypothesis-driven research piece exploring how data analytics can support coaches and scouts in player recruitment. Published thesis, public codebase.</p>
           <div class="chip-row" style="margin-top:16px;">
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/apachespark" alt="" width="14" height="14">PySpark</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/jupyter" alt="" width="14" height="14">Jupyter</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="/assets/icons/apachespark.svg" alt="" width="14" height="14">PySpark</span><span class="chip"><img class="chip-icon" src="/assets/icons/jupyter.svg" alt="" width="14" height="14">Jupyter</span>
             <span class="chip">PlayeRank</span><span class="chip">UEFA event data</span>
           </div>
           <p style="margin-top:16px;"><a class="arrow-link" href="/projects/football-scouting.html">Read the case study →</a> &nbsp; <a class="arrow-link" href="https://github.com/marz1307/Monitoring-Player-Performance-and-Scouting-in-Football" rel="noopener">View on GitHub →</a></p>
@@ -146,8 +149,8 @@
           </div>
           <p class="muted">A comparative methodology study quantifying how 8,158 English-language news articles framed the Russia and Ukraine conflict across 68 publishers and 18 countries. Three sentiment engines (TextBlob, VADER, CardiffNLP RoBERTa) and a five-topic LDA over the same corpus, behind an abstract SentimentEngine base class with a registry pattern. Transformer mocked in CI so tests do not download gigabytes of weights.</p>
           <div class="chip-row" style="margin-top:16px;">
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/huggingface" alt="" width="14" height="14">HuggingFace</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/pytorch" alt="" width="14" height="14">PyTorch</span>
-            <span class="chip">NLTK</span><span class="chip">gensim LDA</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/githubactions" alt="" width="14" height="14">GitHub Actions</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="/assets/icons/huggingface.svg" alt="" width="14" height="14">HuggingFace</span><span class="chip"><img class="chip-icon" src="/assets/icons/pytorch.svg" alt="" width="14" height="14">PyTorch</span>
+            <span class="chip">NLTK</span><span class="chip">gensim LDA</span><span class="chip"><img class="chip-icon" src="/assets/icons/githubactions.svg" alt="" width="14" height="14">GitHub Actions</span>
           </div>
           <p style="margin-top:16px;"><a class="arrow-link" href="/projects/conflict-sentiment.html">Read the case study →</a> &nbsp; <a class="arrow-link" href="https://github.com/marz1307/Conflict-sentiment-analysis" rel="noopener">View on GitHub →</a></p>
         </div>
@@ -166,8 +169,8 @@
           </div>
           <p class="muted">PySpark + ALS recommender on the Steam 200k implicit-feedback dataset. Distributed training, hyperparameter tuning via Grid Search with CrossValidator, full experiment tracking and model logging in MLflow. Built and tested on Databricks Community Edition.</p>
           <div class="chip-row" style="margin-top:16px;">
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/apachespark" alt="" width="14" height="14">PySpark</span><span class="chip">Spark MLlib</span><span class="chip">ALS</span>
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/mlflow" alt="" width="14" height="14">MLflow</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/databricks" alt="" width="14" height="14">Databricks</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/apachespark.svg" alt="" width="14" height="14">PySpark</span><span class="chip">Spark MLlib</span><span class="chip">ALS</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/mlflow.svg" alt="" width="14" height="14">MLflow</span><span class="chip"><img class="chip-icon" src="/assets/icons/databricks.svg" alt="" width="14" height="14">Databricks</span><span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span>
           </div>
           <p style="margin-top:16px;"><a class="arrow-link" href="/projects/steam-recommender.html">Read the case study →</a> &nbsp; <a class="arrow-link" href="https://github.com/marz1307/Recommender-System-for-Steam-Games" rel="noopener">View on GitHub →</a></p>
         </div>
@@ -186,8 +189,8 @@
           </div>
           <p class="muted">Reproducible R analysis package for daily equity closing-price forecasting. ARIMA, ETS, and a naive baseline behind a MODEL_REGISTRY pattern. Combined ADF + KPSS stationarity verdict, residual diagnostics (Ljung-Box, Shapiro-Wilk), forecast evaluation against the naive baseline. 5,124 daily observations of NYSE ticker A from 1999 to 2023. testthat suite, lintr config, R-CMD-check CI matrix across multiple R versions.</p>
           <div class="chip-row" style="margin-top:16px;">
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/r" alt="" width="14" height="14">R</span><span class="chip">forecast</span><span class="chip">tseries</span>
-            <span class="chip">testthat</span><span class="chip">lintr</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/githubactions" alt="" width="14" height="14">GitHub Actions</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/r.svg" alt="" width="14" height="14">R</span><span class="chip">forecast</span><span class="chip">tseries</span>
+            <span class="chip">testthat</span><span class="chip">lintr</span><span class="chip"><img class="chip-icon" src="/assets/icons/githubactions.svg" alt="" width="14" height="14">GitHub Actions</span>
           </div>
           <p style="margin-top:16px;"><a class="arrow-link" href="/projects/equity-forecasting.html">Read the case study →</a> &nbsp; <a class="arrow-link" href="https://github.com/marz1307/Equity-forecasting" rel="noopener">View on GitHub →</a></p>
         </div>
@@ -206,7 +209,7 @@
           </div>
           <p class="muted">Statistical analysis and visualisation of clinical trial outcomes in Python. Methodical walk-through: load and profile the data, handle missing values with documented rules, run hypothesis tests selected by data shape, pair every p-value with an effect size.</p>
           <div class="chip-row" style="margin-top:16px;">
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/pandas" alt="" width="14" height="14">pandas</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/numpy" alt="" width="14" height="14">NumPy</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="/assets/icons/pandas.svg" alt="" width="14" height="14">pandas</span><span class="chip"><img class="chip-icon" src="/assets/icons/numpy.svg" alt="" width="14" height="14">NumPy</span>
             <span class="chip">Matplotlib</span><span class="chip">Statistics</span>
           </div>
           <p style="margin-top:16px;"><a class="arrow-link" href="/projects/clinical-trial-analysis.html">Read the case study →</a> &nbsp; <a class="arrow-link" href="https://github.com/marz1307/Clinical-Trial-Data-Analysis" rel="noopener">View on GitHub →</a></p>
@@ -246,8 +249,8 @@
           </div>
           <p class="muted">R analysis package predicting heating and cooling loads from eight building geometry parameters across 768 simulated configurations. Stepwise linear regression on each response, with VIF collinearity checks (car), Shapiro-Wilk normality, Breusch-Pagan heteroscedasticity, and the standard residual diagnostic plots. testthat suite with synthetic fixture, R-CMD-check CI.</p>
           <div class="chip-row" style="margin-top:16px;">
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/r" alt="" width="14" height="14">R</span><span class="chip">stats::step</span><span class="chip">car (VIF)</span>
-            <span class="chip">testthat</span><span class="chip">lintr</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/githubactions" alt="" width="14" height="14">GitHub Actions</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/r.svg" alt="" width="14" height="14">R</span><span class="chip">stats::step</span><span class="chip">car (VIF)</span>
+            <span class="chip">testthat</span><span class="chip">lintr</span><span class="chip"><img class="chip-icon" src="/assets/icons/githubactions.svg" alt="" width="14" height="14">GitHub Actions</span>
           </div>
           <p style="margin-top:16px;"><a class="arrow-link" href="/projects/building-energy-loads.html">Read the case study →</a> &nbsp; <a class="arrow-link" href="https://github.com/marz1307/Building-energy-loads" rel="noopener">View on GitHub →</a></p>
         </div>
@@ -267,7 +270,7 @@
           <p class="muted">Single-screen Power BI report on 20 years of IMF World Economic Outlook data across 26 high-income economies (2001 to 2020). Star-schema model, eight indicators feeding nine DAX measures, a Metric Selector field parameter, and a Python companion validator (pandas + openpyxl + pytest) that asserts every dataset descriptor in the README against the actual xlsx contents on every push.</p>
           <div class="chip-row" style="margin-top:16px;">
             <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span>
-            <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python validator</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/pytest" alt="" width="14" height="14">pytest</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/githubactions" alt="" width="14" height="14">GitHub Actions</span>
+            <span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python validator</span><span class="chip"><img class="chip-icon" src="/assets/icons/pytest.svg" alt="" width="14" height="14">pytest</span><span class="chip"><img class="chip-icon" src="/assets/icons/githubactions.svg" alt="" width="14" height="14">GitHub Actions</span>
           </div>
           <p style="margin-top:16px;"><a class="arrow-link" href="/projects/economic-resilience.html">Read the case study →</a> &nbsp; <a class="arrow-link" href="https://github.com/marz1307/Economic-Resilience-Dashboard" rel="noopener">View on GitHub →</a></p>
         </div>

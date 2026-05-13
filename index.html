@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByZJaawcxAiK85qnD6nIc7iBFGzp/nf/DTzzA7Dl5Qs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
 <title>Marvis Osazuwa · Data Scientist &amp; Analytics Engineer</title>
 <meta name="description" content="Engineering data. Modelling outcomes. Analytics Engineer and Data Scientist based in Manchester, open to Germany, EMEA, the UK, and remote.">
 <link rel="canonical" href="https://marz1307.github.io/">
@@ -83,16 +86,16 @@
           <a class="btn btn-secondary" href="/cv/Marvis_Osazuwa_CV.pdf" download>Download CV</a>
         </div>
         <div class="hero-stack chip-row">
-          <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span>
-          <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/r" alt="" width="14" height="14">R</span>
-          <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/postgresql" alt="" width="14" height="14">SQL</span>
-          <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/apachespark" alt="" width="14" height="14">PySpark</span>
-          <span class="chip"><img class="chip-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dbt.svg" alt="" width="14" height="14">dbt</span>
+          <span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span>
+          <span class="chip"><img class="chip-icon" src="/assets/icons/r.svg" alt="" width="14" height="14">R</span>
+          <span class="chip"><img class="chip-icon" src="/assets/icons/postgresql.svg" alt="" width="14" height="14">SQL</span>
+          <span class="chip"><img class="chip-icon" src="/assets/icons/apachespark.svg" alt="" width="14" height="14">PySpark</span>
+          <span class="chip"><img class="chip-icon" src="/assets/icons/dbt.svg" alt="" width="14" height="14">dbt</span>
           <span class="chip"><svg class="chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>Dagster</span>
-          <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/scikitlearn" alt="" width="14" height="14">scikit-learn</span>
-          <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/huggingface" alt="" width="14" height="14">HuggingFace</span>
-          <span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/pytorch" alt="" width="14" height="14">PyTorch</span>
-          <span class="chip"><img class="chip-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/powerbi.svg" alt="" width="14" height="14">Power BI</span>
+          <span class="chip"><img class="chip-icon" src="/assets/icons/scikitlearn.svg" alt="" width="14" height="14">scikit-learn</span>
+          <span class="chip"><img class="chip-icon" src="/assets/icons/huggingface.svg" alt="" width="14" height="14">HuggingFace</span>
+          <span class="chip"><img class="chip-icon" src="/assets/icons/pytorch.svg" alt="" width="14" height="14">PyTorch</span>
+          <span class="chip"><img class="chip-icon" src="/assets/icons/powerbi.svg" alt="" width="14" height="14">Power BI</span>
         </div>
       </div>
 
@@ -149,17 +152,17 @@
       <div class="disc">
         <h3>Applied machine learning.</h3>
         <p class="muted">I build prediction models and recommender systems on top of clean data layers. XGBoost for the modelling, SHAP for explainability, MLflow for tracking, PySpark for scale. Football scouting (MSc thesis), Steam game recommendations, churn and growth prototypes on customer intelligence data. Never black boxes.</p>
-        <div class="chip-row"><span class="chip">XGBoost</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/scikitlearn" alt="" width="14" height="14">scikit-learn</span><span class="chip">SHAP</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/apachespark" alt="" width="14" height="14">PySpark</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/mlflow" alt="" width="14" height="14">MLflow</span></div>
+        <div class="chip-row"><span class="chip">XGBoost</span><span class="chip"><img class="chip-icon" src="/assets/icons/scikitlearn.svg" alt="" width="14" height="14">scikit-learn</span><span class="chip">SHAP</span><span class="chip"><img class="chip-icon" src="/assets/icons/apachespark.svg" alt="" width="14" height="14">PySpark</span><span class="chip"><img class="chip-icon" src="/assets/icons/mlflow.svg" alt="" width="14" height="14">MLflow</span></div>
       </div>
       <div class="disc">
         <h3>Data engineering.</h3>
         <p class="muted">I build the orchestration and ingestion layer. Dagster and Airflow for orchestration, Python for extractors and transformations, PostgreSQL/BigQuery/Snowflake for the warehouse. Schedules, contracts, observability. The unglamorous spine that everything else depends on.</p>
-        <div class="chip-row"><span class="chip">Dagster</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/apacheairflow" alt="" width="14" height="14">Airflow</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/postgresql" alt="" width="14" height="14">PostgreSQL</span></div>
+        <div class="chip-row"><span class="chip">Dagster</span><span class="chip"><img class="chip-icon" src="/assets/icons/apacheairflow.svg" alt="" width="14" height="14">Airflow</span><span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="/assets/icons/postgresql.svg" alt="" width="14" height="14">PostgreSQL</span></div>
       </div>
       <div class="disc">
         <h3>Analytics engineering.</h3>
         <p class="muted">I model business logic into curated tables analysts and downstream apps actually use. dbt for transformations, Kimball for the modelling pattern, version-controlled and tested. Raw to staging to intermediate to marts.</p>
-        <div class="chip-row"><span class="chip">dbt</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/postgresql" alt="" width="14" height="14">SQL</span><span class="chip">Kimball</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/git" alt="" width="14" height="14">Git</span></div>
+        <div class="chip-row"><span class="chip">dbt</span><span class="chip"><img class="chip-icon" src="/assets/icons/postgresql.svg" alt="" width="14" height="14">SQL</span><span class="chip">Kimball</span><span class="chip"><img class="chip-icon" src="/assets/icons/git.svg" alt="" width="14" height="14">Git</span></div>
       </div>
     </div>
   </div>
@@ -182,7 +185,7 @@
         <span class="meta">2026 · Force24 · Analytics Engineer, Data Layer</span>
         <h3>Account Intelligence Platform</h3>
         <p>A greenfield Account Intelligence platform built over 16 weeks at Force24 for CSMs, accounts, and stakeholders, shipped with the engineering team into a live production environment. I owned the data layer end to end, integrated it into the FastAPI service through endpoint changes and Redis caching, and shipped features and enhancements across the Angular frontend. Built on the principle that dashboards should drive action, not just display data. Confidential, sanitised case study.</p>
-        <div class="chip-row"><span class="chip">Dagster</span><span class="chip">dbt</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/postgresql" alt="" width="14" height="14">PostgreSQL</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/redis" alt="" width="14" height="14">Redis</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/angular" alt="" width="14" height="14">Angular</span></div>
+        <div class="chip-row"><span class="chip">Dagster</span><span class="chip">dbt</span><span class="chip"><img class="chip-icon" src="/assets/icons/postgresql.svg" alt="" width="14" height="14">PostgreSQL</span><span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="/assets/icons/redis.svg" alt="" width="14" height="14">Redis</span><span class="chip"><img class="chip-icon" src="/assets/icons/angular.svg" alt="" width="14" height="14">Angular</span></div>
       </a>
 
       <a class="card" href="/projects/agentic-elt.html">
@@ -195,7 +198,7 @@
         <span class="meta">2026 · Research · Production ML · Agentic AI</span>
         <h3>Agentic ELT Data Platform for Customer Intelligence</h3>
         <p>MSc dissertation in a live B2B SaaS environment under NDA. End-to-end JSONB-first ELT platform and three-model churn intelligence stack (survival, XGBoost via PostgresML, and DR-Learner causal inference), surfaced via FastAPI, Angular, and an MCP endpoint for agentic LLM access. Over 1 million records ingested across multiple vendor APIs, 48 dbt models.</p>
-        <div class="chip-row"><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/postgresql" alt="" width="14" height="14">PostgreSQL</span><span class="chip">dbt</span><span class="chip">Dagster</span><span class="chip">PostgresML</span><span class="chip">econml</span><span class="chip">MCP</span></div>
+        <div class="chip-row"><span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="/assets/icons/postgresql.svg" alt="" width="14" height="14">PostgreSQL</span><span class="chip">dbt</span><span class="chip">Dagster</span><span class="chip">PostgresML</span><span class="chip">econml</span><span class="chip">MCP</span></div>
       </a>
 
       <a class="card" href="/projects/pharma-side-effects.html">
@@ -208,7 +211,7 @@
         <span class="meta">2026 · Side project · Healthcare ML</span>
         <h3>Pharmaceutical Side Effect Classification</h3>
         <p>Production-grade Python package classifying free-text adverse-event descriptions into a MedDRA-style taxonomy of ten clinical categories across 11,825 marketed medicines. sklearn Pipeline with ColumnTransformer, joblib-serialized end to end, pytest fixtures, GitHub Actions CI matrix on Python 3.10, 3.11, 3.12.</p>
-        <div class="chip-row"><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/python" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/scikitlearn" alt="" width="14" height="14">scikit-learn</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/pytest" alt="" width="14" height="14">pytest</span><span class="chip"><img class="chip-icon" src="https://cdn.simpleicons.org/githubactions" alt="" width="14" height="14">GitHub Actions</span></div>
+        <div class="chip-row"><span class="chip"><img class="chip-icon" src="/assets/icons/python.svg" alt="" width="14" height="14">Python</span><span class="chip"><img class="chip-icon" src="/assets/icons/scikitlearn.svg" alt="" width="14" height="14">scikit-learn</span><span class="chip"><img class="chip-icon" src="/assets/icons/pytest.svg" alt="" width="14" height="14">pytest</span><span class="chip"><img class="chip-icon" src="/assets/icons/githubactions.svg" alt="" width="14" height="14">GitHub Actions</span></div>
       </a>
 
     </div>
