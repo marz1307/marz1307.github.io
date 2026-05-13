@@ -63,22 +63,136 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/contact.html"/>
     <changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
-  <url><loc>https://marz1307.github.io/projects/force24.html</loc><priority>0.9</priority></url>
-  <url><loc>https://marz1307.github.io/de/projects/force24.html</loc><priority>0.8</priority></url>
-  <url><loc>https://marz1307.github.io/projects/agentic-elt.html</loc><priority>0.9</priority></url>
-  <url><loc>https://marz1307.github.io/de/projects/agentic-elt.html</loc><priority>0.8</priority></url>
-  <url><loc>https://marz1307.github.io/projects/pharma-side-effects.html</loc><priority>0.8</priority></url>
-  <url><loc>https://marz1307.github.io/de/projects/pharma-side-effects.html</loc><priority>0.7</priority></url>
-  <url><loc>https://marz1307.github.io/projects/football-scouting.html</loc><priority>0.7</priority></url>
-  <url><loc>https://marz1307.github.io/de/projects/football-scouting.html</loc><priority>0.7</priority></url>
-  <url><loc>https://marz1307.github.io/projects/conflict-sentiment.html</loc><priority>0.8</priority></url>
-  <url><loc>https://marz1307.github.io/projects/steam-recommender.html</loc><priority>0.7</priority></url>
-  <url><loc>https://marz1307.github.io/de/projects/steam-recommender.html</loc><priority>0.7</priority></url>
-  <url><loc>https://marz1307.github.io/projects/equity-forecasting.html</loc><priority>0.8</priority></url>
-  <url><loc>https://marz1307.github.io/projects/clinical-trial-analysis.html</loc><priority>0.7</priority></url>
-  <url><loc>https://marz1307.github.io/de/projects/clinical-trial-analysis.html</loc><priority>0.7</priority></url>
-  <url><loc>https://marz1307.github.io/projects/airwave-express.html</loc><priority>0.6</priority></url>
-  <url><loc>https://marz1307.github.io/de/projects/airwave-express.html</loc><priority>0.6</priority></url>
-  <url><loc>https://marz1307.github.io/projects/building-energy-loads.html</loc><priority>0.7</priority></url>
-  <url><loc>https://marz1307.github.io/projects/economic-resilience.html</loc><priority>0.7</priority></url>
+  <url>
+    <loc>https://marz1307.github.io/projects/force24.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/force24.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/force24.html"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/force24.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/force24.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/force24.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/projects/agentic-elt.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/agentic-elt.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/agentic-elt.html"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/agentic-elt.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/agentic-elt.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/agentic-elt.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/projects/pharma-side-effects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/pharma-side-effects.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/pharma-side-effects.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/pharma-side-effects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/pharma-side-effects.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/pharma-side-effects.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/projects/football-scouting.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/football-scouting.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/football-scouting.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/football-scouting.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/football-scouting.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/football-scouting.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/projects/conflict-sentiment.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/conflict-sentiment.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/conflict-sentiment.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/conflict-sentiment.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/conflict-sentiment.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/conflict-sentiment.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/projects/steam-recommender.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/steam-recommender.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/steam-recommender.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/steam-recommender.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/steam-recommender.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/steam-recommender.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/projects/equity-forecasting.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/equity-forecasting.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/equity-forecasting.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/equity-forecasting.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/equity-forecasting.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/equity-forecasting.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/projects/clinical-trial-analysis.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/clinical-trial-analysis.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/clinical-trial-analysis.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/clinical-trial-analysis.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/clinical-trial-analysis.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/clinical-trial-analysis.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/projects/airwave-express.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/airwave-express.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/airwave-express.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/airwave-express.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/airwave-express.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/airwave-express.html"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/projects/building-energy-loads.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/building-energy-loads.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/building-energy-loads.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/building-energy-loads.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/building-energy-loads.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/building-energy-loads.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/projects/economic-resilience.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/economic-resilience.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/economic-resilience.html"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/projects/economic-resilience.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/economic-resilience.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/economic-resilience.html"/>
+    <priority>0.7</priority>
+  </url>
 </urlset>
