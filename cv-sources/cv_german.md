@@ -95,7 +95,7 @@ Masterarbeit: PySpark-Pipeline zum Ranking und zur Empfehlung von Spielern aus f
 
 ## Projekte
 
-### Agentic ELT Data Platform for Customer Intelligence · MSc-Dissertation (Salford) · Januar 2026 bis April 2026 · Live-B2B-SaaS-Umgebung
+### Agentic ELT Data Platform for Customer Intelligence · MSc-Dissertation (Salford) · 2026 · Live-B2B-SaaS-Umgebung
 
 End-to-End-ELT-Plattform und Drei-Modell-Churn-Intelligence-Stack für eine Live-B2B-SaaS-Umgebung unter NDA. Eigenentwickelte Python-Ingestion mit über 1 Mio. Datensätzen aus mehreren Vendor-APIs in ein JSONB-first PostgreSQL-Warehouse via Dagster ingestiert, durch 48 dbt-Modelle modelliert und mit einem Drei-Modell-Intelligence-Stack versehen: Survival-Analyse (wann Accounts abwandern), Gradient-Boosted-Klassifikation mit SHAP-Erklärungen (wie wahrscheinlich Churn ist und welche Treiber wirken) sowie Causal Inference, die reaktive Zuweisungs-Selektionsbias bei der Bewertung der CSM-Wirksamkeit korrigiert. Bereitgestellt über einen FastAPI-Service mit JWT-Auth und Row-Level-Security, ein Angular-Dashboard und einen Model-Context-Protocol-(MCP)-Endpoint, der die gesamte Intelligence-Schicht für agentische LLM-Workflows zugänglich macht. Hochrisiko-Accounts für priorisierte CSM-Retention-Aktionen identifiziert.
 `Python` `PostgreSQL` `JSONB` `dbt` `Dagster` `PostgresML` `XGBoost` `SHAP` `Causal Inference` `Survival Analysis` `FastAPI` `Angular` `MCP`
