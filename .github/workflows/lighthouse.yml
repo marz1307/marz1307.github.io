@@ -1,0 +1,45 @@
+name: Lighthouse CI
+
+on:
+  # Run after Pages publishes a new version. The built-in workflow GitHub uses
+  # to deploy Pages is named "pages-build-deployment".
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+  # Manual trigger from the Actions tab.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    # Only run if the deploy succeeded (or if triggered manually).
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Wait for Pages to be reachable
+        run: |
+          for i in {1..30}; do
+            code=$(curl -sLo /dev/null -w "%{http_code}" "https://marz1307.github.io/")
+            echo "attempt $i: HTTP $code"
+            if [ "$code" = "200" ]; then exit 0; fi
+            sleep 5
+          done
+          echo "Pages did not return 200 within timeout"; exit 1
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true

@@ -1,0 +1,274 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[
+  10pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[a4paper, top=1.5cm, bottom=1.5cm, left=1.8cm,
+right=1.8cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Source Serif 4}
+  \setsansfont[]{IBM Plex Sans}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\pagenumbering{gobble}
+\pagestyle{empty}
+\usepackage{xcolor}
+\definecolor{cvnavy}{HTML}{0B1F3A}
+\definecolor{cvsub}{HTML}{36507A}
+\usepackage{titlesec}
+\titleformat{\section}{\sffamily\bfseries\fontsize{22pt}{24pt}\selectfont\color{cvnavy}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{0pt}{2pt}
+\titleformat{\subsection}{\sffamily\bfseries\fontsize{11.5pt}{13pt}\selectfont\color{cvnavy}}{}{0pt}{\MakeUppercase}\\
+{[}\{\color{cvnavy}\titlerule[0.6pt]\}{]}
+\titlespacing*{\subsection}{0pt}{12pt}{4pt}
+\titleformat{\subsubsection}{\sffamily\bfseries\fontsize{10.5pt}{12pt}\selectfont\color{cvnavy}}{}{0pt}{}
+\titlespacing*{\subsubsection}{0pt}{8pt}{2pt}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=14pt,topsep=2pt,itemsep=1pt,parsep=0pt}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  colorlinks=true,
+  linkcolor={{[}HTML{]}\{1551A8\}},
+  filecolor={Maroon},
+  citecolor={{[}HTML{]}\{1551A8\}},
+  urlcolor={{[}HTML{]}\{1551A8\}},
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\setstretch{1.15}
+\section{Marvis Osazuwa}\label{marvis-osazuwa}
+
+{\sffamily\bfseries\fontsize{11pt}{13pt}\selectfont\color{cvsub}Analytics Engineer\,·\,Data Scientist\par}
+\vspace{2pt}
+
+Manchester, UK · marvis.osazuwa@hotmail.com · +44 7349 949871 ·
+\href{https://linkedin.com/in/marvisosazuwa}{linkedin.com/in/marvisosazuwa}
+· \href{https://github.com/marz1307}{github.com/marz1307} ·
+\href{https://marz1307.github.io}{marz1307.github.io}
+
+\subsection{Profile}\label{profile}
+
+I make data trustworthy, then I make it predictive. Analytics Engineer
+and Data Scientist with seven years across retail banking, mortgage
+analytics, healthcare marketing, and a current Analytics Engineer role
+at a SaaS company. I design dimensional models in SQL, transform with
+dbt, orchestrate with Dagster, and ship ML pipelines that explain
+themselves. I care about Kimball modelling, CI/CD for data, and making
+the analysts and product teams downstream of me faster. Open to roles in
+Germany, the UK, or remote across EMEA time zones.
+
+\subsection{Experience}\label{experience}
+
+\subsubsection{Analytics Engineer · Force24 · Leeds, UK (Hybrid) ·
+January 2026 -- April
+2026}\label{analytics-engineer-force24-leeds-uk-hybrid-january-2026-april-2026}
+
+Marketing automation SaaS. Greenfield Account Intelligence platform
+built over 16 weeks for Customer Success Managers, accounts, and
+stakeholders. Two-student team under technical supervision; PostgreSQL
+and Angular mandated by Force24, every other tool decision mine.
+
+\begin{itemize}
+\tightlist
+\item
+  Owned the data layer end to end. Dagster orchestration on a VM with
+  Caddy fronting it for admin authentication, custom Python extractors
+  against multiple source systems, layered PostgreSQL warehouse using
+  dbt across raw, staging, intermediate, and marts.
+\item
+  Authored every dbt model from scratch: staging views, intermediate
+  business-logic tables, and curated marts (accounts, revenue, support,
+  CSM metrics), with tests, documentation, and lineage.
+\item
+  Wired the warehouse into the FastAPI service through endpoint changes,
+  Redis caching where the API was hitting the warehouse too often, and
+  scheduled batch jobs.
+\item
+  Built the Action Tracker on the Angular frontend as the lead feature:
+  CSMs create actions manually or accept smart-suggested actions, admins
+  assign work, and outcomes are captured as structured
+  action-context-outcome triples designed to feed a future causal-model
+  layer.
+\end{itemize}
+
+\subsubsection{CRM Data Specialist · Natural Clinic · Istanbul, Türkiye
+· June 2024 -- January
+2025}\label{crm-data-specialist-natural-clinic-istanbul-tuxfcrkiye-june-2024-january-2025}
+
+Healthcare marketing operation. CRM data and analytics ownership across
+patient acquisition, conversion, and retention.
+
+\begin{itemize}
+\tightlist
+\item
+  Rebuilt the CRM data layer end to end as the single source of truth
+  for sales, marketing, and clinical operations. Lead response time
+  dropped 30\%; conversion rose 15\%; duplicates and data errors fell
+  40\%; email engagement rose 25\%.
+\item
+  Designed and shipped real-time Power BI dashboards and exec-ready
+  reports that replaced weekly manual spreadsheets, giving leadership
+  live visibility for the first time.
+\item
+  Integrated the CRM with the marketing automation stack (email, SMS,
+  paid funnels) and engineered customer data flows between CRM, patient
+  management, and marketing tooling, eliminating three days a week of
+  manual reconciliation.
+\item
+  Partnered daily with marketing, clinical operations, and customer
+  service to translate ambiguous business questions into structured data
+  models and measurable outcomes.
+\end{itemize}
+
+\subsubsection{Strategic Data Insights Analyst · Federal Mortgage Bank
+of Nigeria · Abuja, Nigeria · December 2018 -- November
+2019}\label{strategic-data-insights-analyst-federal-mortgage-bank-of-nigeria-abuja-nigeria-december-2018-november-2019}
+
+Federal mortgage institution managing Nigeria's national housing fund.
+Loan portfolio analytics and IT-governance reporting.
+
+\begin{itemize}
+\tightlist
+\item
+  Ran a data-integrity overhaul that improved core dataset accuracy by
+  40\% in six months, materially reducing the risk of faulty loan
+  approvals.
+\item
+  Built Python and SQL analytics models on top of Tableau to track loan
+  repayment behaviour, lifting repayment-monitoring efficiency by 15\%
+  and cutting manual data entry by 25\%.
+\item
+  Streamlined IT asset governance and approval workflows, cutting
+  approval turnaround by 30\%.
+\end{itemize}
+
+\subsubsection{Customer Information and Service Specialist · GTBank ·
+Edo, Nigeria · September 2015 -- March
+2016}\label{customer-information-and-service-specialist-gtbank-edo-nigeria-september-2015-march-2016}
+
+Early-career role at a Tier-1 African retail bank.
+
+\begin{itemize}
+\tightlist
+\item
+  Analysed customer interaction data to identify drop-off and friction
+  points, feeding insights into cross-functional teams.
+\item
+  Led adoption campaigns for USSD and Internet banking, reducing
+  in-branch manual transactions and shifting customers onto
+  self-service.
+\item
+  Owned complaint resolution logging and root-cause categorisation,
+  feeding monthly service-quality reporting.
+\end{itemize}
+
+\subsection{Education}\label{education}
+
+\textbf{MSc Data Science} · University of Salford, Manchester, UK ·
+January 2025 -- May 2026 Dissertation: Agentic ELT Data Platform for Customer Intelligence. Coursework
+in machine learning, big data engineering, applied statistics, and
+data-driven decision making.
+
+\textbf{MSc Big Data Analytics and Management} · Bahçeşehir University,
+Istanbul, Türkiye · September 2020 -- March 2023 · GPA 3.67/4.00
+Master's thesis: PySpark pipeline ranking and recommending players
+across five European football leagues using UEFA event data.
+
+\textbf{BEng Computer Engineering} · University of Benin, Edo, Nigeria ·
+September 2011 -- August 2017
+
+\subsection{Selected Projects}\label{selected-projects}
+
+\textbf{Pharma Side Effect Classification} · 2025 · NLP and Healthcare
+Multi-label NLP classifier on patient-reported drug reviews. RoBERTa
+fine-tuned for therapeutic-area and side-effect tagging. Topic modelling
+with LDA, sentiment analysis with TF-IDF baselines, model selection
+across precision-recall trade-offs.
+
+\textbf{Equity Forecasting} · 2025 · Financial Time Series End-to-end R
+analysis package for univariate equity forecasting on 5,124 daily NYSE
+observations. ARIMA, seasonal ARIMA, and ETS through a MODEL\_REGISTRY
+pattern. Formal residual diagnostics (Ljung-Box, Shapiro-Wilk) and
+stationarity tests (ADF, KPSS) combined into a single decision rule.
+
+\textbf{Football Player Scouting at Scale} · MSc Thesis · 2023 · Big
+Data and Sports Analytics Distributed PySpark pipeline ranking and
+recommending 500+ footballers across La Liga, Serie A, Premier League,
+Bundesliga, and Ligue 1 using UEFA event data. Engineered KPIs capturing
+on-ball and off-ball contribution. Published thesis, public codebase.
+
+\textbf{Steam Games Recommender} · Side Project · 2024 · Recommender
+Systems PySpark + ALS recommender on the Steam 200k implicit-feedback
+dataset. Distributed training with Grid Search across CrossValidator and
+TrainValidationSplit. Full experiment tracking in MLflow on Databricks.
+
+\subsection{Technical Skills}\label{technical-skills}
+
+\textbf{Languages:} SQL · Python · R · PySpark · T-SQL · Bash
+\textbf{Warehousing:} PostgreSQL · Snowflake · BigQuery · Databricks ·
+SQL Server \textbf{Transformation \& Orchestration:} dbt · Dagster ·
+Apache Spark · Airflow \textbf{Service Layer:} FastAPI · REST APIs ·
+Docker · Caddy \textbf{ML \& Statistics:} scikit-learn · XGBoost · SHAP
+· MLflow · RoBERTa · ARIMA · NLP · Sentiment Analysis · TF-IDF · LDA
+\textbf{BI \& Visualisation:} Power BI · Tableau · Looker
+\textbf{Cloud:} AWS · GCP · Azure \textbf{Source Control \& Tooling:}
+Git · GitHub · GitHub Actions · pytest
+
+\subsection{Languages}\label{languages}
+
+\textbf{English:} Native or bilingual proficiency · \textbf{German:}
+Limited working proficiency, actively improving toward B1
+
+\subsection{Certifications}\label{certifications}
+
+Engineer Data for Predictive Modeling with BigQuery ML (Google Cloud) ·
+Python for Data Science, AI \& Development (Coursera) · Generative AI for Business
+Leaders (Coursera) · Enterprise Design Thinking Practitioner (IBM) ·
+Tableau for Data Scientists (LinkedIn Learning) · Statistics Foundations
+1--4 (LinkedIn Learning) · R for Data Science (LinkedIn Learning)
+
+\end{document}

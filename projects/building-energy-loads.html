@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByZJaawcxAiK85qnD6nIc7iBFGzp/nf/DTzzA7Dl5Qs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+<title>Building Energy Loads · Marvis Osazuwa</title>
+<meta name="description" content="R analysis package predicting heating and cooling loads from building geometry. 768 simulated configurations, stepwise linear regression with full diagnostic discipline.">
+<link rel="canonical" href="https://marz1307.github.io/projects/building-energy-loads.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/building-energy-loads.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/building-energy-loads.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/building-energy-loads.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Building Energy Loads · Marvis Osazuwa">
+<meta property="og:description" content="R analysis package predicting heating and cooling loads from building geometry. 768 simulated configurations, stepwise linear regression with full diagnostic discipline.">
+<meta property="og:url" content="https://marz1307.github.io/projects/building-energy-loads.html">
+<meta property="og:image" content="https://marz1307.github.io/assets/thumbnails/building-energy-loads.webp">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">M.O.</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="active" aria-current="page" href="/projects/">Work</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a class="lang-toggle" href="/de/projects/building-energy-loads.html" aria-label="Auf Deutsch wechseln">DE</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle colour theme">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / Building Energy Loads</p>
+    <p class="caption">Case study / 2025</p>
+    <h1 class="case-title" style="margin-top:12px;">Building Energy Loads</h1>
+    <p class="case-sub">An R analysis package predicting heating and cooling loads from eight building geometry parameters across 768 simulated configurations. Stepwise linear regression with full residual and collinearity diagnostics.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Role</span><span class="value">Solo build, end to end</span></div>
+      <div><span class="label">Domain</span><span class="value">Engineering, Statistics</span></div>
+      <div><span class="label">Year</span><span class="value">2025</span></div>
+      <div><span class="label">Stack</span><span class="value">R, stats::step, car (VIF), ggplot2, testthat</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">3 min read</p>
+  </header>
+
+  <figure class="case-hero-thumb">
+            <picture>
+      <source srcset="/assets/thumbnails/building-energy-loads.webp" type="image/webp">
+      <img src="/assets/thumbnails/building-energy-loads.webp" alt="Building Energy Loads thumbnail with overlapping building elevation lines" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Problem.</h2>
+      <p>Predicting heating and cooling loads from building geometry is a classic energy-engineering problem. Architects making early-stage design decisions (wall area, glazing area, roof area, orientation) need to know how those choices ripple into HVAC sizing and annual energy cost before the building is built.</p>
+      <p>The dataset simulates 768 building configurations across eight design parameters and reports the resulting heating and cooling loads. The question this project asks: which design choices matter most, and can a small linear model defensibly predict load at the design phase?</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>My contribution.</h2>
+      <p>End-to-end R analysis package, owned solo:</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li>Data loader with schema validation. Expected columns, expected types, NA handling enforced at the boundary.</li>
+        <li>Descriptive statistics across all eight predictors and both response variables (heating load, cooling load).</li>
+        <li>Correlation analysis to surface multicollinearity. Relative compactness, surface area, and wall area cluster strongly.</li>
+        <li>Stepwise linear regression for variable selection on heating load and cooling load separately. Implemented with base <code>stats::step</code> and bidirectional AIC.</li>
+        <li>Variance Inflation Factor checks via <code>car::vif</code> on the selected models, plus normality (Shapiro-Wilk) and heteroscedasticity (Breusch-Pagan style) tests on residuals.</li>
+        <li>Standard diagnostic plots: residuals vs fitted, Q-Q normality, scale-location, leverage.</li>
+        <li>testthat suite with a synthetic 200-row fixture, lintr config, R-CMD-check CI matrix across multiple R versions.</li>
+      </ul>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>What the analysis surfaced.</h2>
+      <p>Glazing area and roof type carry more signal than I expected at the start. Relative compactness drops out under stepwise selection because surface area carries most of the same information, and the model is more interpretable without both.</p>
+      <p>The cooling load model has noticeably wider residuals than the heating load model. That tells you something about the underlying physics: cooling demand depends on solar gain, which is driven by orientation and glazing in ways that interact non-linearly. A linear model captures the heating side well and gives you a useful first-pass on the cooling side, but cooling deserves a tree-based or interaction-rich model for production use.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Why this project sits alongside the bigger work.</h2>
+      <p>This is a small, focused statistical modelling exercise. It is not a production system. What it demonstrates is the diagnostic discipline: every model gets its residuals checked, every variable gets its correlation cluster examined, every claim about importance is defended against the alternative explanations.</p>
+      <p>The same discipline shows up in the bigger pipelines. Lineage and tests are not glamorous, but they are the difference between a model that ships and a model that breaks the first time real data hits it.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Stack.</h2>
+      <p class="mono" style="font-size:14px;color:var(--ink-muted);">R &middot; stats::step (stepwise selection) &middot; car (VIF and diagnostics) &middot; ggplot2 &middot; readxl &middot; testthat &middot; lintr &middot; GitHub Actions (R-CMD-check)</p>
+      <p style="margin-top:24px;"><a class="btn btn-primary" href="https://github.com/marz1307/Building-energy-loads" rel="noopener">View on GitHub</a></p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="/projects/airwave-express.html">&larr; Previous: AirWave Express Ticketing System</a>
+      <a href="/projects/economic-resilience.html">Next: Economic Resilience Dashboard &rarr;</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">Email</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Open to Germany, EMEA, the UK, remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Built with stubbornness.</div>
+  </div>
+</footer>
+</body>
+</html>

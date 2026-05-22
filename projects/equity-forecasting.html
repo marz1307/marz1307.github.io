@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByZJaawcxAiK85qnD6nIc7iBFGzp/nf/DTzzA7Dl5Qs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+<title>Equity Forecasting · Marvis Osazuwa</title>
+<meta name="description" content="Reproducible R analysis package for daily equity closing-price forecasting. ARIMA, ETS, naive baseline behind a model registry. 5,124 daily observations of NYSE ticker A.">
+<link rel="canonical" href="https://marz1307.github.io/projects/equity-forecasting.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/equity-forecasting.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/equity-forecasting.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/equity-forecasting.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Equity Forecasting · Marvis Osazuwa">
+<meta property="og:description" content="Reproducible R analysis package for daily equity closing-price forecasting. ARIMA, ETS, naive baseline behind a model registry. 5,124 daily observations of NYSE ticker A.">
+<meta property="og:url" content="https://marz1307.github.io/projects/equity-forecasting.html">
+<meta property="og:image" content="https://marz1307.github.io/assets/thumbnails/equity-forecasting.webp">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">M.O.</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="active" aria-current="page" href="/projects/">Work</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a class="lang-toggle" href="/de/projects/equity-forecasting.html" aria-label="Auf Deutsch wechseln">DE</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle colour theme">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / Equity Forecasting</p>
+    <p class="caption">Case study / 2026</p>
+    <h1 class="case-title" style="margin-top:12px;">Equity Forecasting</h1>
+    <p class="case-sub">A reproducible R analysis package for daily equity closing-price forecasting. ARIMA, ETS, and a naive baseline behind a model registry, with formal stationarity tests and residual diagnostics.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Role</span><span class="value">Solo build, end to end</span></div>
+      <div><span class="label">Domain</span><span class="value">Finance, Time Series</span></div>
+      <div><span class="label">Year</span><span class="value">2026</span></div>
+      <div><span class="label">Stack</span><span class="value">R, forecast, tseries, testthat</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">3 min read</p>
+  </header>
+
+  <figure class="case-hero-thumb">
+            <picture>
+      <source srcset="/assets/thumbnails/equity-forecasting.webp" type="image/webp">
+      <img src="/assets/thumbnails/equity-forecasting.webp" alt="Equity Forecasting thumbnail with time series line and forecast cone" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Problem.</h2>
+      <p>Building a defensible short-horizon point forecast from a noisy, non-stationary financial series is a textbook problem with a lot of folklore around it. Most public examples skip the stationarity tests, skip the residual diagnostics, and report on a single model. This project builds the end-to-end pipeline properly: load, validate, diagnose, transform, fit candidates, evaluate, report.</p>
+      <p>The committed working example uses 5,124 daily observations of NYSE ticker A from December 1999 to May 2023, with closing prices ranging from $7.76 to $113.70.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>My contribution.</h2>
+      <p>Solo, end to end:</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li>Schema validation on data load. Expected columns, types, and chronological order enforced at the boundary.</li>
+        <li>EDA: distributional summary, quantiles, full-sample series plot, and STL decomposition strengths.</li>
+        <li>Transformations: optional log, integer-order differencing, all configurable.</li>
+        <li>Stationarity testing. ADF and KPSS combined into a single decision rule rather than running each in isolation and getting contradictory verdicts.</li>
+        <li>Model candidates registered through a <code>MODEL_REGISTRY</code> pattern. ARIMA, seasonal ARIMA via <code>auto.arima</code>, ETS, naive baseline. New candidates can be registered by adding a single function rather than editing the pipeline.</li>
+        <li>Residual diagnostics. Ljung-Box for autocorrelation, Shapiro-Wilk for normality, summary mean and variance checks.</li>
+        <li>Forecast evaluation against the naive baseline as the floor. RMSE, MAE, MAPE.</li>
+        <li>testthat suite with a synthetic series fixture, R-CMD-check CI matrix across multiple R versions, lintr config gating CI.</li>
+      </ul>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Why this build matters.</h2>
+      <p>Financial time series fail silently. A model with a good RMSE on training data can be quietly broken at the residual level (autocorrelation in the residuals means the model has not captured the structure) and you will not notice until live data starts behaving badly. The Ljung-Box plus Shapiro-Wilk check at the residual stage is the diagnostic that catches this before you ship the forecast.</p>
+      <p>The <code>MODEL_REGISTRY</code> pattern is the architectural choice that makes the pipeline genuinely reusable. Adding a new candidate (Prophet, TBATS, neural state-space) is a single registration call. The evaluation, diagnostics, and reporting code do not change.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Architecture.</h2>
+      <pre style="font-family:var(--font-mono);font-size:13px;line-height:1.6;background:var(--code-bg);padding:16px;border-radius:2px;overflow-x:auto;">data-raw/A.csv
+   |
+   v
+load_share_prices -&gt; validate -&gt; to_ts (daily freq, chronological)
+                                         |
+                                         v
+                                   eda + STL decomposition
+                                         |
+                                         v
+                       transform (log, difference) if needed
+                                         |
+                                         v
+                       stationarity (ADF + KPSS combined verdict)
+                                         |
+                                         v
+                       MODEL_REGISTRY = {arima, sarima, ets, naive}
+                                         |
+                                         v
+                          fit each on train, forecast horizon
+                                         |
+                                         v
+                       diagnostics (Ljung-Box, Shapiro-Wilk)
+                                         |
+                                         v
+                       evaluate vs naive baseline (RMSE, MAE, MAPE)</pre>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Stack.</h2>
+      <p class="mono" style="font-size:14px;color:var(--ink-muted);">R &middot; forecast &middot; tseries &middot; ggplot2 &middot; lubridate &middot; testthat &middot; lintr &middot; GitHub Actions (R-CMD-check CI matrix across multiple R versions)</p>
+      <p style="margin-top:24px;"><a class="btn btn-primary" href="https://github.com/marz1307/Equity-forecasting" rel="noopener">View on GitHub</a></p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="/projects/steam-recommender.html">&larr; Previous: Steam Games Recommender</a>
+      <a href="/projects/clinical-trial-analysis.html">Next: Clinical Trial Data Analysis &rarr;</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">Email</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Open to Germany, EMEA, the UK, remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Built with stubbornness.</div>
+  </div>
+</footer>
+</body>
+</html>
