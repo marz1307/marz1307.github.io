@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByZJaawcxAiK85qnD6nIc7iBFGzp/nf/DTzzA7Dl5Qs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+<title>Conflict Sentiment Analysis · Marvis Osazuwa</title>
+<meta name="description" content="Eine vergleichende Methodikstudie mit drei Sentiment-Engines und einem fünf-Topic-LDA über 8.158 Nachrichtenartikel. Methodische NLP-Arbeit, deskriptiv für Media Framing.">
+<link rel="canonical" href="https://marz1307.github.io/de/projects/conflict-sentiment.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/conflict-sentiment.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/conflict-sentiment.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/conflict-sentiment.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:title" content="Conflict Sentiment Analysis · Marvis Osazuwa">
+<meta property="og:description" content="Eine vergleichende Methodikstudie mit drei Sentiment-Engines und einem fünf-Topic-LDA über 8.158 Nachrichtenartikel. Methodische NLP-Arbeit, deskriptiv für Media Framing.">
+<meta property="og:url" content="https://marz1307.github.io/de/projects/conflict-sentiment.html">
+<meta property="og:image" content="https://marz1307.github.io/assets/thumbnails/de/conflict-sentiment.webp">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de/">M.O.</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="active" aria-current="page" href="/de/projects/">Projekte</a>
+      <a href="/de/blog/">Blog</a>
+      <a href="/de/about.html">Über</a>
+      <a href="/de/contact.html">Kontakt</a>
+      <a class="lang-toggle" href="/projects/conflict-sentiment.html" aria-label="Switch to English">EN</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Farbschema umschalten">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <p class="breadcrumb"><a href="/de/">Startseite</a> / <a href="/de/projects/">Projekte</a> / Conflict Sentiment Analysis</p>
+    <p class="caption">Case Study / 2026</p>
+    <h1 class="case-title" style="margin-top:12px;">Conflict Sentiment Analysis</h1>
+    <p class="case-sub">Eine vergleichende Methodikstudie, die quantifiziert, wie 8.158 englischsprachige Nachrichtenartikel den Russland-Ukraine-Konflikt über 68 Publisher und 18 Länder hinweg gerahmt haben. Drei Sentiment-Engines, ein Topic-Modell, deskriptiv für Media Framing.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Rolle</span><span class="value">Eigenständig umgesetzt, end-to-end</span></div>
+      <div><span class="label">Bereich</span><span class="value">NLP, Medienanalyse</span></div>
+      <div><span class="label">Jahr</span><span class="value">2026</span></div>
+      <div><span class="label">Stack</span><span class="value">Python, RoBERTa, VADER, TextBlob, gensim LDA</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">4 min Lesezeit</p>
+  </header>
+
+  <figure class="case-hero-thumb">
+            <picture>
+      <source srcset="/assets/thumbnails/de/conflict-sentiment.webp" type="image/webp">
+      <img src="/assets/thumbnails/de/conflict-sentiment.webp" alt="Thumbnail Conflict Sentiment Analysis mit Sentiment-Polaritätswelle" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>Problem.</h2>
+      <p>Wie sich Media Framing zwischen Publishern, Ländern und Themen unterscheidet, ist eine methodisch interessante Frage mit aktiver akademischer Literatur dahinter. Die schwierigere Variante der Frage ist, ob eine einzige Sentiment-Engine ausreicht, oder ob die Antwort davon abhängt, welcher Engine man vertraut.</p>
+      <p>Dieses Projekt quantifiziert, wie 8.158 englischsprachige Nachrichtenartikel den Russland-Ukraine-Konflikt über 68 Publisher und 18 Länder hinweg gerahmt haben, und prüft drei Sentiment-Engines plus ein Topic-Modell auf demselben Korpus, um sichtbar zu machen, wo sie übereinstimmen und wo sie auseinanderlaufen. Die Arbeit ist deskriptiv für Media Framing, nicht für die zugrundeliegenden Ereignisse.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Mein Beitrag.</h2>
+      <p>Eigenständig, end-to-end:</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li>Die Pipeline für Korpus-Ingestion und Cleaning gebaut. URL-Stripping, Normalisierung auf reine Buchstaben, Lowercase, Regex-Tokenisierung, Stopword-Removal, WordNet-Lemmatisierung über Verb- und Nomen-Wortarten hinweg.</li>
+        <li>Drei komplementäre Sentiment-Engines auf demselben Korpus verdrahtet, hinter einer abstrakten <code>SentimentEngine</code>-Basisklasse mit Registry-Pattern. Eine vierte Engine hinzuzufügen ist eine Klasse plus ein Registry-Eintrag.</li>
+        <li>Ein gensim-LDA-Modell mit fünf Topics über dem bereinigten Korpus aufgebaut, um sichtbar zu machen, worüber jeder Artikel spricht, nicht nur wie er darüber spricht. <code>random_state</code> für Reproduzierbarkeit fixiert.</li>
+        <li>Sentiment nach Publisher, Land und Topic kreuztabelliert. Der vorzeichenbehaftete Sentiment-Score des Transformers ist die primäre Cross-Publisher-Metrik. Die Lexikon-Engines liefern eine interpretierbare Gegenprobe.</li>
+        <li>Die pytest-Suite geschrieben, mit der Transformer-Engine vollständig gemockt, damit die CI nicht bei jedem Run gigabyteweise Weights herunterlädt. Lazy Load im Echtbetrieb, gemockter Load in Tests.</li>
+        <li>Die GitHub-Actions-Matrix-CI auf Python 3.10, 3.11 und 3.12 aufgesetzt, mit NLTK-Resource-Caching sowie ruff- und black-Gating.</li>
+      </ul>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Methodik und die Multi-Engine-Frage.</h2>
+      <p>Der Grund, warum das Projekt drei Engines fährt, ist, dass lexikonbasiertes Sentiment (TextBlob, VADER) und transformerbasiertes Sentiment (RoBERTa) sich manchmal widersprechen, und gerade dieser Widerspruch informativ ist.</p>
+      <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
+        <li><strong>TextBlob</strong> (lexikalische Baseline). Naive-Bayes-Pattern-Polarität auf Basis eines Movie-Review-Priors. Günstig, interpretierbar, aber fehlausgerichtet zur Konfliktsprache.</li>
+        <li><strong>VADER</strong> (Social- und News-Lexikon). Behandelt Verstärker, Negation und die Interpunktionsmuster, die in Headlines üblich sind.</li>
+        <li><strong>CardiffNLP RoBERTa</strong> (<code>cardiffnlp/twitter-roberta-base-sentiment-latest</code>). Kontextueller Transformer, fine-tuned auf rund 124M Tweets. Erfasst Interaktionen, die Lexika übersehen, und ist die einzige Engine, die kalibrierte Drei-Klassen-Wahrscheinlichkeiten liefert. Vorzeichenbehaftete Konfidenz (positiv = +conf, negativ = -conf, neutral = 0) wird für die Cross-Publisher-Aggregation genutzt.</li>
+      </ul>
+      <p>Wenn alle drei übereinstimmen, ist das Signal stark. Wenn der Transformer negativ und das Lexikon neutral sagt, hat man typischerweise verklausulierte oder sarkastische Sprache, die das Lexikon nicht erfasst. Wenn das Lexikon stark positiv und der Transformer leicht negativ sagt, hat man typischerweise stilistische Positivität, die das Lexikon hochscort, der Transformer aber im Kontext liest.</p>
+      <p>Das fünf-Topic-LDA liefert die zweite Achse. Sentiment zum selben Konflikt variiert scharf nach Topic, auf eine Weise, die die Headline-Zahl verdeckt.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Architektur.</h2>
+      <pre style="font-family:var(--font-mono);font-size:13px;line-height:1.6;background:var(--code-bg);padding:16px;border-radius:2px;overflow-x:auto;">                         configs/default.yaml
+                                  |
+                                  v
+data/raw/*.xls -&gt; loader -&gt; cleaner -&gt; preprocessor (URL strip, lowercase, tokenize, stopword, lemmatize)
+                                                    |
+                       +----------------------------+----------------------------+
+                       |                            |                            |
+                       v                            v                            v
+                 TextBlobEngine             VaderEngine              TransformerEngine (RoBERTa)
+                       \                           |                           /
+                        \                          v                          /
+                         +------------&gt; sentiment_results.csv &lt;-------------+
+                                                  |
+                              +-------------------+--------------------+
+                              v                                        v
+                    LDATopicModel (gensim)                     analysis (publisher,
+                              |                                country, temporal,
+                              v                                wordfreq)
+                    topic_assignments.csv                              |
+                    topic_summaries.json                               v
+                                                              reports/figures</pre>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Ethische Erwägungen.</h2>
+      <p>Dies ist methodische Forschung, kein Kommentar. Die Framing-Frage (wie Publisher einen Konflikt abdecken) ist in den Medienwissenschaften gut etabliert. Der Beitrag ist die Multi-Engine-Triangulation. Es werden keine Schlüsse darüber gezogen, welcher Publisher Recht hat, sondern nur darüber, wie sich ihre Framings unterscheiden.</p>
+      <p>Der ausschließlich englischsprachige Korpus schließt russische, ukrainische, arabische und chinesische Berichterstattung aus, und die Trainingsverteilung des Transformers neigt sich westlich, sodass nicht-westliche Stimmen systematisch fehlklassifiziert werden können. Aggregate sind relative Vergleiche, keine Ground-Truth-Schwere. Vor politischen oder operativen Schlüssen mit unabhängigen Quellen abgleichen.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Stack.</h2>
+      <p class="mono" style="font-size:14px;color:var(--ink-muted);">Python &middot; HuggingFace Transformers &middot; PyTorch &middot; NLTK &middot; gensim &middot; pandas &middot; pytest &middot; ruff &middot; black &middot; GitHub Actions</p>
+      <p style="margin-top:24px;"><a class="btn btn-primary" href="https://github.com/marz1307/Conflict-sentiment-analysis" rel="noopener">Auf GitHub ansehen</a></p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case-Study-Navigation">
+      <a href="/de/projects/football-scouting.html">&larr; Vorheriges: Big Data Player Scouting</a>
+      <a href="/de/projects/steam-recommender.html">Weiter: Steam Games Recommender &rarr;</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Offen für Deutschland, EMEA, UK, Remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Mit Hartnäckigkeit gebaut.</div>
+  </div>
+</footer>
+</body>
+</html>

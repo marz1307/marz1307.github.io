@@ -1,0 +1,15 @@
+.tools/
+*.log
+.DS_Store
+Thumbs.db
+
+# Personal / internal docs — keep local only
+docs/CAREER_ACCELERATION_STRATEGY.md
+docs/PRD.md
+docs/FEATURES.md
+
+# Audit reports — local only
+AUDIT_v4.md
+TRANSLATION_AUDIT.md
+TRANSLATION_NOTES.md
+UX_AUDIT.md

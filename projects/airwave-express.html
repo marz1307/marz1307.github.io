@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByZJaawcxAiK85qnD6nIc7iBFGzp/nf/DTzzA7Dl5Qs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+<title>AirWave Express Ticketing System · Marvis Osazuwa</title>
+<meta name="description" content="SQL Server schema for an airport ticketing platform: passenger, flight, reservation, ticketing, baggage, ancillary services. Sequences, triggers, integrity constraints.">
+<link rel="canonical" href="https://marz1307.github.io/projects/airwave-express.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/airwave-express.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/airwave-express.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/projects/airwave-express.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AirWave Express Ticketing System · Marvis Osazuwa">
+<meta property="og:description" content="SQL Server schema for an airport ticketing platform: passenger, flight, reservation, ticketing, baggage, ancillary services. Sequences, triggers, integrity constraints.">
+<meta property="og:url" content="https://marz1307.github.io/projects/airwave-express.html">
+<meta property="og:image" content="https://marz1307.github.io/assets/thumbnails/airwave-express.webp">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">M.O.</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="active" aria-current="page" href="/projects/">Work</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a class="lang-toggle" href="/de/projects/airwave-express.html" aria-label="Auf Deutsch wechseln">DE</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle colour theme">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="case-header" style="max-width:880px;margin:0 auto;">
+    <svg class="topo topo-corner" viewBox="0 0 600 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M120,310 C140,200 240,120 360,140 C470,158 540,260 520,360 C498,470 380,520 270,490 C170,464 100,400 120,310 Z"/>
+        <path d="M150,320 C170,225 255,158 360,178 C455,196 510,278 492,360 C472,450 374,490 280,464 C195,440 132,398 150,320 Z"/>
+        <path d="M180,330 C200,250 270,196 358,214 C440,230 482,300 466,366 C448,438 366,468 290,442 C218,420 162,398 180,330 Z"/>
+        <path d="M212,338 C228,272 286,228 354,244 C420,258 454,316 442,372 C426,432 360,452 298,432 C238,414 198,392 212,338 Z"/>
+        <path d="M242,350 C256,300 302,266 350,278 C396,290 422,332 412,374 C400,422 354,438 308,422 C262,406 232,392 242,350 Z"/>
+        <path d="M270,362 C282,326 318,302 350,310 C382,318 398,348 388,376 C378,408 348,420 318,410 C288,400 264,392 270,362 Z"/>
+        <path d="M298,372 C306,348 326,332 348,338 C368,344 378,362 372,380 C364,400 346,408 326,402 C308,396 294,392 298,372 Z"/>
+        <path d="M322,380 C328,366 340,358 352,362 C362,366 368,376 364,386 C358,396 348,400 338,398 C328,394 320,392 322,380 Z"/>
+      </g>
+    </svg>
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/projects/">Projects</a> / AirWave Express Ticketing</p>
+    <p class="caption">Case study / 2024</p>
+    <h1 class="case-title" style="margin-top:12px;">Relational Database Design for an Airport Ticketing Platform</h1>
+    <p class="case-sub">SQL Server schema covering passenger management, flight scheduling, reservations, ticketing, baggage, and ancillary services.</p>
+
+    <div class="metadata-strip">
+      <div><span class="label">Role</span><span class="value">Author</span></div>
+      <div><span class="label">Dates</span><span class="value">May 2024 to July 2024</span></div>
+      <div><span class="label">Context</span><span class="value">Side project · Aviation sector</span></div>
+      <div><span class="label">Stack</span><span class="value">SQL Server · T-SQL · Schema Design · Triggers · Sequences</span></div>
+    </div>
+    <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">3 min read</p>
+    <div class="repo-cta">
+      <a class="btn btn-secondary" href="https://github.com/marz1307/AirWaveExpressTicketingSystem" target="_blank" rel="noopener">↗ View source on GitHub</a>
+    </div>
+  </header>
+  <figure class="case-hero-thumb">
+    <picture>
+      <source srcset="/assets/thumbnails/airwave-express.webp" type="image/webp">
+      <img src="/assets/thumbnails/airwave-express.webp" alt="AirWave Express Ticketing System thumbnail with flight path arc and aircraft" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+
+  <article>
+    <section class="case-section reveal">
+      <h2>The schema is the spine.</h2>
+      <p>Airport ticketing systems sit at the intersection of about a dozen workflows that all have to stay consistent: passenger records that update across reservations, flight schedules that change while tickets are already issued, baggage tracking that has to attach to the right passenger and the right flight, ancillary services (meals, seat upgrades) that have to bill correctly even when the underlying booking is modified.</p>
+      <p>The schema is the spine of all of this. Get it wrong, and every workflow above it gets corrupted in a different way.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Seven entities, integrity by construction.</h2>
+      <p>Seven core entities: Employee, Passenger, Flight, Reservation, Ticket, AdditionalServices, Baggage. Each has a clean primary key generated through a SQL Server sequence (e.g. <code>EmployeeSeq</code> paired with <code>trgGenerateEmployeeID</code> trigger). Foreign keys enforce the relationships that have to hold up over time: a Ticket cannot exist without its Reservation, a Reservation cannot exist without its Passenger and Flight.</p>
+      <p>Constraints do the rest of the work. CHECK constraints on date ordering (departure cannot precede arrival), NOT NULL on every field that can never be optional in a real ticketing workflow, UNIQUE constraints on the things that have to be unique (passport numbers, flight codes per date).</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>What shipped.</h2>
+      <div class="metrics-block">
+        <div class="metric"><div class="num">7 entities</div><div class="cap">core ticketing surface</div></div>
+        <div class="metric"><div class="num">Sequences</div><div class="cap">+ triggers for ID generation</div></div>
+        <div class="metric"><div class="num">FK / CHECK</div><div class="cap">NOT NULL · UNIQUE</div></div>
+        <div class="metric"><div class="num">Project report</div><div class="cap">design rationale included</div></div>
+      </div>
+      <p>Full SQL Server schema with seven tables, automated ID generation via sequences and triggers, complete referential integrity through foreign keys, and constraint coverage across the operational surface. The repository includes the schema script and a project report walking through the design rationale.</p>
+    </section>
+
+    <section class="case-section reveal">
+      <h2>Lessons.</h2>
+      <p>Auto-generated IDs via sequences plus triggers is more elegant than the IDENTITY column approach when you need IDs that follow a specific format or naming pattern. Once it's wired up, every INSERT just works. The trigger does the work the application would otherwise have to do, and you get the benefit at the database layer.</p>
+      <p style="margin-top:24px;">
+        <a class="arrow-link" href="https://github.com/marz1307/AirWaveExpressTicketingSystem" target="_blank" rel="noopener">→ GitHub repository</a>
+      </p>
+    </section>
+
+    <nav class="case-nav" aria-label="Case study navigation">
+      <a href="/projects/clinical-trial-analysis.html">← Previous: Clinical Trial Data Analysis</a>
+      <a href="/projects/building-energy-loads.html">Next: Building Energy Loads →</a>
+    </nav>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">Email</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Open to Germany, EMEA, the UK, remote.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Built with stubbornness.</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Marvis Osazuwa CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-muted: #555;
+    --rule: #d6d3ce;
+    --accent: #D4471F;
+    --paper: #fff;
+    --serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: "JetBrains Mono", "Consolas", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: var(--serif); color: var(--ink); background: var(--paper); }
+  body { font-size: 8.5pt; line-height: 1.25; }
+  @page { size: A4; margin: 0.85cm 1.1cm; }
+  h1, h2, h3, h4 { font-family: var(--sans); color: var(--ink); }
+  h1 { font-size: 15pt; font-weight: 600; letter-spacing: -0.01em; }
+  h2 {
+    font-size: 9pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+    margin: 6pt 0 3pt 0;
+  }
+  h3 { font-size: 9pt; font-weight: 600; margin-top: 4pt; }
+  h4 { font-size: 8.5pt; font-weight: 500; color: var(--ink-muted); margin-top: 1pt; }
+  p, li { font-size: 8.5pt; line-height: 1.28; }
+  ul { padding-left: 1.05em; margin-top: 1pt; }
+  li { margin-bottom: 1pt; }
+  a { color: var(--accent); text-decoration: none; }
+  .header-tagline { font-family: var(--sans); font-size: 9.5pt; color: var(--ink-muted); margin-top: 1pt; font-weight: 500; }
+  .contact { font-family: var(--sans); font-size: 8pt; margin-top: 2pt; color: var(--ink-muted); line-height: 1.4; }
+  .contact a { color: var(--ink); }
+  .contact .sep { color: var(--rule); margin: 0 5px; }
+  .role-line { font-family: var(--sans); font-size: 9pt; font-weight: 500; color: var(--ink); }
+  .role-meta { font-family: var(--sans); font-size: 8pt; color: var(--ink-muted); font-weight: 500; margin-bottom: 1pt; }
+  .stack { font-family: var(--mono); font-size: 7.5pt; color: var(--ink-muted); margin-top: 1pt; }
+  .stack-label { color: var(--accent); font-weight: 600; }
+  .project-tags { font-family: var(--mono); font-size: 7.5pt; color: var(--ink-muted); margin-top: 1pt; }
+  .project-tags .tag {
+    display: inline-block; background: #f5f3ee; padding: 0pt 4pt; margin-right: 2pt; margin-bottom: 1pt;
+    border-radius: 2px; font-size: 7pt;
+  }
+  .project-meta { font-family: var(--sans); font-size: 8pt; color: var(--ink-muted); font-weight: 500; margin-bottom: 1pt; }
+  .skills-grid { font-size: 8.5pt; line-height: 1.35; }
+  .skills-grid b { font-family: var(--sans); font-weight: 600; color: var(--ink); }
+  .skills-grid p { margin-bottom: 0pt; }
+  .availability { font-family: var(--sans); font-size: 8pt; color: var(--ink-muted); font-style: italic; margin-top: 6pt; }
+  strong { font-weight: 600; }
+  section { break-inside: auto; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Marvis Osazuwa</h1>
+  <p class="header-tagline">Analytics Engineer · Data Scientist</p>
+  <p class="contact">
+    Manchester, UK
+    <span class="sep">·</span> +44 7349 949871
+    <span class="sep">·</span> <a href="mailto:marvis.osazuwa@hotmail.com">marvis.osazuwa@hotmail.com</a>
+    <span class="sep">·</span> <a href="https://linkedin.com/in/marvisosazuwa">linkedin.com/in/marvisosazuwa</a>
+    <span class="sep">·</span> <a href="https://github.com/marz1307">github.com/marz1307</a>
+    <span class="sep">·</span> <a href="https://marz1307.github.io">marz1307.github.io</a>
+  </p>
+</header>
+
+<section>
+  <h2>Profile</h2>
+  <p>Analytics Engineer and Data Scientist who designs production data layers end to end: dimensional models in SQL, dbt transformations, Dagster orchestration, CI-gated correctness. Recent work embeds ML directly into the warehouse: a survival and causal churn stack exposed to LLM agents via a Model Context Protocol (MCP) endpoint. Career path covers retail banking (Nigeria, 2015 to 2016), mortgage analytics (Nigeria, 2018 to 2019), healthcare marketing (Türkiye, 2024 to 2025), and a most recent Analytics Engineer role at Force24 (UK, 2026), alongside MSc Big Data Analytics and Management at Bahçeşehir (2020 to 2023, completed) and MSc Data Science at Salford (2025 to May 2026). I design dimensional models in SQL, transform with dbt, orchestrate with Dagster, and ship ML pipelines that explain themselves. Currently building independent enterprise projects in the agentic and analytics space and deepening on AI engineering via certifications. Open to roles in Germany, the UK, or remote across EMEA time zones.</p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+
+  <h3>Analytics Engineer · Force24 · Leeds, UK (Hybrid)</h3>
+  <p class="role-meta">January 2026 – April 2026 · Defined-scope contract engagement</p>
+  <p>Marketing automation SaaS. Sole architect and author of the data layer for a 3-tier customer intelligence platform, primary author across 8 backend domains, and shipping engineer for the customer-facing frontend.</p>
+  <ul>
+    <li>Sole architect and author of a dbt and Dagster data pipeline that consolidated 4 disconnected business systems into one analytics-ready warehouse on a deduplicated account spine: over 40 dbt models, 5 daily schedules, ~93% solo commit share. Established a single canonical customer ID across the business, eliminating record-matching gaps that had previously made Customer Success books unjoinable.</li>
+    <li>Cut daily pipeline compute by ~95% by re-architecting high-volume revenue models as incremental on an append-only raw layer with deterministic hash IDs. Productionised the platform on Oracle Cloud with idempotent bootstrap, TLS, VPN allowlist, and three-level operator runbooks: 24/7 platform at zero infrastructure cost.</li>
+    <li>Lifted support-attribution accuracy to auditor-defensible by designing a 10-step deterministic classification chain mapping every ticket to a single account, replacing a black-box best-guess join and closing the last open finding in the Customer Success metrics review.</li>
+    <li>Locked correctness end-to-end with 123 dbt tests and 82 pytest tests gated through GitHub Actions CI, surfacing and resolving 22 data-quality bugs during the first production build. Silent metric drift now caught in CI instead of the boardroom.</li>
+    <li>Shipped the customer-facing backend and Angular UI (customer list with 10 server-side filters, dashboard and reporting endpoints, sole-author Action Tracker across 7 outcome types) giving Customer Success a single workflow for retention actions and generating the first labelled outcomes dataset for a planned causal uplift model. Designed on the principle that dashboards should drive action, not just display data.</li>
+  </ul>
+  <p class="stack"><span class="stack-label">Stack:</span> Dagster, dbt, PostgreSQL, Python, FastAPI, Redis, Angular, Docker, Caddy, Oracle Cloud, GitHub Actions, Git.</p>
+
+  <h3>CRM Data Specialist · Natural Clinic · Istanbul, Türkiye</h3>
+  <p class="role-meta">June 2024 – January 2025</p>
+  <p>Healthcare marketing organisation. CRM data and analytics ownership across patient acquisition, conversion, and retention.</p>
+  <ul>
+    <li>Rebuilt the CRM data layer end to end as the single source of truth for sales, marketing, and clinical operations. Lead response time dropped 30%; conversion rose 15%; duplicates and data errors fell 40%; email engagement rose 25%.</li>
+    <li>Replaced weekly manual spreadsheet reporting with real-time Power BI dashboards and exec-ready reports, cutting leadership reporting latency from 7 days to live and freeing ~6 analyst-hours per week on report assembly.</li>
+    <li>Integrated the CRM with the marketing automation stack (email, SMS, paid funnels) and engineered customer data flows between CRM, patient management, and marketing tooling, eliminating three days a week of manual reconciliation.</li>
+    <li>Translated ambiguous stakeholder requests from marketing, clinical operations, and customer service into 12+ shipped data models and dashboards, including the lead-scoring and conversion-funnel models that drove the 15% conversion lift.</li>
+  </ul>
+  <p class="stack"><span class="stack-label">Stack:</span> SQL, Python, Power BI, Zoho CRM, marketing automation, workflow automation.</p>
+
+  <h3>Strategic Data Insights Analyst · Federal Mortgage Bank of Nigeria · Abuja, Nigeria</h3>
+  <p class="role-meta">December 2018 – November 2019</p>
+  <p>Federal mortgage institution managing Nigeria's national housing fund. Loan portfolio analytics and IT-governance reporting in the Asset Creation Unit of the Loan Administration group, under senior supervision.</p>
+  <ul>
+    <li>Contributed to a data-integrity overhaul that improved core dataset accuracy by 40% in six months, materially reducing the risk of faulty loan approvals.</li>
+    <li>Built Python and SQL analytics on top of Tableau to track loan repayment behaviour, supporting a 15% lift in repayment-monitoring efficiency and a 25% reduction in manual data entry.</li>
+    <li>Cut IT-asset-governance approval turnaround by 30% by re-mapping the approval workflow and instrumenting stage-level reporting in Tableau, shrinking median time-to-approve across the Loan Administration group.</li>
+  </ul>
+  <p class="stack"><span class="stack-label">Stack:</span> Python, SQL, Tableau, Excel.</p>
+
+  <h3>Customer Information and Service Specialist · Guaranty Trust Bank · Edo, Nigeria</h3>
+  <p class="role-meta">September 2015 – March 2016</p>
+  <p>Early-career role at a Tier-1 African retail bank.</p>
+  <ul>
+    <li>Identified the top 3 customer drop-off points in the branch-service funnel by analysing 6 months of interaction-log data in SQL and Excel, feeding the prioritisation that informed the USSD and Internet banking migration campaign.</li>
+    <li>Supported the migration of in-branch customers to USSD and Internet Banking through targeted adoption campaigns, contributing to a measurable shift in transaction volume off the manual branch channel during the campaign window.</li>
+    <li>Owned complaint-resolution logging and root-cause categorisation across the branch network, building the monthly service-quality dataset consumed by regional management for SLA reporting.</li>
+    <li>Mentored and onboarded a rotating team of interns.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <h3>MSc Data Science · University of Salford · Manchester, UK</h3>
+  <p class="role-meta">January 2025 – May 2026 · Dissertation: Agentic ELT Data Platform for Customer Intelligence</p>
+
+  <h3>MSc Big Data Analytics and Management · Bahcesehir University · Istanbul, Türkiye</h3>
+  <p class="role-meta">September 2020 – March 2023 · GPA 3.67 / 4.00 · Thesis: distributed PySpark pipeline for football scouting</p>
+
+  <h3>BEng Computer Engineering · University of Benin · Edo, Nigeria</h3>
+  <p class="role-meta">September 2011 – August 2017</p>
+</section>
+
+<section>
+  <h2>Projects</h2>
+
+  <h3>Agentic ELT Data Platform for Customer Intelligence</h3>
+  <p class="project-meta">MSc Dissertation (Salford) · 2026 · Live B2B SaaS Environment</p>
+  <p>End-to-end ELT platform and three-model churn intelligence stack for a live B2B SaaS environment under NDA. Built a custom Python ingestion layer that landed over 1M records from multiple vendor APIs into a JSONB-first PostgreSQL warehouse via Dagster, modelled the data through 48 dbt models, and shipped a three-model intelligence stack: survival analysis (when accounts churn), gradient-boosted classification with SHAP explanations (how likely they are to churn, with drivers), and causal inference correcting reactive-assignment selection bias in CSM effectiveness estimates. Surfaced via a FastAPI service with JWT auth and Row-Level Security, an Angular dashboard, and a Model Context Protocol (MCP) endpoint exposing the entire intelligence layer to agentic LLM workflows. Identified high-risk accounts for prioritised CSM retention action.</p>
+  <p class="project-tags"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">JSONB</span><span class="tag">dbt</span><span class="tag">Dagster</span><span class="tag">PostgresML</span><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">Causal Inference</span><span class="tag">Survival Analysis</span><span class="tag">FastAPI</span><span class="tag">Angular</span><span class="tag">MCP</span></p>
+
+  <h3>Pharmaceutical Side Effect Classification</h3>
+  <p class="project-meta">Side Project · 2025 · Healthcare ML</p>
+  <p>Production-grade multi-class classifier mapping free-text adverse-event descriptions to ten clinical categories across 11,825 marketed medicines. Random Forest at 98.5 percent accuracy on held-out test, Logistic Regression baseline at 97.2 percent (interpretable comparison within two points). Above 95 percent F1 across every retained category. Inference CLI and pytest test suite shipped.</p>
+  <p class="project-tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">TF-IDF</span><span class="tag">Random Forest</span><span class="tag">Logistic Regression</span><span class="tag">pytest</span></p>
+
+  <h3>Big Data Player Scouting (MSc Thesis)</h3>
+  <p class="project-meta">Bahcesehir Thesis · 2023 · Sports / Big Data</p>
+  <p>Distributed PySpark pipeline ranking and recommending footballers across five top European leagues using UEFA event data and PlayeRank methodology. 500 plus players, hypothesis-driven research. Published thesis, public codebase.</p>
+  <p class="project-tags"><span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">Big Data</span><span class="tag">Recommender Systems</span></p>
+
+  <h3>Equity Forecasting</h3>
+  <p class="project-meta">Side Project · 2025 · Financial Time Series</p>
+  <p>End-to-end R analysis package for univariate equity forecasting on 5,124 daily NYSE observations. ARIMA, seasonal ARIMA, and ETS through a MODEL_REGISTRY pattern, with formal residual diagnostics (Ljung-Box, Shapiro-Wilk) and stationarity tests (ADF, KPSS) combined into a single decision rule.</p>
+  <p class="project-tags"><span class="tag">R</span><span class="tag">ARIMA</span><span class="tag">ETS</span><span class="tag">Time Series</span><span class="tag">Statistical Testing</span></p>
+</section>
+
+<section>
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+    <p><b>Languages:</b> SQL, Python, R, PySpark, T-SQL, Bash</p>
+    <p><b>Transformation &amp; Orchestration:</b> dbt, Dagster, Apache Spark, Airflow</p>
+    <p><b>Warehousing &amp; Storage:</b> PostgreSQL (JSONB + GIN), Snowflake, BigQuery, Databricks, SQL Server</p>
+    <p><b>Service Layer:</b> FastAPI, REST APIs, Docker, Caddy, Model Context Protocol (MCP)</p>
+    <p><b>Source Control &amp; CI:</b> Git, GitHub, GitHub Actions, pytest</p>
+    <p><b>Cloud:</b> AWS, GCP, Azure, Oracle Cloud</p>
+    <p><b>ML &amp; Statistics:</b> scikit-learn, XGBoost, PostgresML, scikit-survival, econml (DR-Learner), SHAP, MLflow, RoBERTa, ARIMA, Time Series Analysis, NLP, Sentiment Analysis, TF-IDF, LDA, Causal Inference, Survival Analysis, A/B testing / experimentation</p>
+    <p><b>Agentic AI:</b> Model Context Protocol (MCP), agentic ELT, LLM-accessible data layers</p>
+    <p><b>BI &amp; Visualisation:</b> Power BI, Tableau, Looker</p>
+  </div>
+</section>
+
+<section>
+  <h2>Languages</h2>
+  <ul>
+    <li><strong>English:</strong> Native or bilingual proficiency</li>
+    <li><strong>German:</strong> B1 (intermediate, working toward B2)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Certifications</h2>
+  <ul>
+    <li>Engineer Data for Predictive Modeling with BigQuery ML · Google Cloud</li>
+    <li>Python for Data Science, AI &amp; Development · Coursera</li>
+    <li>Generative AI for Business Leaders · Coursera</li>
+    <li>Enterprise Design Thinking Practitioner / Team Essentials for AI / Co-Creator · IBM</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Community &amp; Leadership</h2>
+  <h3>Microsoft Learn Student Ambassador · Bahçeşehir University · Istanbul, Türkiye</h3>
+  <p class="role-meta">September 2020 – June 2023 (2 yrs 9 mo) · Ran Azure workshops, organised a campus hackathon, grew the Bahçeşehir Microsoft Learn chapter.</p>
+</section>
+
+<p class="availability">Availability: from May 2026 for roles in Germany, the UK, and remote across EMEA time zones.</p>
+
+</body></html>
