@@ -38,7 +38,7 @@ header-includes:
 
 ## Profil
 
-Analytics Engineer und Data Scientist mit sieben Jahren Erfahrung in Retail Banking, Hypothekenanalytik, Healthcare-Marketing sowie einer zuletzt ausgeübten Analytics-Engineer-Tätigkeit bei einem SaaS-Unternehmen. Ich entwerfe dimensionale Modelle in SQL, transformiere mit dbt, orchestriere mit Dagster und liefere ML-Pipelines, die sich erklären lassen. Mein Schwerpunkt liegt auf Kimball-Modellierung, CI/CD für Daten und darauf, Analystinnen und Produktteams im Anschluss schneller arbeiten zu lassen. Aktuell baue ich unabhängige Enterprise-Projekte im agentischen und Analytics-Bereich und vertiefe mich auf der AI-Engineering-Seite über Zertifizierungen. Offen für Positionen in Deutschland, EMEA, im Vereinigten Königreich oder remote in EMEA-Zeitzonen.
+Analytics Engineer und Data Scientist mit sieben Jahren Erfahrung in Retail Banking, Hypothekenanalytik, Healthcare-Marketing sowie einer zuletzt ausgeübten Analytics-Engineer-Tätigkeit bei einem SaaS-Unternehmen. Ich entwerfe dimensionale Modelle in SQL, transformiere mit dbt, orchestriere mit Dagster und liefere ML-Pipelines, die sich erklären lassen. Mein Schwerpunkt liegt auf Kimball-Modellierung, CI/CD für Daten und darauf, Analystinnen und Produktteams im Anschluss schneller arbeiten zu lassen. Aktuell baue ich unabhängige Enterprise-Projekte im agentischen und Analytics-Bereich und vertiefe mich auf der AI-Engineering-Seite über Zertifizierungen. Wohnsitz in UK, offen für Rollen in UK und Deutschland/EU. UK Graduate Visa (kein Sponsoring nötig), EU Blue Card berechtigt.
 
 ## Berufserfahrung
 
