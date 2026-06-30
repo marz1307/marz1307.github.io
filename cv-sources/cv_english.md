@@ -26,7 +26,7 @@ Manchester, UK · marvis.osazuwa@hotmail.com · +44 [phone] · [linkedin.com/in/
 
 ## Profile
 
-Analytics Engineer and Data Scientist with seven years across retail banking, mortgage analytics, healthcare marketing, and a current Analytics Engineer role at a SaaS company. I design dimensional models in SQL, transform with dbt, orchestrate with Dagster, and ship ML pipelines that explain themselves. I care about Kimball modelling, CI/CD for data, and making the analysts and product teams downstream of me faster. Open to roles in Germany, the UK, or remote across EMEA time zones.
+Analytics Engineer and Data Scientist with seven years across retail banking, mortgage analytics, healthcare marketing, and a current Analytics Engineer role at a SaaS company. I design dimensional models in SQL, transform with dbt, orchestrate with Dagster, and ship ML pipelines that explain themselves. I care about Kimball modelling, CI/CD for data, and making the analysts and product teams downstream of me faster. UK-based, open to UK and Germany/EU roles. UK Graduate visa (no sponsorship needed), EU Blue Card eligible.
 
 ## Experience
 
