@@ -38,13 +38,13 @@ header-includes:
 
 ## Profil
 
-Analytics Engineer und Data Scientist mit sieben Jahren Erfahrung in Retail Banking, Hypothekenanalytik, Healthcare-Marketing sowie einer zuletzt ausgeübten Analytics-Engineer-Tätigkeit bei einem SaaS-Unternehmen. Ich entwerfe dimensionale Modelle in SQL, transformiere mit dbt, orchestriere mit Dagster und liefere ML-Pipelines, die sich erklären lassen. Mein Schwerpunkt liegt auf Kimball-Modellierung, CI/CD für Daten und darauf, Analystinnen und Produktteams im Anschluss schneller arbeiten zu lassen. Aktuell baue ich unabhängige Enterprise-Projekte im agentischen und Analytics-Bereich und vertiefe mich auf der AI-Engineering-Seite über Zertifizierungen. Wohnsitz in UK, offen für Rollen in UK und Deutschland/EU. UK Graduate Visa (kein Sponsoring nötig), EU Blue Card berechtigt.
+Analytics Engineer und Data Scientist, der produktive Datenschichten end-to-end baut und ML einbettet, das sich selbst erklärt. Ich baue dbt- und Dagster-Pipelines auf Kimball-modellierten Data Warehouses, sichere Korrektheit in der CI und setze angewandtes ML (Survival-Analyse, Gradient-Boosting mit SHAP, kausale Inferenz) direkt darauf, zuletzt über einen Model-Context-Protocol-(MCP)-Endpoint für LLM-Agenten zugänglich gemacht. Bei Force24 war ich alleiniger Architekt der Datenschicht einer dreistufigen Customer-Intelligence-Plattform; meine MSc-Masterarbeit baute einen Churn-Intelligence-Stack aus drei Modellen nach denselben Prinzipien. UK Graduate Visa: volles Arbeitsrecht im Vereinigten Königreich, kein Sponsoring erforderlich. Für Deutschland und die EU EU-Blue-Card-berechtigt.
 
 ## Berufserfahrung
 
-### Analytics Engineer · Force24 · Leeds, Vereinigtes Königreich (Hybrid) · 01/2026 – 04/2026
+### Analytics Engineer · Force24 · Leeds, Vereinigtes Königreich (Hybrid) · Befristeter Vertrag, Januar 2026 bis April 2026
 
-Marketing-Automation-SaaS. Leitete die Datenebene eines dreistufigen Customer-Intelligence-Plattformaufbaus — alleiniger Architekt und Autor der Datenebene, primärer Autor über 8 Backend-Domänen sowie Verantwortlicher für die Customer-Surface auf dem Frontend.
+Ein definiertes 16-Wochen-Projekt, in dem ich alleiniger Architekt und Autor der Datenebene einer dreistufigen Customer-Intelligence-Plattform war, primärer Autor über 8 Backend-Domänen sowie Verantwortlicher für die Customer-Surface auf dem Frontend.
 
 - Alleiniger Architekt und Autor einer dbt- und Dagster-Datenpipeline, die 4 voneinander unabhängige Geschäftssysteme zu einem analyseergebnis-bereiten Warehouse auf einem deduplizierten Account-Spine konsolidierte. Etwa 40 dbt-Modelle über Staging-, Intermediate- und Marts-Ebenen, 5 tägliche Dagster-Schedules. Eine kanonische Kunden-ID im gesamten Unternehmen etabliert, wodurch Datensatz-Matching-Lücken beseitigt wurden, die zuvor CSM-Bücher nicht verknüpfbar machten.
 - Tägliche Pipeline-Rechenzeit um etwa 95 % reduziert durch Umarchitektur hochvolumiger Revenue-Modelle als inkrementell auf einer Append-Only-Raw-Schicht mit deterministischen Hash-IDs. Plattform auf Oracle Cloud produktiv genommen mit idempotentem Bootstrap, TLS, VPN-Allowlist und dreistufigen Operator-Runbooks — 24/7-Plattform bei null Infrastrukturkosten.
@@ -134,3 +134,7 @@ End-to-End-R-Analysepaket für univariate Aktienprognosen auf 5.124 NYSE-Tagesbe
 ## Zertifikate
 
 Engineer Data for Predictive Modeling with BigQuery ML (Google Cloud) · Python for Data Science, AI & Development (Coursera) · Generative AI for Business Leaders (Coursera) · Enterprise Design Thinking Practitioner (IBM) · Tableau for Data Scientists (LinkedIn Learning) · Statistics Foundations 1–4 (LinkedIn Learning)
+
+## Verfügbarkeit
+
+Sofort verfügbar (MSc abgeschlossen Mai 2026). Ziel: Analytics-Engineer- und Data-Scientist-Rollen im Vereinigten Königreich und in Deutschland/EU. UK Graduate Visa: kein Sponsoring nötig; EU-Blue-Card-berechtigt.
