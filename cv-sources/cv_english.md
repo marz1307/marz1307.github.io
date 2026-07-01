@@ -26,13 +26,13 @@ Manchester, UK · marvis.osazuwa@hotmail.com · +44 [phone] · [linkedin.com/in/
 
 ## Profile
 
-Analytics Engineer and Data Scientist with seven years across retail banking, mortgage analytics, healthcare marketing, and a current Analytics Engineer role at a SaaS company. I design dimensional models in SQL, transform with dbt, orchestrate with Dagster, and ship ML pipelines that explain themselves. I care about Kimball modelling, CI/CD for data, and making the analysts and product teams downstream of me faster. UK-based, open to UK and Germany/EU roles. UK Graduate visa (no sponsorship needed), EU Blue Card eligible.
+Analytics Engineer and Data Scientist who ships production data layers end to end and embeds ML that explains itself. I build dbt and Dagster pipelines on Kimball-modelled warehouses, gate correctness in CI, and put applied ML (survival, gradient-boosted with SHAP, causal inference) directly on top, most recently exposed to LLM agents through a Model Context Protocol (MCP) endpoint. At Force24 I was sole architect of the data layer for a 3-tier customer intelligence platform; my MSc Data Science dissertation built a three-model churn-intelligence stack on the same principles. UK Graduate visa: full right to work in the UK, no sponsorship needed; EU Blue Card eligible for Germany and the EU.
 
 ## Experience
 
-### Analytics Engineer · Force24 · Leeds, UK (Hybrid) · January 2026 – April 2026
+### Analytics Engineer · Force24 · Leeds, UK (Hybrid) · Fixed-term contract, January 2026 to April 2026
 
-Marketing automation SaaS. Greenfield Account Intelligence platform built over 16 weeks for Customer Success Managers, accounts, and stakeholders, delivered collaboratively under technical supervision. Two-student team; PostgreSQL and Angular mandated by Force24, every other tool decision mine.
+A defined 16-week build in which I was sole architect and author of the data layer for a 3-tier customer intelligence platform, primary author across 8 backend domains, and shipping engineer for the customer-facing frontend.
 
 - Owned the data layer end to end. Dagster orchestration on a VM with Caddy fronting it for admin authentication, custom Python extractors against multiple source systems, layered PostgreSQL warehouse using dbt across raw, staging, intermediate, and marts.
 - Authored every dbt model from scratch: staging views, intermediate business-logic tables, and curated marts (accounts, revenue, support, CSM metrics, ML-ready feature tables consumed by the ML layer), with tests, documentation, and lineage.
@@ -116,3 +116,7 @@ PySpark and ALS recommender on the Steam 200k implicit-feedback dataset. Distrib
 ## Certifications
 
 Engineer Data for Predictive Modeling with BigQuery ML (Google Cloud) · Python for Data Science, AI & Development (Coursera) · Generative AI for Business Leaders (Coursera) · Enterprise Design Thinking Practitioner (IBM) · Tableau for Data Scientists (LinkedIn Learning) · Statistics Foundations 1–4 (LinkedIn Learning)
+
+## Availability
+
+Available immediately (MSc completed May 2026). Targeting Analytics Engineer / Data Scientist roles in the UK and Germany/EU. UK Graduate visa: no sponsorship needed; EU Blue Card eligible.
