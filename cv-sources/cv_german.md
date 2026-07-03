@@ -77,11 +77,7 @@ Bundesweite Hypothekeninstitution für den nigerianischen Wohnungsbaufonds. Kred
 
 ### Customer Information and Service Specialist · GTBank · Edo, Nigeria · 09/2015 – 03/2016
 
-Berufseinstieg bei einer der größten afrikanischen Privatkundenbanken.
-
-- Kundeninteraktionsdaten analysiert, um Reibungspunkte zu identifizieren, und Erkenntnisse an funktionsübergreifende Teams weitergegeben.
-- Adoptionskampagnen für USSD- und Internet-Banking unterstützt und damit zur Reduktion manueller Filialtransaktionen und zur Verlagerung von Kundinnen auf Self-Service-Kanäle beigetragen.
-- Verantwortung für Beschwerdebearbeitung, Logging und Ursachenklassifizierung; Zulieferung an monatliches Service-Quality-Reporting.
+Berufseinstieg im Kundenservice bei einer der größten afrikanischen Privatkundenbanken: Kundinnen und Kunden beim Umstieg auf USSD- und Internet-Banking begleitet, die Beschwerdebearbeitung samt Ursachenklassifizierung für das monatliche Service-Quality-Reporting verantwortet und neue Kundenservice-Praktikanten eingearbeitet.
 
 ## Ausbildung
 

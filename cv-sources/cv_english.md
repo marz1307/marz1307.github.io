@@ -64,11 +64,7 @@ Federal mortgage institution managing Nigeria's national housing fund. Loan port
 
 ### Customer Information and Service Specialist · GTBank · Edo, Nigeria · September 2015 – March 2016
 
-Early-career role at a Tier-1 African retail bank.
-
-- Analysed customer interaction data to identify drop-off and friction points, feeding insights into cross-functional teams.
-- Led adoption campaigns for USSD and Internet banking, reducing in-branch manual transactions and shifting customers onto self-service.
-- Owned complaint resolution logging and root-cause categorisation, feeding monthly service-quality reporting.
+Early-career customer service role at a Tier-1 African retail bank: supported the migration of in-branch customers to USSD and Internet banking through targeted onboarding sessions, owned complaint-resolution logging and root-cause categorisation for the branch's monthly service-quality report, and trained incoming customer-service interns on KYC and complaint handling.
 
 ## Education
 
