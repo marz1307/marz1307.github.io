@@ -46,10 +46,18 @@
     <changefreq>weekly</changefreq><priority>0.7</priority>
   </url>
   <url>
+    <loc>https://marz1307.github.io/blog/dashboards-inform-agents-act.html</loc>
+    <lastmod>2026-07-03</lastmod>
+  </url>
+  <url>
     <loc>https://marz1307.github.io/de/blog/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://marz1307.github.io/blog/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/blog/"/>
     <changefreq>weekly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marz1307.github.io/de/blog/dashboards-inform-agents-act.html</loc>
+    <lastmod>2026-07-03</lastmod>
   </url>
   <url>
     <loc>https://marz1307.github.io/contact.html</loc>

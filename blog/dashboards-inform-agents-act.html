@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByZJaawcxAiK85qnD6nIc7iBFGzp/nf/DTzzA7Dl5Qs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+<title>Dashboards inform, agents act · Marvis Osazuwa</title>
+<meta name="description" content="What changes when an LLM agent can query your churn model directly: an MCP endpoint over survival, SHAP, and causal layers, and why the data layer decides whether the agent can be trusted.">
+<link rel="canonical" href="https://marz1307.github.io/blog/dashboards-inform-agents-act.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/blog/dashboards-inform-agents-act.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/blog/dashboards-inform-agents-act.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/blog/dashboards-inform-agents-act.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dashboards inform, agents act">
+<meta property="og:description" content="Putting an MCP endpoint on a churn model, and why the data layer decides whether the agent can be trusted.">
+<meta property="og:url" content="https://marz1307.github.io/blog/dashboards-inform-agents-act.html">
+<meta property="og:image" content="https://marz1307.github.io/assets/thumbnails/og-image.webp">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">M.O.</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/projects/">Work</a>
+      <a class="active" aria-current="page" href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a class="lang-toggle" href="/de/blog/dashboards-inform-agents-act.html" aria-label="Auf Deutsch wechseln">DE</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle colour theme">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="page-head">
+    <span class="caption">Blog · 3 July 2026 · 5 min read</span>
+    <h1 style="margin-top:16px;">Dashboards inform, agents act.</h1>
+    <p class="sub muted">Putting a Model Context Protocol endpoint on a churn model, and why the data layer underneath decides whether the agent can be trusted.</p>
+  </header>
+
+  <article class="prose" style="max-width:680px;">
+    <section class="chapter">
+      <p>Every BI stack I have ever seen ends the same way: a human looks at a chart and decides what to do. All the engineering upstream, the ingestion, the modelling, the testing, exists to serve that one moment of a person reading a screen. The dashboard informs. A person acts. That handoff is where analytics has lived for twenty years.</p>
+      <p>For my MSc dissertation I built the usual first half of that story. A churn intelligence stack for a live B2B SaaS environment: survival analysis to say <em>when</em> accounts are likely to leave, gradient-boosted classification with SHAP explanations to say <em>how likely and why</em>, and DR-Learner causal inference to say <em>which interventions actually work</em> rather than which ones merely correlate with staying. Underneath it, a warehouse of 48 dbt models in layered Kimball style, ingested by Python extractors and orchestrated with Dagster.</p>
+      <p>Then, instead of stopping at the dashboard, I put a Model Context Protocol endpoint on top.</p>
+
+      <h2>What MCP actually changes</h2>
+      <p>MCP is a small open standard that lets an LLM agent call tools you define. My server exposes twelve of them over the intelligence stack: things like <code>churn_at_risk_accounts</code>, <code>churn_score_for_account</code>, and <code>csm_intervention_priority</code>, organised into churn, account, and customer-success domains over a shared database layer.</p>
+      <p>The difference is easiest to see in one exchange. A customer success lead asks: "Which accounts are high risk this quarter, and which of those would actually respond if we intervened?" On a dashboard, that is two filters, a mental join, and an argument about what "respond" means. Through the MCP endpoint, an agent chains two tool calls, cross-references the survival window with the causal treatment group, and answers with the ranked list and the SHAP drivers per account. The person still decides. But the waiting, the filtering, and the mental join are gone.</p>
+      <p>That is the whole thesis in one line: dashboards inform, agents act, and the interesting engineering question moves one layer down.</p>
+
+      <h2>The agent is only as honest as the marts underneath it</h2>
+      <p>Here is the part that gets skipped in most agent demos. An LLM agent will answer from a broken mart with exactly the same confidence as from a correct one. It has no idea your revenue model silently double-counts renewals. A human analyst might squint at a suspicious number; the agent will summarise it fluently and move on.</p>
+      <p>So the credibility of the whole agentic layer is decided by the least glamorous work in the stack. In this build that meant dimensional models with tests on every layer, contracts on the interfaces the tools query, and correctness gated in CI before anything reaches the serving layer. The same discipline I used on the production platform I built at Force24, where 123 dbt tests and 82 pytest tests caught 22 data quality bugs before they shipped. None of that work demos well. All of it is why the agent's answers can be trusted.</p>
+      <p>If your marts are not tested, an MCP endpoint does not give you an AI analyst. It gives you a very articulate liar.</p>
+
+      <h2>Boundaries, honestly stated</h2>
+      <p>This was a dissertation build against an NDA-protected environment, so the case study on this site is sanitised. The models are strong but not magic: the survival model cross-validated at a C-index around 0.94, the classifier at an AUC around 0.95 against a 0.89 logistic baseline, and the causal layer corrected a selection bias of roughly 50 percentage points that a naive comparison would have shipped as fact. Those numbers are good because the data layer let them be good.</p>
+      <p>And agents do not replace analysts. They replace the waiting between a question and its answer. Someone still has to decide what a treatment group means, whether an intervention is worth its cost, and when the model is wrong. That someone now spends their time on judgement instead of filters.</p>
+
+      <h2>The pattern travels</h2>
+      <p>Nothing here is churn-specific. Any intelligence layer with real modelling underneath it, priced risk, demand forecasts, fraud scores, can be exposed the same way: tools over tested marts, explanations attached to every number, and an agent in front. Few teams have shipped this pattern end to end yet. I think in three years it will simply be what "serving layer" means.</p>
+      <p style="margin-top:24px;"><a class="arrow-link" href="/projects/agentic-elt.html">Read the full case study →</a></p>
+      <p class="muted" style="font-size:14px;">I am a Manchester-based MSc Data Science graduate (Salford, 2026), available now for junior and mid-level analytics engineering, data engineering, and data science roles across the UK and Germany/EU. If your team is wrestling with the layer between models and decisions, <a href="/contact.html">I would like to hear about it</a>.</p>
+    </section>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">Email</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Open to the UK and Germany/EU.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Built with stubbornness.</div>
+  </div>
+</footer>
+</body>
+</html>

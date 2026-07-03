@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByZJaawcxAiK85qnD6nIc7iBFGzp/nf/DTzzA7Dl5Qs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+<title>Dashboards informieren, Agenten handeln · Marvis Osazuwa</title>
+<meta name="description" content="Was sich ändert, wenn ein LLM-Agent Ihr Churn-Modell direkt abfragen kann: ein MCP-Endpoint über Survival-, SHAP- und Kausalschichten, und warum die Datenebene entscheidet, ob dem Agenten vertraut werden kann.">
+<link rel="canonical" href="https://marz1307.github.io/de/blog/dashboards-inform-agents-act.html">
+<link rel="alternate" hreflang="en" href="https://marz1307.github.io/blog/dashboards-inform-agents-act.html">
+<link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/blog/dashboards-inform-agents-act.html">
+<link rel="alternate" hreflang="x-default" href="https://marz1307.github.io/blog/dashboards-inform-agents-act.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:title" content="Dashboards informieren, Agenten handeln">
+<meta property="og:description" content="Ein MCP-Endpoint auf einem Churn-Modell, und warum die Datenebene entscheidet, ob dem Agenten vertraut werden kann.">
+<meta property="og:url" content="https://marz1307.github.io/de/blog/dashboards-inform-agents-act.html">
+<meta property="og:image" content="https://marz1307.github.io/assets/thumbnails/de/og-image.webp">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de/">M.O.</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/de/projects/">Projekte</a>
+      <a class="active" aria-current="page" href="/de/blog/">Blog</a>
+      <a href="/de/about.html">Über</a>
+      <a href="/de/contact.html">Kontakt</a>
+      <a class="lang-toggle" href="/blog/dashboards-inform-agents-act.html" aria-label="Switch to English">EN</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Farbschema umschalten">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="page-head">
+    <span class="caption">Blog · 3. Juli 2026 · 5 min Lesezeit</span>
+    <h1 style="margin-top:16px;">Dashboards informieren, Agenten handeln.</h1>
+    <p class="sub muted">Ein Model-Context-Protocol-Endpoint auf einem Churn-Modell, und warum die Datenebene darunter entscheidet, ob dem Agenten vertraut werden kann.</p>
+  </header>
+
+  <article class="prose" style="max-width:680px;">
+    <section class="chapter">
+      <p>Jeder BI-Stack, den ich je gesehen habe, endet auf dieselbe Weise: Ein Mensch schaut auf ein Diagramm und entscheidet, was zu tun ist. Das gesamte Engineering davor, die Ingestion, die Modellierung, das Testen, existiert für diesen einen Moment, in dem eine Person auf einen Bildschirm schaut. Das Dashboard informiert. Ein Mensch handelt. An dieser Übergabe lebt Analytics seit zwanzig Jahren.</p>
+      <p>Für meine MSc-Dissertation habe ich die übliche erste Hälfte dieser Geschichte gebaut. Einen Churn-Intelligence-Stack für eine produktive B2B-SaaS-Umgebung: Survival Analysis, um zu sagen, <em>wann</em> Accounts voraussichtlich abwandern, Gradient-Boosting-Klassifikation mit SHAP-Erklärungen, um zu sagen, <em>wie wahrscheinlich und warum</em>, und kausale Inferenz mit DR-Learner, um zu sagen, <em>welche Interventionen tatsächlich wirken</em>, statt nur mit dem Bleiben zu korrelieren. Darunter ein Warehouse aus 48 dbt-Modellen in geschichteter Kimball-Architektur, befüllt von Python-Extraktoren und orchestriert mit Dagster.</p>
+      <p>Dann habe ich, statt beim Dashboard aufzuhören, einen Model-Context-Protocol-Endpoint obendrauf gesetzt.</p>
+
+      <h2>Was MCP tatsächlich ändert</h2>
+      <p>MCP ist ein kleiner offener Standard, der es einem LLM-Agenten erlaubt, von Ihnen definierte Tools aufzurufen. Mein Server stellt zwölf davon über dem Intelligence-Stack bereit: Dinge wie <code>churn_at_risk_accounts</code>, <code>churn_score_for_account</code> und <code>csm_intervention_priority</code>, organisiert in die Domänen Churn, Account und Customer Success über einer gemeinsamen Datenbankschicht.</p>
+      <p>Der Unterschied zeigt sich am deutlichsten an einem einzigen Austausch. Ein Customer-Success-Lead fragt: "Welche Accounts sind dieses Quartal hochriskant, und welche davon würden tatsächlich reagieren, wenn wir intervenieren?" Auf einem Dashboard sind das zwei Filter, ein Join im Kopf und eine Diskussion darüber, was "reagieren" bedeutet. Über den MCP-Endpoint verkettet ein Agent zwei Tool-Aufrufe, gleicht das Survival-Fenster mit der kausalen Treatment-Gruppe ab und antwortet mit der priorisierten Liste samt SHAP-Treibern pro Account. Der Mensch entscheidet weiterhin. Aber das Warten, das Filtern und der Join im Kopf sind weg.</p>
+      <p>Das ist die ganze These in einem Satz: Dashboards informieren, Agenten handeln, und die interessante Engineering-Frage rutscht eine Ebene tiefer.</p>
+
+      <h2>Der Agent ist nur so ehrlich wie die Marts darunter</h2>
+      <p>Hier kommt der Teil, der in den meisten Agent-Demos übersprungen wird. Ein LLM-Agent antwortet aus einem kaputten Mart mit genau derselben Überzeugung wie aus einem korrekten. Er hat keine Ahnung, dass Ihr Umsatzmodell Verlängerungen stillschweigend doppelt zählt. Ein menschlicher Analyst würde bei einer verdächtigen Zahl vielleicht stutzen; der Agent fasst sie flüssig zusammen und macht weiter.</p>
+      <p>Die Glaubwürdigkeit der gesamten agentischen Schicht wird also von der unglamourösesten Arbeit im Stack entschieden. In diesem Projekt hieß das: dimensionale Modelle mit Tests auf jeder Ebene, Contracts auf den Schnittstellen, die die Tools abfragen, und Korrektheit, die in der CI geprüft wird, bevor irgendetwas den Serving Layer erreicht. Dieselbe Disziplin wie auf der Produktionsplattform, die ich bei Force24 gebaut habe, wo 123 dbt-Tests und 82 pytest-Tests 22 Datenqualitätsfehler abgefangen haben, bevor sie live gingen. Nichts davon macht sich gut in einer Demo. Alles davon ist der Grund, warum den Antworten des Agenten vertraut werden kann.</p>
+      <p>Wenn Ihre Marts nicht getestet sind, liefert ein MCP-Endpoint keinen KI-Analysten. Er liefert einen sehr eloquenten Lügner.</p>
+
+      <h2>Grenzen, ehrlich benannt</h2>
+      <p>Dies war ein Dissertationsprojekt in einer NDA-geschützten Umgebung, die Fallstudie auf dieser Seite ist daher sanitisiert. Die Modelle sind stark, aber keine Magie: Das Survival-Modell erreichte kreuzvalidiert einen C-Index von rund 0,94, der Klassifikator eine AUC von rund 0,95 gegenüber rund 0,89 für die logistische Baseline, und die Kausalschicht korrigierte einen Selektionsbias von rund 50 Prozentpunkten, den ein naiver Vergleich als Fakt ausgeliefert hätte. Diese Zahlen sind gut, weil die Datenebene sie gut sein ließ.</p>
+      <p>Und Agenten ersetzen keine Analysten. Sie ersetzen das Warten zwischen einer Frage und ihrer Antwort. Jemand muss weiterhin entscheiden, was eine Treatment-Gruppe bedeutet, ob eine Intervention ihre Kosten wert ist und wann das Modell falsch liegt. Dieser Jemand verbringt seine Zeit jetzt mit Urteilsvermögen statt mit Filtern.</p>
+
+      <h2>Das Muster ist übertragbar</h2>
+      <p>Nichts davon ist churn-spezifisch. Jede Intelligence-Schicht mit echter Modellierung darunter, bepreistes Risiko, Nachfrageprognosen, Fraud-Scores, lässt sich auf dieselbe Weise zugänglich machen: Tools über getesteten Marts, Erklärungen an jeder Zahl und ein Agent davor. Nur wenige Teams haben dieses Muster bislang Ende zu Ende ausgeliefert. Ich glaube, in drei Jahren wird es schlicht das sein, was "Serving Layer" bedeutet.</p>
+      <p style="margin-top:24px;"><a class="arrow-link" href="/de/projects/agentic-elt.html">Zur vollständigen Fallstudie →</a></p>
+      <p class="muted" style="font-size:14px;">Ich bin MSc-Data-Science-Absolvent (Salford, 2026) mit Sitz in Manchester, ab sofort verfügbar für Junior- und Mid-Level-Rollen in Analytics Engineering, Data Engineering und Data Science im Vereinigten Königreich und in Deutschland/EU. Wenn Ihr Team mit der Schicht zwischen Modellen und Entscheidungen ringt, <a href="/de/contact.html">würde ich gern davon hören</a>.</p>
+    </section>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Offen für UK und Deutschland/EU.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Mit Hartnäckigkeit gebaut.</div>
+  </div>
+</footer>
+</body>
+</html>
