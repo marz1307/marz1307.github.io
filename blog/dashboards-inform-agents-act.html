@@ -66,7 +66,7 @@
 
       <h2>The agent is only as honest as the marts underneath it</h2>
       <p>Here is the part that gets skipped in most agent demos. An LLM agent will answer from a broken mart with exactly the same confidence as from a correct one. It has no idea your revenue model silently double-counts renewals. A human analyst might squint at a suspicious number; the agent will summarise it fluently and move on.</p>
-      <p>So the credibility of the whole agentic layer is decided by the least glamorous work in the stack. In this build that meant dimensional models with tests on every layer, contracts on the interfaces the tools query, and correctness gated in CI before anything reaches the serving layer. The same discipline I used on the production platform I built at Force24, where 123 dbt tests and 82 pytest tests caught 22 data quality bugs before they shipped. None of that work demos well. All of it is why the agent's answers can be trusted.</p>
+      <p>So the credibility of the whole agentic layer is decided by the least glamorous work in the stack. In this build that meant dimensional models with tests on every layer, contracts on the interfaces the tools query, and correctness gated in CI before anything reaches the serving layer. The same discipline I used on a production platform I built in a previous role, where 123 dbt tests and 82 pytest tests caught 22 data quality bugs before they shipped. None of that work demos well. All of it is why the agent's answers can be trusted.</p>
       <p>If your marts are not tested, an MCP endpoint does not give you an AI analyst. It gives you a very articulate liar.</p>
 
       <h2>Boundaries, honestly stated</h2>
