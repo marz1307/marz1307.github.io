@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /cv/Marvis_Osazuwa_CV_
+Disallow: /cv/Marvis_Osazuwa_Lebenslauf_
 
 Sitemap: https://marz1307.github.io/sitemap.xml
