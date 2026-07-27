@@ -107,7 +107,7 @@ PySpark and ALS recommender on the Steam 200k implicit-feedback dataset. Distrib
 
 ## Languages
 
-**English:** Native or bilingual proficiency · **German:** B1 (intermediate, working toward B2)
+**English:** Native · **German:** B1
 
 ## Certifications
 

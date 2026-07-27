@@ -125,7 +125,7 @@ End-to-End-R-Analysepaket für univariate Aktienprognosen auf 5.124 NYSE-Tagesbe
 
 ## Sprachen
 
-**Englisch:** Muttersprachlich · **Deutsch:** B1 (Mittelstufe, in Vorbereitung auf B2)
+**Englisch:** Muttersprachlich · **Deutsch:** B1 (GER)
 
 ## Zertifikate
 
