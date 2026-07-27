@@ -81,7 +81,7 @@ Berufseinstieg im Kundenservice bei einer der größten afrikanischen Privatkund
 
 ## Ausbildung
 
-**MSc Data Science** · University of Salford, Manchester, Vereinigtes Königreich · 01/2025 – 05/2026
+**MSc Data Science** · University of Salford, Manchester, Vereinigtes Königreich · 01/2025 – 05/2026 · Note: Distinction (mit Auszeichnung)
 Schwerpunkte: Machine Learning, Big-Data-Engineering, angewandte Statistik, datengetriebene Entscheidungsfindung.
 
 **MSc Big Data Analytics and Management** · Bahçeşehir Universität, Istanbul, Türkei · 09/2020 – 03/2023 · Note: 3,67/4,00

@@ -68,7 +68,7 @@ Early-career customer service role at a Tier-1 African retail bank: supported th
 
 ## Education
 
-**MSc Data Science** · University of Salford, Manchester, UK · January 2025 – May 2026
+**MSc Data Science** · University of Salford, Manchester, UK · January 2025 – May 2026 · Distinction
 Dissertation: Agentic ELT Data Platform for Customer Intelligence. Coursework in machine learning, big data engineering, applied statistics, and data-driven decision making.
 
 **MSc Big Data Analytics and Management** · Bahcesehir University, Istanbul, Türkiye · September 2020 – March 2023 · GPA 3.67/4.00
