@@ -87,20 +87,20 @@
   <article>
     <section class="case-section reveal">
       <h2>Der vollständige ML-Lifecycle, im großen Maßstab.</h2>
-      <p>Einen Recommender im großen Maßstab zu bauen ist ein anderes Problem, als einen auf dem Laptop zu bauen. Der Steam-200k-Datensatz hat Implicit Feedback von echten Nutzern in echtem Volumen. Ihn gut zu nutzen heißt, die Modellierung auf eine verteilte Engine zu verschieben und Experimente sauber zu tracken. Das war das Projekt, in dem ich einen vollständigen ML-Lifecycle ausgeliefert habe: distributed ALS Training, Hyperparameter Sweeps mit Cross Validation und Experiment Tracking in MLflow.</p>
+      <p>Einen Recommender im großen Maßstab zu bauen ist ein anderes Problem, als einen auf dem Laptop zu bauen. Der Steam-200k-Datensatz hat Implicit Feedback von echten Nutzern in echtem Volumen. Ihn gut zu nutzen heißt, die Modellierung auf eine verteilte Engine zu verschieben und Experimente sauber zu tracken. Das war das Projekt, in dem ich einen vollständigen ML-Lifecycle ausgeliefert habe: verteiltes ALS-Training, Hyperparameter-Sweeps mit Cross-Validation und Experiment-Tracking in MLflow.</p>
     </section>
 
     <section class="case-section reveal">
       <h2>ALS auf Spark MLlib, mit ordentlichem Tuning.</h2>
-      <p>Alternating Least Squares ist der richtige Algorithmus für Implicit Feedback im Maßstab, und Spark MLlib hat eine saubere Implementierung. Ich habe die Pipeline auf Databricks Community Edition aufgesetzt, was mir genug Compute gegeben hat, um eine vollständige Grid Search statt eines symbolischen Tuning-Schrittes zu fahren.</p>
-      <p>Der Parameterraum deckte rank, regParam, alpha und maxIter ab. Ich habe das Ganze in CrossValidator gewrappt, jedes Experiment in MLflow getrackt, und das beste Modell genutzt, um personalisierte Empfehlungen für Beispiel-Nutzer zu generieren.</p>
+      <p>Alternating Least Squares ist der richtige Algorithmus für Implicit Feedback im großen Maßstab, und Spark MLlib hat eine saubere Implementierung. Ich habe die Pipeline auf Databricks Community Edition aufgesetzt, was mir genug Compute gegeben hat, um eine vollständige Grid Search statt eines symbolischen Tuning-Schrittes zu fahren.</p>
+      <p>Der Parameterraum deckte rank, regParam, alpha und maxIter ab. Ich habe das Ganze in CrossValidator gewrappt, jedes Experiment in MLflow getrackt und das beste Modell genutzt, um personalisierte Empfehlungen für Beispiel-Nutzer zu generieren.</p>
     </section>
 
     <section class="case-section reveal">
       <h2>Ergebnis.</h2>
-      <p>Ein funktionierender Recommender, ein sauberer Code, eine reproduzierbare Pipeline und die Gewohnheit, Hyperparameter-Tuning nie zu überspringen, nur weil es mühsam ist.</p>
+      <p>Ein funktionierender Recommender, eine saubere Codebasis, eine reproduzierbare Pipeline und die Gewohnheit, Hyperparameter-Tuning nie zu überspringen, nur weil es mühsam ist.</p>
       <p style="margin-top:24px;">
-        <a class="arrow-link" href="https://github.com/marz1307/Recommender-System-for-Steam-Games" target="_blank" rel="noopener">→ GitHub Repository</a>
+        <a class="arrow-link" href="https://github.com/marz1307/Recommender-System-for-Steam-Games" target="_blank" rel="noopener">→ GitHub-Repository</a>
       </p>
     </section>
 

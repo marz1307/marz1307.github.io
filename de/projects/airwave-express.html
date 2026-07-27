@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByZJaawcxAiK85qnD6nIc7iBFGzp/nf/DTzzA7Dl5Qs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
 <title>AirWave Express Ticketing System · Marvis Osazuwa</title>
-<meta name="description" content="SQL-Server-Schema für eine Airport-Ticketing-Plattform: Passenger, Flight, Reservation, Ticketing, Baggage, ergänzende Services. Sequences, Triggers, Integritäts-Constraints.">
+<meta name="description" content="SQL-Server-Schema für eine Airport-Ticketing-Plattform: Passenger, Flight, Reservation, Ticketing, Baggage, ergänzende Services. Sequences, Trigger, Integritäts-Constraints.">
 <link rel="canonical" href="https://marz1307.github.io/de/projects/airwave-express.html">
 <link rel="alternate" hreflang="en" href="https://marz1307.github.io/projects/airwave-express.html">
 <link rel="alternate" hreflang="de" href="https://marz1307.github.io/de/projects/airwave-express.html">
@@ -25,7 +25,7 @@
 <meta property="og:locale" content="de_DE">
 <meta property="og:locale:alternate" content="en_GB">
 <meta property="og:title" content="AirWave Express Ticketing System · Marvis Osazuwa">
-<meta property="og:description" content="SQL-Server-Schema für eine Airport-Ticketing-Plattform: Passenger, Flight, Reservation, Ticketing, Baggage, ergänzende Services. Sequences, Triggers, Integritäts-Constraints.">
+<meta property="og:description" content="SQL-Server-Schema für eine Airport-Ticketing-Plattform: Passenger, Flight, Reservation, Ticketing, Baggage, ergänzende Services. Sequences, Trigger, Integritäts-Constraints.">
 <meta property="og:url" content="https://marz1307.github.io/de/projects/airwave-express.html">
 <meta property="og:image" content="https://marz1307.github.io/assets/thumbnails/de/airwave-express.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -70,7 +70,7 @@
     <div class="metadata-strip">
       <div><span class="label">Rolle</span><span class="value">Autor</span></div>
       <div><span class="label">Zeitraum</span><span class="value">Mai 2024 bis Juli 2024</span></div>
-      <div><span class="label">Kontext</span><span class="value">Side Project · Aviation-Sektor</span></div>
+      <div><span class="label">Kontext</span><span class="value">Side Project · Luftfahrtsektor</span></div>
       <div><span class="label">Stack</span><span class="value">SQL Server · T-SQL · Schema Design · Triggers · Sequences</span></div>
     </div>
     <p class="mono muted" style="font-size:12px;letter-spacing:0.04em;">3 min Lesezeit</p>
@@ -88,30 +88,30 @@
   <article>
     <section class="case-section reveal">
       <h2>Das Schema ist das Rückgrat.</h2>
-      <p>Airport-Ticketing-Systeme sitzen an der Schnittstelle von rund einem Dutzend Workflows, die alle konsistent bleiben müssen: Passagier-Datensätze, die sich über Reservierungen aktualisieren, Flugpläne, die sich ändern, während Tickets bereits ausgestellt sind, Gepäcktracking, das am richtigen Passagier und Flug hängen muss, ergänzende Services (Mahlzeiten, Seat Upgrades), die korrekt abrechnen müssen, auch wenn die zugrundeliegende Buchung modifiziert wird.</p>
-      <p>Das Schema ist das Rückgrat von all dem. Falsch gemacht, und jeder Workflow oben drauf wird auf eine andere Art korrumpiert.</p>
+      <p>Airport-Ticketing-Systeme sitzen an der Schnittstelle von rund einem Dutzend Workflows, die alle konsistent bleiben müssen: Passagier-Datensätze, die sich über Reservierungen hinweg aktualisieren, Flugpläne, die sich ändern, während Tickets bereits ausgestellt sind, Gepäcktracking, das am richtigen Passagier und Flug hängen muss, ergänzende Services (Mahlzeiten, Seat-Upgrades), die korrekt abgerechnet werden müssen, auch wenn die zugrundeliegende Buchung modifiziert wird.</p>
+      <p>Das Schema ist das Rückgrat von all dem. Falsch gemacht, und jeder Workflow obendrauf wird auf eine andere Art korrumpiert.</p>
     </section>
 
     <section class="case-section reveal">
-      <h2>Sieben Entitäten, Integrität by Construction.</h2>
-      <p>Sieben Kern-Entitäten: Employee, Passenger, Flight, Reservation, Ticket, AdditionalServices, Baggage. Jede hat einen sauberen Primary Key, der über eine SQL-Server-Sequence generiert wird (z. B. <code>EmployeeSeq</code> kombiniert mit <code>trgGenerateEmployeeID</code> Trigger). Foreign Keys erzwingen die Beziehungen, die über Zeit halten müssen: ein Ticket kann nicht ohne seine Reservation existieren, eine Reservation nicht ohne Passenger und Flight.</p>
-      <p>Constraints erledigen den Rest. CHECK Constraints auf Datumsreihenfolge (Departure kann nicht vor Arrival liegen), NOT NULL auf jedem Feld, das in einem echten Ticketing-Workflow nie optional sein darf, UNIQUE Constraints auf den Dingen, die eindeutig sein müssen (Reisepassnummern, Flugcodes pro Datum).</p>
+      <h2>Sieben Entitäten, Integrität per Konstruktion.</h2>
+      <p>Sieben Kern-Entitäten: Employee, Passenger, Flight, Reservation, Ticket, AdditionalServices, Baggage. Jede hat einen sauberen Primary Key, der über eine SQL-Server-Sequence generiert wird (z. B. <code>EmployeeSeq</code> kombiniert mit dem Trigger <code>trgGenerateEmployeeID</code>). Foreign Keys erzwingen die Beziehungen, die dauerhaft halten müssen: ein Ticket kann nicht ohne seine Reservation existieren, eine Reservation nicht ohne Passenger und Flight.</p>
+      <p>Constraints erledigen den Rest. CHECK-Constraints auf Datumsreihenfolge (Departure kann nicht vor Arrival liegen), NOT NULL auf jedem Feld, das in einem echten Ticketing-Workflow nie optional sein darf, UNIQUE-Constraints auf den Dingen, die eindeutig sein müssen (Reisepassnummern, Flugcodes pro Datum).</p>
     </section>
 
     <section class="case-section reveal">
       <h2>Was ausgeliefert wurde.</h2>
       <div class="metrics-block">
-        <div class="metric"><div class="num">7 Entitäten</div><div class="cap">zentrale Ticketing-Fläche</div></div>
-        <div class="metric"><div class="num">Sequences</div><div class="cap">+ Triggers für ID-Generierung</div></div>
+        <div class="metric"><div class="num">7 Entitäten</div><div class="cap">zentraler Ticketing-Bereich</div></div>
+        <div class="metric"><div class="num">Sequences</div><div class="cap">+ Trigger für ID-Generierung</div></div>
         <div class="metric"><div class="num">FK / CHECK</div><div class="cap">NOT NULL · UNIQUE</div></div>
         <div class="metric"><div class="num">Projektbericht</div><div class="cap">Design-Rationale enthalten</div></div>
       </div>
-      <p>Vollständiges SQL-Server-Schema mit sieben Tabellen, automatisierter ID-Generierung über Sequences und Triggers, vollständige referenzielle Integrität über Foreign Keys, und Constraint-Abdeckung über die operative Fläche. Das Repository enthält das Schema-Skript und einen Projektbericht, der die Design-Rationale durchgeht.</p>
+      <p>Vollständiges SQL-Server-Schema mit sieben Tabellen, automatisierter ID-Generierung über Sequences und Trigger, vollständiger referenzieller Integrität über Foreign Keys und Constraint-Abdeckung über den gesamten operativen Bereich. Das Repository enthält das Schema-Skript und einen Projektbericht, der die Design-Rationale durchgeht.</p>
     </section>
 
     <section class="case-section reveal">
       <h2>Erkenntnisse.</h2>
-      <p>Auto-generierte IDs über Sequences plus Triggers sind eleganter als der IDENTITY-Column-Ansatz, wenn man IDs braucht, die einem bestimmten Format oder Naming-Pattern folgen. Einmal eingerichtet, läuft jedes INSERT einfach. Der Trigger erledigt die Arbeit, die sonst die Application machen müsste, und der Vorteil entsteht auf Datenbankebene.</p>
+      <p>Auto-generierte IDs über Sequences plus Trigger sind eleganter als der IDENTITY-Column-Ansatz, wenn man IDs braucht, die einem bestimmten Format oder Naming-Pattern folgen. Einmal eingerichtet, läuft jedes INSERT einfach. Der Trigger erledigt die Arbeit, die sonst die Anwendung übernehmen müsste, und der Vorteil entsteht auf Datenbankebene.</p>
       <p style="margin-top:24px;">
         <a class="arrow-link" href="https://github.com/marz1307/AirWaveExpressTicketingSystem" target="_blank" rel="noopener">→ GitHub Repository</a>
       </p>

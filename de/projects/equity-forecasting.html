@@ -75,7 +75,7 @@
   <article>
     <section class="case-section reveal">
       <h2>Problem.</h2>
-      <p>Eine belastbare kurzfristige Punktprognose aus einer verrauschten, nicht-stationären Finanzzeitreihe zu bauen, ist ein Lehrbuchproblem mit viel Folklore drumherum. Die meisten öffentlichen Beispiele überspringen die Stationaritätstests, überspringen die Residuen-Diagnostik und berichten zu einem einzigen Modell. Dieses Projekt baut die end-to-end-Pipeline ordentlich: laden, validieren, diagnostizieren, transformieren, Kandidaten fitten, evaluieren, berichten.</p>
+      <p>Eine belastbare kurzfristige Punktprognose aus einer verrauschten, nicht-stationären Finanzzeitreihe zu bauen, ist ein Lehrbuchproblem mit viel Folklore drumherum. Die meisten öffentlichen Beispiele überspringen die Stationaritätstests, überspringen die Residuen-Diagnostik und berichten über ein einziges Modell. Dieses Projekt baut die End-to-End-Pipeline ordentlich: laden, validieren, diagnostizieren, transformieren, Kandidaten fitten, evaluieren, berichten.</p>
       <p>Das eingecheckte Arbeitsbeispiel nutzt 5.124 Tagesbeobachtungen von NYSE-Ticker A von Dezember 1999 bis Mai 2023, mit Schlusskursen zwischen 7,76 USD und 113,70 USD.</p>
     </section>
 
@@ -84,19 +84,19 @@
       <p>Eigenständig, end-to-end:</p>
       <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
         <li>Schema-Validierung beim Daten-Load. Erwartete Spalten, Typen und chronologische Reihenfolge an der Grenze erzwungen.</li>
-        <li>EDA: Verteilungs-Summary, Quantile, Series-Plot über die volle Stichprobe und STL-Decomposition-Strengths.</li>
+        <li>EDA: Verteilungs-Summary, Quantile, Zeitreihen-Plot über die gesamte Stichprobe und Stärkemaße der STL-Zerlegung.</li>
         <li>Transformationen: optionaler Log, Differencing ganzzahliger Ordnung, alles konfigurierbar.</li>
         <li>Stationaritätstests. ADF und KPSS in eine einzige Entscheidungsregel überführt, statt jeden isoliert zu fahren und sich widersprechende Verdikte zu erhalten.</li>
-        <li>Modell-Kandidaten registriert über ein <code>MODEL_REGISTRY</code>-Pattern. ARIMA, saisonales ARIMA per <code>auto.arima</code>, ETS, naive Baseline. Neue Kandidaten lassen sich registrieren, indem man eine einzige Funktion hinzufügt, statt die Pipeline anzufassen.</li>
+        <li>Modell-Kandidaten über ein <code>MODEL_REGISTRY</code>-Pattern registriert. ARIMA, saisonales ARIMA per <code>auto.arima</code>, ETS, naive Baseline. Neue Kandidaten lassen sich registrieren, indem man eine einzige Funktion hinzufügt, statt die Pipeline anzufassen.</li>
         <li>Residuen-Diagnostik. Ljung-Box auf Autokorrelation, Shapiro-Wilk auf Normalität, Mittelwert- und Varianz-Checks im Summary.</li>
         <li>Forecast-Evaluation gegen die naive Baseline als Untergrenze. RMSE, MAE, MAPE.</li>
-        <li>testthat-Suite mit synthetischer Series-Fixture, R-CMD-check-CI-Matrix über mehrere R-Versionen, lintr-Config gated CI.</li>
+        <li>testthat-Suite mit synthetischer Zeitreihen-Fixture, R-CMD-check-CI-Matrix über mehrere R-Versionen, lintr-Config als CI-Gate.</li>
       </ul>
     </section>
 
     <section class="case-section reveal">
       <h2>Warum dieses Setup wichtig ist.</h2>
-      <p>Finanzzeitreihen scheitern still. Ein Modell mit gutem RMSE auf den Trainingsdaten kann auf der Residuen-Ebene leise kaputt sein (Autokorrelation in den Residuen heißt, das Modell hat die Struktur nicht erfasst), und man merkt es erst, wenn die Live-Daten anfangen, sich schlecht zu benehmen. Der Ljung-Box- plus Shapiro-Wilk-Check auf der Residuen-Stufe ist die Diagnostik, die das abfängt, bevor man die Prognose ausliefert.</p>
+      <p>Finanzzeitreihen scheitern still. Ein Modell mit gutem RMSE auf den Trainingsdaten kann auf der Residuen-Ebene leise kaputt sein (Autokorrelation in den Residuen heißt, das Modell hat die Struktur nicht erfasst), und man merkt es erst, wenn die Live-Daten anfangen, sich auffällig zu verhalten. Der Ljung-Box- plus Shapiro-Wilk-Check auf der Residuen-Stufe ist die Diagnostik, die das abfängt, bevor man die Prognose ausliefert.</p>
       <p>Das <code>MODEL_REGISTRY</code>-Pattern ist die architektonische Entscheidung, die die Pipeline tatsächlich wiederverwendbar macht. Einen neuen Kandidaten hinzufügen (Prophet, TBATS, neuronaler State Space) ist ein einziger Registrierungsaufruf. Der Evaluation-, Diagnostik- und Reporting-Code ändert sich nicht.</p>
     </section>
 

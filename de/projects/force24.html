@@ -82,7 +82,7 @@
   <figure class="case-hero-thumb">
     <picture>
       <source srcset="/assets/thumbnails/de/force24.webp" type="image/webp">
-      <img src="/assets/thumbnails/de/force24.webp" alt="Force24 Account Intelligence Platform Thumbnail mit Architektur-Schichten" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+      <img src="/assets/thumbnails/de/force24.webp" alt="Thumbnail der Force24 Account Intelligence Platform mit Architektur-Schichten" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
     </picture>
   </figure>
 
@@ -98,11 +98,11 @@
       <h3 style="margin-top:16px;margin-bottom:8px;">Datenebene (end-to-end verantwortet).</h3>
       <p>Force24 hat PostgreSQL als Warehouse vorgegeben. Jede andere Tool-Entscheidung auf der Datenebene war meine.</p>
       <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
-        <li>Dagster für Orchestration gewählt, dbt für Transformation, das Layered-Warehouse-Muster (raw, staging, intermediate, marts) auf PostgreSQL.</li>
-        <li>Jeden Python-Extractor gegen die Source-Systeme geschrieben, geplant und über Dagster orchestriert.</li>
+        <li>Dagster für Orchestrierung gewählt, dbt für Transformation, das Layered-Warehouse-Muster (raw, staging, intermediate, marts) auf PostgreSQL.</li>
+        <li>Jeden Python-Extractor gegen die Quellsysteme geschrieben, geplant und über Dagster orchestriert.</li>
         <li>Jedes dbt-Modell von Grund auf gebaut: Staging-Views, Intermediate-Business-Logic-Tabellen, kuratierte Marts. Tests, Dokumentation, Lineage inklusive.</li>
-        <li>Jeden Dagster-Job geschrieben, Assets über das Warehouse materialisiert und die wiederkehrenden Runs geplant.</li>
-        <li>Dagster auf einer VM mit Caddy davor aufgesetzt, für Admin-Authentication bei manuellen Runs neben dem automatisierten Schedule.</li>
+        <li>Jeden Dagster-Job geschrieben, Assets im gesamten Warehouse materialisiert und die wiederkehrenden Runs geplant.</li>
+        <li>Dagster auf einer VM mit Caddy davor aufgesetzt, für Admin-Authentifizierung bei manuellen Runs neben dem automatisierten Schedule.</li>
       </ul>
 
       <h3 style="margin-top:24px;margin-bottom:8px;">Service-Layer-Integration.</h3>
@@ -116,9 +116,9 @@
       <h3 style="margin-top:24px;margin-bottom:8px;">Frontend (Angular).</h3>
       <p>Force24 hat Angular vorgegeben. Meine Frontend-Beiträge:</p>
       <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
-        <li><strong>Action Tracker (Lead-Feature, end-to-end verantwortet).</strong> CSMs erstellen Actions manuell für jeden Account oder akzeptieren vom System vorgeschlagene Actions (Smart Suggestions), die auf Churn-Risiko und Account-Health-Score basieren. Admins weisen Actions konkreten CSMs zu. Für jede zugewiesene Action folgt der CSM beim Account nach, hält Notizen zur Umsetzung fest und erfasst das Ergebnis.</li>
-        <li>Die Smart-Suggestion-Logik materialisiert, die das Recommended-Action-Surface antreibt.</li>
-        <li>Weitere Features und Erweiterungen über das Dashboard-Surface ausgeliefert, wo die Datenebene upstream Änderungen brauchte.</li>
+        <li><strong>Action Tracker (Lead-Feature, end-to-end verantwortet).</strong> CSMs erstellen Actions manuell für jeden Account oder akzeptieren vom System vorgeschlagene Actions (Smart Suggestions), die auf Churn-Risiko und Account-Health-Score basieren. Admins weisen Actions konkreten CSMs zu. Für jede zugewiesene Action fasst der CSM beim Account nach, hält Notizen zur Umsetzung fest und erfasst das Ergebnis.</li>
+        <li>Die Smart-Suggestion-Logik materialisiert, die die Ansicht für empfohlene Actions antreibt.</li>
+        <li>Weitere Features und Erweiterungen über die Dashboard-Ansicht ausgeliefert, wo die Datenebene Upstream-Änderungen brauchte.</li>
       </ul>
 
       <h3 style="margin-top:24px;margin-bottom:8px;">Cross-Layer-Integration.</h3>
@@ -128,16 +128,16 @@
     <section class="case-section reveal">
       <h2>Warum der Action Tracker zählt.</h2>
       <p>Dashboards, die nur informieren, sind halbfertige Produkte. Der Action Tracker schiebt CSMs vom Erkennen ins Handeln, erfasst das Ergebnis und macht aus dem Loop strukturierte Daten.</p>
-      <p>Operativ verhindert er verpasste Follow-ups, indem Ownership explizit und nachverfolgbar ist. Risiko wird zu Arbeit, die jemand verantwortet, bearbeitet und abschließt.</p>
-      <p>Architektonisch erzeugt er Action-Context-Outcome-Tripel, die mit Volumen zum gelabelten Trainingsdatensatz für ein kausales Modell werden, das Interventionen vorschreibt, statt nur Risiken zu markieren. Die aktuelle Plattform markiert. Die nächste Generation, gespeist mit diesen Daten, kann die spezifische Intervention empfehlen, die einen bestimmten Account am wahrscheinlichsten hält.</p>
+      <p>Operativ verhindert er verpasste Follow-ups, indem er Ownership explizit und nachverfolgbar macht. Risiko wird zu Arbeit, die jemand verantwortet, bearbeitet und abschließt.</p>
+      <p>Architektonisch erzeugt er Action-Context-Outcome-Tripel, die mit wachsendem Volumen zum gelabelten Trainingsdatensatz für ein kausales Modell werden, das Interventionen vorschreibt, statt nur Risiken zu markieren. Die aktuelle Plattform markiert. Die nächste Generation, gespeist mit diesen Daten, kann die spezifische Intervention empfehlen, die einen bestimmten Account am wahrscheinlichsten hält.</p>
     </section>
 
     <section class="case-section reveal">
       <h2>Architektur.</h2>
       <p>Drei Schichten. Stack-Vorgabe von Force24 (PostgreSQL als Warehouse, Angular als Frontend), freie Wahl beim Rest.</p>
       <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
-        <li><strong>Datenebene.</strong> Dagster-Orchestration auf einer VM mit Caddy-Auth, eigenentwickelte Python-Extractors gegen mehrere Source-Systeme, layered PostgreSQL Warehouse mit dbt über raw, staging, intermediate und marts.</li>
-        <li><strong>Service-Schicht.</strong> FastAPI-Backend mit meinen Beiträgen zu Data-Layer-Endpoints, Redis-Caching und Scheduled Jobs.</li>
+        <li><strong>Datenebene.</strong> Dagster-Orchestrierung auf einer VM mit Caddy-Auth, eigenentwickelte Python-Extractors gegen mehrere Quellsysteme, PostgreSQL-Warehouse im Layered-Muster mit dbt über raw, staging, intermediate und marts.</li>
+        <li><strong>Service-Schicht.</strong> FastAPI-Backend mit meinen Beiträgen zu Endpoints der Datenebene, Redis-Caching und Scheduled Jobs.</li>
         <li><strong>Frontend.</strong> Angular-Dashboard mit Action Tracker plus weiteren Features und Erweiterungen, die ich ausgeliefert habe.</li>
       </ul>
       <p>Docker hat das Ganze zusammengehalten. Das Dagster-on-VM-Automatisierungs-Framework war meines.</p>
@@ -145,8 +145,8 @@
 
     <section class="case-section reveal">
       <h2>Erkenntnisse.</h2>
-      <p>Die Datenebene ist unsichtbar, bis sie falsch ist. Diese hier habe ich mit der Lineage gebaut, die belegt, dass die Marts korrekt sind, mit der Orchestration, die jeden Re-Run von jedem Failure-Punkt erlaubt, und mit den Auth-Kontrollen, die manuelle Runs ermöglichen, ohne den automatisierten Schedule zu kompromittieren. Nichts davon ist glamourös. Alles davon ist, worauf der Rest der Plattform aufsetzt.</p>
-      <p>Dashboards, die nur informieren, sind halbfertige Produkte. Der Action Tracker hat mir beigebracht, Analytics-Surfaces um die Action zu designen, die sie auslösen sollen, nicht um die Daten, die sie anzeigen. Der First-Order-Gewinn ist operativ: CSMs arbeiten ihre Accounts, Admins verteilen die Last, Follow-ups gehen nicht mehr verloren. Der Second-Order-Gewinn ist analytisch: jede erfasste Action und jedes Ergebnis wird zu einem gelabelten Datenpunkt für die nächste Generation der Plattform. Beides gleichzeitig zu designen hat verändert, wie ich das Datenmodell geformt habe.</p>
+      <p>Die Datenebene ist unsichtbar, bis sie falsch ist. Diese hier habe ich mit der Lineage gebaut, die belegt, dass die Marts korrekt sind, mit der Orchestrierung, die jeden Re-Run ab jedem Fehlerpunkt erlaubt, und mit den Auth-Kontrollen, die manuelle Runs ermöglichen, ohne den automatisierten Schedule zu kompromittieren. Nichts davon ist glamourös. Alles davon ist, worauf der Rest der Plattform aufsetzt.</p>
+      <p>Dashboards, die nur informieren, sind halbfertige Produkte. Der Action Tracker hat mir beigebracht, Analytics-Ansichten um die Action zu designen, die sie auslösen sollen, nicht um die Daten, die sie anzeigen. Der First-Order-Gewinn ist operativ: CSMs bearbeiten ihre Accounts, Admins verteilen die Last, Follow-ups gehen nicht mehr verloren. Der Second-Order-Gewinn ist analytisch: jede erfasste Action und jedes Ergebnis wird zu einem gelabelten Datenpunkt für die nächste Generation der Plattform. Beides gleichzeitig zu designen hat verändert, wie ich das Datenmodell geformt habe.</p>
       <p>Cross-funktionale Zusammenarbeit ist eine eigene Disziplin. Die Integrationspunkte, wo meine Datenebene die API und das Frontend gespeist hat, waren die Stellen, an denen die meiste echte Koordination stattfand. Eine Schicht sauber zu verantworten ist das, was diese Übergänge funktionieren lässt.</p>
     </section>
 

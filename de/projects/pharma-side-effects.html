@@ -75,7 +75,7 @@
   <article>
     <section class="case-section reveal">
       <h2>Problem.</h2>
-      <p>Die manuelle Triage von pharmazeutischen Nebenwirkungs-Berichten ist im großen Maßstab langsam, inkonsistent und teuer. Pharmakovigilanz-Teams, die diese Berichte gegen standardisierte Taxonomien klassifizieren, sind durch das Volumen ausgebremst, und die Klassifikationsqualität schwankt von Analyst zu Analyst.</p>
+      <p>Die manuelle Triage von pharmazeutischen Nebenwirkungs-Berichten ist im großen Maßstab langsam, inkonsistent und teuer. Pharmakovigilanz-Teams, die diese Berichte nach standardisierten Taxonomien klassifizieren, sind durch das Volumen ausgebremst, und die Klassifikationsqualität schwankt von Analyst zu Analyst.</p>
       <p>Die Frage hinter diesem Projekt: Kann ein Multi-Class-Classifier die Qualität menschlicher Triage genau genug treffen, um als Decision-Support-Tool sinnvoll deployt zu werden? Und kann in einer regulierten Domäne wie der Pharmakovigilanz die erklärbare Baseline nahe genug an das komplexere Modell herankommen, dass man die erklärbare Variante ausliefert?</p>
     </section>
 
@@ -83,10 +83,10 @@
       <h2>Mein Beitrag.</h2>
       <p>Eigenständig, end-to-end:</p>
       <ul style="font-size:17px;line-height:1.7;padding-left:20px;">
-        <li>Die Feature-Pipeline gebaut. TF-IDF-Vektorisierung von Medikamentenname, Zusammensetzung, Indikationen und Nebenwirkungs-Text, dazu Ordinal-Encoding der Hersteller (mit sicherer Behandlung unbekannter Hersteller zur Inferenz-Zeit) und Review-Prozent-Features, alles hinter einem einzigen sklearn <code>ColumnTransformer</code> + <code>FeatureUnion</code>.</li>
+        <li>Die Feature-Pipeline gebaut. TF-IDF-Vektorisierung von Medikamentennamen, Zusammensetzung, Indikationen und Nebenwirkungs-Text, dazu Ordinal-Encoding der Hersteller (mit sicherer Behandlung unbekannter Hersteller zur Inferenz-Zeit) und Review-Prozent-Features, alles hinter einem einzigen sklearn <code>ColumnTransformer</code> + <code>FeatureUnion</code>.</li>
         <li>Zwei komplementäre Modelle auf 11.825 marktverfügbaren Medikamenten trainiert, die einer MedDRA-orientierten Taxonomie aus zehn klinischen Kategorien zugeordnet sind. Random Forest als primäres Modell, Logistic Regression als interpretierbarer Vergleich.</li>
         <li>Beide in einer serialisierbaren sklearn <code>Pipeline</code> verpackt, sodass <code>joblib.dump</code> ein einziges End-to-End-Artefakt erzeugt und die Inferenz keine manuelle Feature-Vorbereitung mehr braucht.</li>
-        <li>Jeden Hyperparameter in eine YAML-Config ausgelagert, geladen in eingefrorene Dataclasses. Keine Magic Numbers im Code.</li>
+        <li>Jeden Hyperparameter in eine YAML-Config ausgelagert, in frozen Dataclasses geladen. Keine Magic Numbers im Code.</li>
         <li>Das CLI (<code>train</code>, <code>predict</code>) und die pytest-Suite geschrieben (synthetische 60-Zeilen-Fixture, damit Tests nicht von der 4-MB-xls abhängen).</li>
         <li>Die GitHub-Actions-Matrix-CI auf Python 3.10, 3.11 und 3.12 aufgesetzt, mit ruff- und black-Gating.</li>
       </ul>
@@ -123,9 +123,9 @@
 
     <section class="case-section reveal">
       <h2>Erkenntnisse.</h2>
-      <p>Die nützlichste Erkenntnis war nicht die Headline-Accuracy. Sie war, dass das deutlich einfachere Modell nur wenige Prozentpunkte hinter dem komplexeren lag. Das sagt etwas Spezifisches über die Daten aus: Das kategoriale Signal ist stark genug, dass man keine tiefe Architektur braucht, um es zu extrahieren, und ein flaches, interpretierbares Modell ist tatsächlich konkurrenzfähig. In einer regulierten Domäne wie der Pharmakovigilanz, in der jede Modellentscheidung erklärbar sein muss, verändert das die Deployment-Rechnung. Man liefert das erklärbare Modell aus, es sei denn, man braucht die marginalen Extra-Punkte unbedingt.</p>
-      <p>Die zweite Erkenntnis betraf Scope-Disziplin. Eine erste Version hatte eine Streamlit-Demo, eine HuggingFace-Transformer-Baseline und einen Deployment-Workflow. Nichts davon war fertig. Ich habe alle drei gestrichen und den produktionsreifen Kern ausgeliefert: Feature-Pipeline, zwei Modelle, Evaluation, Inference-CLI, Tests, CI-Matrix. Weniger Oberfläche, mehr Tiefe.</p>
-      <p>Die dritte Erkenntnis betraf Leaks. Der ursprüngliche Prototyp hatte den Hersteller mit einem einmaligen <code>LabelEncoder</code> außerhalb der Pipeline kodiert, was zur Inferenz-Zeit bei jedem unbekannten Hersteller abgestürzt wäre. Das Encoding in die Pipeline zu verschieben als <code>OrdinalEncoder(handle_unknown="use_encoded_value")</code> ist die Art Fix, die in keiner Metriken-Tabelle auftaucht, aber den Unterschied macht zwischen einem Modell, das ausgeliefert wird, und einem, das beim ersten Kontakt mit Produktivdaten bricht.</p>
+      <p>Die nützlichste Erkenntnis war nicht die Headline-Accuracy. Sie war, dass das deutlich einfachere Modell nur wenige Prozentpunkte hinter dem komplexeren lag. Das sagt etwas Spezifisches über die Daten aus: Das kategoriale Signal ist stark genug, dass man keine tiefe Architektur braucht, um es zu extrahieren, und ein flaches, interpretierbares Modell ist tatsächlich konkurrenzfähig. In einer regulierten Domäne wie der Pharmakovigilanz, in der jede Modellentscheidung erklärbar sein muss, verändert das die Abwägung beim Deployment. Man liefert das erklärbare Modell aus, es sei denn, man braucht die marginalen Extra-Punkte unbedingt.</p>
+      <p>Die zweite Erkenntnis betraf Scope-Disziplin. Eine erste Version hatte eine Streamlit-Demo, eine Hugging-Face-Transformer-Baseline und einen Deployment-Workflow. Nichts davon war fertig. Ich habe alle drei gestrichen und den produktionsreifen Kern ausgeliefert: Feature-Pipeline, zwei Modelle, Evaluation, Inferenz-CLI, Tests, CI-Matrix. Weniger Oberfläche, mehr Tiefe.</p>
+      <p>Die dritte Erkenntnis betraf Leaks. Der ursprüngliche Prototyp hatte den Hersteller mit einem einmaligen <code>LabelEncoder</code> außerhalb der Pipeline kodiert, was zur Inferenz-Zeit bei jedem unbekannten Hersteller abgestürzt wäre. Das Encoding als <code>OrdinalEncoder(handle_unknown="use_encoded_value")</code> in die Pipeline zu verschieben ist die Art Fix, die in keiner Metriken-Tabelle auftaucht, aber den Unterschied macht zwischen einem Modell, das ausgeliefert wird, und einem, das beim ersten Kontakt mit Produktivdaten kaputtgeht.</p>
     </section>
 
     <section class="case-section reveal">
