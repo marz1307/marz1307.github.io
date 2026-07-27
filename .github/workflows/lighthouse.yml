@@ -30,7 +30,7 @@ jobs:
       - name: Wait for Pages to be reachable
         run: |
           for i in {1..30}; do
-            code=$(curl -sLo /dev/null -w "%{http_code}" "https://marz1307.github.io/")
+            code=$(curl -sLo /dev/null -w "%{http_code}" "https://marvisosazuwa.com/")
             echo "attempt $i: HTTP $code"
             if [ "$code" = "200" ]; then exit 0; fi
             sleep 5

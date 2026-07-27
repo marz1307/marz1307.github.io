@@ -1,4 +1,4 @@
-# marz1307.github.io
+# marvisosazuwa.com
 
 Personal portfolio site for Marvis Osazuwa. Analytics Engineer and Data Scientist.
 

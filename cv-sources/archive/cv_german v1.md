@@ -34,7 +34,7 @@ header-includes:
 | **Telefon** | +44 [Telefonnummer] |
 | **LinkedIn** | linkedin.com/in/marvisosazuwa |
 | **GitHub** | github.com/marz1307 |
-| **Portfolio** | marz1307.github.io |
+| **Portfolio** | marvisosazuwa.com |
 
 ## Profil
 

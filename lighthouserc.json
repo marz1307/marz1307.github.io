@@ -2,15 +2,15 @@
   "ci": {
     "collect": {
       "url": [
-        "https://marz1307.github.io/",
-        "https://marz1307.github.io/about.html",
-        "https://marz1307.github.io/projects/",
-        "https://marz1307.github.io/projects/force24.html",
-        "https://marz1307.github.io/projects/football-scouting.html",
-        "https://marz1307.github.io/projects/steam-recommender.html",
-        "https://marz1307.github.io/de/",
-        "https://marz1307.github.io/de/about.html",
-        "https://marz1307.github.io/de/projects/"
+        "https://marvisosazuwa.com/",
+        "https://marvisosazuwa.com/about.html",
+        "https://marvisosazuwa.com/projects/",
+        "https://marvisosazuwa.com/projects/force24.html",
+        "https://marvisosazuwa.com/projects/football-scouting.html",
+        "https://marvisosazuwa.com/projects/steam-recommender.html",
+        "https://marvisosazuwa.com/de/",
+        "https://marvisosazuwa.com/de/about.html",
+        "https://marvisosazuwa.com/de/projects/"
       ],
       "numberOfRuns": 2,
       "settings": {

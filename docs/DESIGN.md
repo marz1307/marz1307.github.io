@@ -240,13 +240,13 @@ The design follows a **"Modern Corporate Polish"** aesthetic — clean, structur
 <meta property="og:title" content="Marvis Osazuwa — Data & ML Portfolio">
 <meta property="og:description" content="Explore projects in data engineering, machine learning, and analytics.">
 <meta property="og:image" content="assets/og-image.png">
-<meta property="og:url" content="https://marz1307.github.io">
+<meta property="og:url" content="https://marvisosazuwa.com">
 ```
 
 ### 8. File Structure
 
 ```
-marz1307.github.io/
+marvisosazuwa.com/
 ├── index.html              # Main single-page site
 ├── style.css               # All styles
 ├── script.js               # All interactivity

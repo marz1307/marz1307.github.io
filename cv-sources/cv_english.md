@@ -22,7 +22,7 @@ header-includes:
 
 **Analytics Engineer · Data Scientist**
 
-Manchester, UK · marvis.osazuwa@hotmail.com · +44 [phone] · [linkedin.com/in/marvisosazuwa](https://linkedin.com/in/marvisosazuwa) · [github.com/marz1307](https://github.com/marz1307) · [marz1307.github.io](https://marz1307.github.io)
+Manchester, UK · marvis.osazuwa@hotmail.com · +44 [phone] · [linkedin.com/in/marvisosazuwa](https://linkedin.com/in/marvisosazuwa) · [github.com/marz1307](https://github.com/marz1307) · [marvisosazuwa.com](https://marvisosazuwa.com)
 
 ## Profile
 
