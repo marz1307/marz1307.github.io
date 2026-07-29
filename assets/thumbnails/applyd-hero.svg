@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none" role="img" aria-labelledby="applyd-hero-title applyd-hero-desc">
-  <title id="applyd-hero-title">applyd — from a 47th-version CV to a running pipeline</title>
+  <title id="applyd-hero-title">applyd: from a 47th-version CV to a running pipeline</title>
   <desc id="applyd-hero-desc">Editorial illustration of the applyd system. On the left, a person hunched over a laptop late at night, with a CV document titled cv_v47_final_v2 shown on screen with red tracked-change marks, and two coffee mugs. In the centre, portal icons flow rightward on data lines toward a small gov.uk crown. On the right, a Notion-style kanban with columns Discovered, Triaged, Drafted, Applied, Interview and Offer, a circular match-score gauge showing 82 out of 100, and a gov.uk sponsor licensed badge. A wordmark reading applyd sits in the lower-right corner.</desc>
 
   <!-- ============ LEFT: the burnout scene ============ -->

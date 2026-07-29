@@ -46,6 +46,10 @@
     <changefreq>weekly</changefreq><priority>0.7</priority>
   </url>
   <url>
+    <loc>https://marvisosazuwa.com/blog/the-47th-cv.html</loc>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
     <loc>https://marvisosazuwa.com/blog/dashboards-inform-agents-act.html</loc>
     <lastmod>2026-07-03</lastmod>
   </url>
@@ -54,6 +58,10 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://marvisosazuwa.com/blog/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://marvisosazuwa.com/de/blog/"/>
     <changefreq>weekly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marvisosazuwa.com/de/blog/the-47th-cv.html</loc>
+    <lastmod>2026-07-29</lastmod>
   </url>
   <url>
     <loc>https://marvisosazuwa.com/de/blog/dashboards-inform-agents-act.html</loc>
