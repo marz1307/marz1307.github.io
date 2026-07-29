@@ -23,34 +23,32 @@ header-includes:
 
 **Analytics Engineer · Data Scientist**
 
-[FOTO: Professionelles Bewerbungsfoto rechts oben einfügen, ca. 3,5 cm × 4,5 cm]
-
 ## Persönliche Daten
 
 | | |
 |---|---|
 | **Anschrift** | Manchester, Vereinigtes Königreich |
 | **E-Mail** | marvis.osazuwa@hotmail.com |
-| **Telefon** | +44 [Telefonnummer] |
+| **Telefon** | +44 7349 949871 |
 | **LinkedIn** | linkedin.com/in/marvisosazuwa |
 | **GitHub** | github.com/marz1307 |
 | **Portfolio** | marvisosazuwa.com |
 
 ## Profil
 
-Analytics Engineer und Data Scientist, der produktive Datenschichten end-to-end baut und ML einbettet, das sich selbst erklärt. Ich baue dbt- und Dagster-Pipelines auf Kimball-modellierten Data Warehouses, sichere Korrektheit in der CI und setze angewandtes ML (Survival-Analyse, Gradient-Boosting mit SHAP, kausale Inferenz) direkt darauf, zuletzt über einen Model-Context-Protocol-(MCP)-Endpoint für LLM-Agenten zugänglich gemacht. Bei Force24 war ich alleiniger Architekt der Datenschicht einer dreistufigen Customer-Intelligence-Plattform; meine MSc-Masterarbeit baute einen Churn-Intelligence-Stack aus drei Modellen nach denselben Prinzipien. UK Graduate Visa: volles Arbeitsrecht im Vereinigten Königreich, kein Sponsoring erforderlich. Für Deutschland und die EU EU-Blue-Card-berechtigt.
+MSc-Data-Science-Absolvent (Salford, Mai 2026), der bereits produktiv ausgeliefert hat, was die meisten Absolventen nur aus dem Studium kennen: produktive Datenschichten end-to-end, mit ML, das sich selbst erklärt. Ich baue dbt- und Dagster-Pipelines auf Kimball-modellierten Data Warehouses, sichere Korrektheit in der CI und setze angewandtes ML (Survival-Analyse, Gradient-Boosting mit SHAP, kausale Inferenz) direkt darauf, zuletzt über einen Model-Context-Protocol-(MCP)-Endpoint für LLM-Agenten zugänglich gemacht. Bei Force24 verantwortete ich die Datenschicht einer im Team gebauten Customer-Intelligence-Plattform; meine Masterarbeit war davon unabhängig ein Solo-Projekt: ein End-to-End-Churn-Intelligence-Stack, den ich allein gegen dieselbe Live-Umgebung entworfen und gebaut habe. UK Graduate Visa: volles Arbeitsrecht im Vereinigten Königreich, kein Sponsoring erforderlich. Für Deutschland und die EU EU-Blue-Card-berechtigt.
 
 ## Berufserfahrung
 
 ### Analytics Engineer · Force24 · Leeds, Vereinigtes Königreich (Hybrid) · Befristeter Vertrag, Januar 2026 bis April 2026
 
-Ein definiertes 16-Wochen-Projekt, in dem ich alleiniger Architekt und Autor der Datenebene einer dreistufigen Customer-Intelligence-Plattform war, primärer Autor über 8 Backend-Domänen sowie Verantwortlicher für die Customer-Surface auf dem Frontend.
+Marketing-Automation-SaaS. Ein 16-Wochen-Teamprojekt: eine dreistufige Customer-Intelligence-Plattform. Innerhalb der gemeinsamen Lieferung verantwortete ich die Datenschicht vollständig als alleiniger Architekt und Autor, war primärer Autor über 8 Backend-Domänen und lieferte das kundenseitige Frontend aus.
 
 - Alleiniger Architekt und Autor einer dbt- und Dagster-Datenpipeline, die 4 voneinander unabhängige Geschäftssysteme zu einem analyseergebnis-bereiten Warehouse auf einem deduplizierten Account-Spine konsolidierte. Etwa 40 dbt-Modelle über Staging-, Intermediate- und Marts-Ebenen, 5 tägliche Dagster-Schedules. Eine kanonische Kunden-ID im gesamten Unternehmen etabliert, wodurch Datensatz-Matching-Lücken beseitigt wurden, die zuvor CSM-Bücher nicht verknüpfbar machten.
-- Tägliche Pipeline-Rechenzeit um etwa 95 % reduziert durch Umarchitektur hochvolumiger Revenue-Modelle als inkrementell auf einer Append-Only-Raw-Schicht mit deterministischen Hash-IDs. Plattform auf Oracle Cloud produktiv genommen mit idempotentem Bootstrap, TLS, VPN-Allowlist und dreistufigen Operator-Runbooks — 24/7-Plattform bei null Infrastrukturkosten.
+- Tägliche Pipeline-Rechenzeit um etwa 95 % reduziert durch Umarchitektur hochvolumiger Revenue-Modelle als inkrementell auf einer Append-Only-Raw-Schicht mit deterministischen Hash-IDs. Plattform auf Oracle Cloud produktiv genommen mit idempotentem Bootstrap, TLS, VPN-Allowlist und dreistufigen Operator-Runbooks, sodass sie rund um die Uhr bei null Infrastrukturkosten läuft.
 - Eine Black-Box-Best-Guess-Attribution zwischen Support-Tickets und Accounts durch eine deterministische 10-Schritte-Klassifizierungskette ersetzt, wodurch Support-Kennzahlen gegenüber Auditoren und Customer Success Managern verteidigbar wurden.
 - End-to-End-Korrektheit gesichert mit 123 dbt-Tests und 82 pytest-Tests, wobei 22 Datenqualitätsfehler im ersten Produktionsbuild aufgedeckt und behoben wurden. Stille Metrik-Drift wird in CI gefangen, nicht im Vorstandsmeeting.
-- Customer-Backend und Angular-UI gebaut: Customer-Liste mit 10 serverseitigen Filtern, Dashboard- und Reporting-Endpoints sowie die Action-Tracker-Seite (alleiniger Autor) mit strukturierter Ergebniserfassung über 7 Ergebnistypen. Action Tracker nach dem Grundsatz konzipiert, dass Dashboards Handeln auslösen sollten, nicht nur Daten anzeigen — erfasste Ergebnisse bilden gelabelte Trainingsdaten für eine zukünftige Causal-Model-Schicht.
+- Customer-Backend und Angular-UI gebaut: Customer-Liste mit 10 serverseitigen Filtern, Dashboard- und Reporting-Endpoints sowie die Action-Tracker-Seite (alleiniger Autor) mit strukturierter Ergebniserfassung über 7 Ergebnistypen. Die erfassten Ergebnisse bilden den ersten gelabelten Trainingsdatensatz für eine geplante Causal-Model-Schicht.
 
 **Stack:** Dagster · dbt · PostgreSQL · Python · FastAPI · Redis · Angular · Docker · Caddy · Oracle Cloud · Git
 
@@ -75,10 +73,6 @@ Bundesweite Hypothekeninstitution für den nigerianischen Wohnungsbaufonds. Kred
 
 **Stack:** Python · SQL · Tableau · Excel
 
-### Customer Information and Service Specialist · GTBank · Edo, Nigeria · 09/2015 – 03/2016
-
-Berufseinstieg im Kundenservice bei einer der größten afrikanischen Privatkundenbanken: Kundinnen und Kunden beim Umstieg auf USSD- und Internet-Banking begleitet, die Beschwerdebearbeitung samt Ursachenklassifizierung für das monatliche Service-Quality-Reporting verantwortet und neue Kundenservice-Praktikanten eingearbeitet.
-
 ## Ausbildung
 
 **MSc Data Science** · University of Salford, Manchester, Vereinigtes Königreich · 01/2025 – 05/2026 · Note: Distinction (mit Auszeichnung)
@@ -93,7 +87,7 @@ Masterarbeit: PySpark-Pipeline zum Ranking und zur Empfehlung von Spielern aus f
 
 ### Agentic ELT Data Platform for Customer Intelligence · MSc-Dissertation (Salford) · 2026 · Live-B2B-SaaS-Umgebung
 
-End-to-End-ELT-Plattform und Drei-Modell-Churn-Intelligence-Stack für eine Live-B2B-SaaS-Umgebung unter NDA. Eigenentwickelte Python-Ingestion mit über 1 Mio. Datensätzen aus mehreren Vendor-APIs in ein JSONB-first PostgreSQL-Warehouse via Dagster ingestiert, durch 48 dbt-Modelle modelliert und mit einem Drei-Modell-Intelligence-Stack versehen: Survival-Analyse (wann Accounts abwandern), Gradient-Boosted-Klassifikation mit SHAP-Erklärungen (wie wahrscheinlich Churn ist und welche Treiber wirken) sowie Causal Inference, die reaktive Zuweisungs-Selektionsbias bei der Bewertung der CSM-Wirksamkeit korrigiert. Bereitgestellt über einen FastAPI-Service mit JWT-Auth und Row-Level-Security, ein Angular-Dashboard und einen Model-Context-Protocol-(MCP)-Endpoint, der die gesamte Intelligence-Schicht für agentische LLM-Workflows zugänglich macht. Hochrisiko-Accounts für priorisierte CSM-Retention-Aktionen identifiziert.
+Eigenständiges Solo-Projekt von Anfang bis Ende: Ich habe jede Schicht selbst entworfen und geschrieben, von der Ingestion bis zur Serving-API, gegen eine Live-B2B-SaaS-Umgebung unter NDA. Es lief auf derselben Umgebung wie mein Force24-Vertrag, ist aber unabhängige Eigenarbeit; die Force24-Plattform selbst war eine Teamlieferung. Eigenentwickelte Python-Ingestion mit über 1 Mio. Datensätzen aus mehreren Vendor-APIs in ein JSONB-first PostgreSQL-Warehouse via Dagster ingestiert, durch 48 dbt-Modelle modelliert und mit einem Drei-Modell-Intelligence-Stack versehen: Survival-Analyse (wann Accounts abwandern), Gradient-Boosted-Klassifikation mit SHAP-Erklärungen (wie wahrscheinlich Churn ist und welche Treiber wirken) sowie Causal Inference, die reaktive Zuweisungs-Selektionsbias bei der Bewertung der CSM-Wirksamkeit korrigiert. Bereitgestellt über einen FastAPI-Service mit JWT-Auth und Row-Level-Security, ein Angular-Dashboard und einen Model-Context-Protocol-(MCP)-Endpoint, der die gesamte Intelligence-Schicht für agentische LLM-Workflows zugänglich macht. Hochrisiko-Accounts für priorisierte CSM-Retention-Aktionen identifiziert.
 `Python` `PostgreSQL` `JSONB` `dbt` `Dagster` `PostgresML` `XGBoost` `SHAP` `Causal Inference` `Survival Analysis` `FastAPI` `Angular` `MCP`
 
 ### Pharmaceutical Side Effect Classification · 2025 · Healthcare-ML
@@ -113,24 +107,26 @@ End-to-End-R-Analysepaket für univariate Aktienprognosen auf 5.124 NYSE-Tagesbe
 
 ## Technische Kenntnisse
 
-**Sprachen:** SQL · Python · R · PySpark · T-SQL · Bash
-**Warehousing:** PostgreSQL (JSONB + GIN) · Snowflake · BigQuery · Databricks · SQL Server
-**Transformation & Orchestrierung:** dbt · Dagster · Apache Spark · Airflow
-**Service Layer:** FastAPI · REST APIs · Docker · Caddy · Model Context Protocol (MCP)
-**ML & Statistik:** scikit-learn · XGBoost · PostgresML · scikit-survival · econml (DR-Learner) · SHAP · MLflow · RoBERTa · ARIMA · NLP · Sentimentanalyse · TF-IDF · LDA · Causal Inference · Survival Analysis
-**Agentic AI:** Model Context Protocol (MCP) · agentische ELT · LLM-zugängliche Datenebenen
-**BI & Visualisierung:** Power BI · Tableau · Looker
-**Cloud:** AWS · GCP · Azure · Oracle Cloud
-**Versionskontrolle & Tooling:** Git · GitHub · GitHub Actions · pytest
+**Sprachen:** SQL · Python (pandas, NumPy, scikit-learn) · R · PySpark · Bash
+**Warehouse & Pipelines:** PostgreSQL (JSONB + GIN) · SQL Server / T-SQL · dbt · Dagster · Kimball-Dimensionsmodellierung · ELT/ETL-Design
+**Distributed & Lakehouse:** PySpark · Spark MLlib · MLflow · Databricks
+**ML & Statistik:** XGBoost · SHAP · scikit-survival · econml (DR-Learner) · PostgresML · Causal Inference · Survival Analysis · RoBERTa- und Transformer-Sentimentanalyse (NLP) · TF-IDF · LDA · ARIMA/ETS-Zeitreihen
+**Serving & agentischer Zugriff:** FastAPI · REST APIs · Model-Context-Protocol-(MCP)-Endpoints für LLM-Agenten · Docker · Caddy · Oracle Cloud
+**BI:** Power BI · Tableau
+**CI & Versionskontrolle:** Git · GitHub Actions · pytest
+
+**Grundkenntnisse (Kurse und Zertifikate):** Snowflake · BigQuery (Google-Cloud-zertifiziert) · Airflow · Looker · AWS · GCP · Azure
 
 ## Sprachen
 
-**Englisch:** Muttersprachlich · **Deutsch:** B1 (GER)
+**Englisch:** Muttersprachlich · **Deutsch:** B1
 
 ## Zertifikate
 
 Engineer Data for Predictive Modeling with BigQuery ML (Google Cloud) · Python for Data Science, AI & Development (Coursera) · Generative AI for Business Leaders (Coursera) · Enterprise Design Thinking Practitioner (IBM) · Tableau for Data Scientists (LinkedIn Learning) · Statistics Foundations 1–4 (LinkedIn Learning)
 
-## Verfügbarkeit
+<!-- Verfügbarkeit + Visa-Status werden marktabhängig beim Rendern eingefügt
+     (config/profile.yml → market_lines via cv/market-tail.cjs, 2026-07-27).
+     Kein Freitext-Block hier: er landete im gerenderten Zertifikate-Abschnitt
+     jedes tailored Lebenslaufs und trug den UK-zuerst-Hedge. -->
 
-Sofort verfügbar (MSc abgeschlossen Mai 2026). Ziel: Analytics-Engineer- und Data-Scientist-Rollen im Vereinigten Königreich und in Deutschland/EU. UK Graduate Visa: kein Sponsoring nötig; EU-Blue-Card-berechtigt.
