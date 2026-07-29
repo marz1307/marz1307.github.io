@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByZJaawcxAiK85qnD6nIc7iBFGzp/nf/DTzzA7Dl5Qs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+<title>The 47th CV · Marvis Osazuwa</title>
+<meta name="description" content="What building an AI agent for the job market taught me about volume, precision, and standing on someone else's shoulders.">
+<link rel="canonical" href="https://marvisosazuwa.com/blog/the-47th-cv.html">
+<link rel="alternate" hreflang="en" href="https://marvisosazuwa.com/blog/the-47th-cv.html">
+<link rel="alternate" hreflang="de" href="https://marvisosazuwa.com/de/blog/the-47th-cv.html">
+<link rel="alternate" hreflang="x-default" href="https://marvisosazuwa.com/blog/the-47th-cv.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The 47th CV">
+<meta property="og:description" content="What building an AI agent for the job market taught me about volume, precision, and standing on someone else's shoulders.">
+<meta property="og:url" content="https://marvisosazuwa.com/blog/the-47th-cv.html">
+<meta property="og:image" content="https://marvisosazuwa.com/assets/thumbnails/applyd-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<script src="/assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">M.O.</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/projects/">Work</a>
+      <a class="active" aria-current="page" href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a class="lang-toggle" href="/de/blog/" aria-label="Auf Deutsch wechseln">DE</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle colour theme">DARK</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <header class="page-head">
+    <span class="caption">Blog · 29 July 2026 · 8 min read</span>
+    <h1 style="margin-top:16px;">The 47th CV</h1>
+    <p class="sub muted">What building an AI agent for the job market taught me about volume, precision, and standing on someone else's shoulders.</p>
+  </header>
+
+  <figure style="max-width:880px; margin:36px auto 44px; padding:0;">
+    <img src="/assets/thumbnails/applyd-hero.svg" alt="Editorial illustration of the applyd system. On the left, a person hunched over a laptop late at night with a CV titled cv_v47_final_v2 shown on screen and two coffee mugs on the desk. In the centre, portal icons flow rightward on data lines through a small gov.uk crown gate. On the right, a Notion-style kanban with columns Discovered, Triaged, Drafted, Applied, Interview and Offer, a circular gauge showing 82 out of 100, and a badge reading gov.uk sponsor licensed. A wordmark, applyd, sits in the lower-right corner." style="width:100%; height:auto; display:block;">
+    <figcaption class="muted" style="margin-top:14px; font-size:14px; font-style:italic; line-height:1.55; max-width:680px;">applyd, before and after: from a CV in its 47th version, through a pipeline of portal ingestion and semantic-layer scoring, to a Notion tracker with an 82 / 100 match score and a licensed UK sponsor.</figcaption>
+  </figure>
+
+  <article class="prose" style="max-width:680px;">
+    <section class="chapter">
+      <p>By the time I opened <code>cv_v47_dataeng_final_v2.docx</code>, I already knew I was not going to send another application that night. It was a Sunday in late 2023. The tracker spreadsheet, unopened for a week, sat behind three other tabs I had been using to avoid looking at it. Eleven rows deep in "Applied." None in "Responded." My back ached from a day and a half of sitting; the browser tab next to the CV was a Kaggle notebook I had opened that morning and had not touched since. I closed the laptop.</p>
+
+      <p>That year, the maths of a serious job search had turned punishing. Every hour spent restructuring the same three roles into a slightly different order was an hour not spent on the projects and coursework that were supposed to be making me more employable in the first place. Every version of the CV, cv_v46 and cv_v47 among them, swapped one keyword cluster for another. Every long evening at the desk ended in the same low-grade ache in the lower back and the same unopened tracker. The market had turned tailoring into a full-time cost centre, and the cost was coming out of the exact hours I should have been using to actually get better at the work.</p>
+
+      <p>Some engineers scratch their itches with side projects. I made myself a rule: the next time I faced this market, I was not going to face it by hand. Three years later, with graduation on the horizon and a dissertation to finish, that rule had a plan behind it. The moment my dissertation was in, I was going to build the tool that could have saved me those Sunday nights: a machine to run the mechanical half of a job search so the human half (whether to apply, whether to accept, what to spend the recovered hours on) did not drown in it.</p>
+
+      <p>Then, in March, the internet handed me half the tool.</p>
+
+      <p>Scrolling one lunchtime, I stumbled onto a post about an open-source project called career-ops. Its author, Santiago Fernández de Valderrama, had used it to evaluate more than 740 job postings on his way to a Head of Applied AI role. He had built, in public, the thing I had been sketching in a notebook for months. The polite reaction would have been to close the tab and start writing my own version. The useful reaction, arrived at after a full day of stubbornness, was to fork his repo and start extending it.</p>
+
+      <h2>A market that changed while nobody was looking</h2>
+      <p>Before writing a line of my own code, I wanted to know whether my memory of the job market was accurate or whether it was just the burnout doing the remembering.</p>
+      <p>The data sided with the burnout.</p>
+      <p>Jobscan's 2025 audit found applicant tracking systems on the careers pages of 97.8% of Fortune 500 companies. A 2021 Harvard Business School study of 2,275 executives across the US, UK and Germany found that more than nine in ten employers using such a system rely on it to make the first cut, and 88% concede their systems screen out qualified candidates. The often-repeated line that ATS software rejects three-quarters of CVs is folklore; the citation trail leads to a 2012 sales pitch by a vendor that folded the following year. The honest picture is worse than the myth anyway. The systems do not reject, they rank, and untailored CVs surface last.</p>
+      <p>Tailoring shifts the odds. Platform data from over a million tracked applications shows tailored CVs converting to interviews or offers at roughly twice the rate of generic ones. But volume has climbed to meet it. Applications on Workday grew four times faster than openings in the first half of 2024. LinkedIn now processes around 11,000 applications a minute, up 45% year on year. Industry reporting puts the average UK graduate opening at about 140 applicants. Between 18 and 22 percent of postings on Greenhouse are what the Congressional Research Service politely calls "ghost jobs", listings employers never intend to fill.</p>
+      <p>The entry-level squeeze is the deepest cut. New-graduate hiring at Big Tech firms is down more than 50% versus 2019. US recent-graduate unemployment sits above the overall rate for the first time in decades. Stanford's Digital Economy Lab, using payroll data from 4.6 million workers, has documented a persistent decline in employment among 22-to-25-year-olds in the most AI-exposed occupations. That finding has provoked a small civil war among economists (Daron Acemoglu is skeptical; Google's economists blame interest rates), but the squeeze itself is undisputed.</p>
+      <p>The whole picture reduces to one sentence. Precision beats volume in this market, and precision is expensive in time. Which is another way of saying it is an automation problem.</p>
+
+      <h2>Reading before writing</h2>
+      <p>Reading through Santi's repo before touching any of it felt, at first, like the moment in a heist film when the crew realises another crew has already cracked the vault. He had built the evaluation rubric I would have built, the mode-routing architecture, the Playwright PDF pipeline, the tracker discipline, and the ethical rule that ended every application with a human clicking submit rather than a machine. His codebase was working, opinionated, and better in most respects than my whiteboard sketches.</p>
+      <p>What it lacked was my market.</p>
+      <p>Santi had built for the ecosystem he was applying into. I needed something UK-first: a system that knew a British employer can only sponsor a Skilled Worker visa if it holds a licence on the gov.uk register, and that flagged the unlicensed employers before I wasted a Sunday tailoring a CV for a company that legally could not hire me. I needed something that talked to Notion, because that is where my life already lived. I needed something that could tell me, honestly, whether its own confidence in a match score was any good.</p>
+      <p>So I forked career-ops the same week I found it, and started extending. Two months in, the system I have been building on top of Santi's foundation runs every day. It is called applyd, and I am writing this now because it is time other people had the option to use it too, and to help me push it further.</p>
+
+      <h2>Two dashboards, one truth</h2>
+      <p>The technical decision I am proudest of has almost nothing to do with AI.</p>
+      <p>Early versions of what I was building had six different scripts producing metrics: a funnel report, a rejection-pattern analysis, a pacing alarm, a dashboard, a batch summary, and a follow-up calculator. Each held a private opinion about what "applied", "responded", "screened" and "ghosted" meant. Two of the dashboards disagreed about my response rate. I stared at that discrepancy for an evening before I understood it: the definitions had drifted, quietly, across six files nobody had thought to reconcile.</p>
+      <p>I pulled the definitions into a single shared module and rewired every consumer through it. The same layer now holds the match-score calibration: bands of predicted fit are back-tested against actual interview outcomes, so the system can tell me when its own scores are systematically wrong rather than trusting its first guess. This is dbt-style semantic-layer discipline transposed onto a personal-scale system, and it is the piece I would show a data engineer first.</p>
+
+      <h2>Where the language model does not enter</h2>
+      <p>The next decision worth naming is where the deterministic code stops and the language model begins.</p>
+      <p>applyd's scanner hits Greenhouse, Ashby, Lever and Workable APIs directly. It pays zero tokens per sweep. A cross-portal dedup pass collapses the same posting when it appears on multiple boards. A zero-LLM lint enforces the CV quality rules (banned words, banned constructions, dash policy) as pure rule-based checks that never call the model. The model enters only where judgment is required: evaluating the job description against my CV, drafting the tailored cover letter, running a bounded QA loop over the generated CV.</p>
+      <p>Every LLM call has a defined role and a bounded output. Nothing is deferred to the model that a deterministic check can handle. The reasoning is cost, latency, and trust. Language models are good at judgment work and expensive to run in a loop; deterministic code is cheap, testable, and never hallucinates a keyword out of thin air. Draw that boundary wrong and you either burn money or lose the plot on what the system is actually doing.</p>
+
+      <h2>A tracker that belongs to me</h2>
+      <p>Notion holds the system of record. On first run, applyd provisions an Applications database through the Notion API with a canonical schema: nine pipeline stages from Discovered through Offer, deduplication on job URL enforced before any insert, and three dashboard views (a pipeline kanban, a table ranked by match score, an active-interviews board). A local markdown tracker runs in parallel as a cache and a portable fallback.</p>
+      <p>The interesting design question was not the API integration. It was the contract: which fields the agent owns, which the human owns, and how conflicts resolve when both write to the same row. That contract lives in a single file and is enforced at every write site.</p>
+
+      <h2>The register</h2>
+      <p>The UK sponsor check is the smallest piece of the system and the one I use most.</p>
+      <p>Every UK employer that appears in a scan is matched against a locally cached copy of the gov.uk licensed-sponsor register before applyd drafts a word. Unlicensed employers are tagged and demoted; if I need visa sponsorship, they simply cannot help me, no matter how good the role sounds. The pipeline treats that as a hard filter enforced upstream of drafting. It has already saved me from three Sunday-night detours into applications with no legal path.</p>
+      <p>The rest of the system is agent-neutral by design. A single <code>AGENTS.md</code> file defines the project contract, and a dispatcher routes scheduled headless runs to adapters for Claude, Codex or Gemini CLIs based on an environment variable. The same modes run under any supported runtime. That matters less for a single-user tool than the pattern matters generally: an AI-integrated system tightly coupled to one vendor's runtime is a system you cannot move.</p>
+
+      <h2>What forking taught, and what comes next</h2>
+      <p>Two months inside someone else's codebase teaches more than two months on a greenfield build. Reading before writing forces you to understand a design before you are allowed to disagree with it; disagreement, when it comes, has to be built in a way that leaves open the possibility of being wrong.</p>
+      <p>applyd is on GitHub, MIT-licensed and open for contributions. Portal scanners for new markets are top of the list, and anyone job-hunting in the UK or EU can install it today. Santi's career-ops is on GitHub too, and for anyone building AI-integrated systems, the mode-routing architecture and the never-auto-submit ethic are the first two files worth reading. What I added on top, the semantic layer, the Notion contract, the sponsor check, the deterministic-vs-LLM boundary, and the agent-neutral runtime, sits on his foundation. The credit is not a formality. The foundation is real.</p>
+      <p>The 2023 version of me, the one with the aching back, the unopened tracker, and the Kaggle notebook that never got worked on, would have found the whole thing useful. The current version uses it every week. And the job market, being what it is, will keep giving both of us reasons to.</p>
+
+      <p style="margin-top:28px;"><a class="arrow-link" href="https://github.com/marz1307/applyd" rel="noopener">View applyd on GitHub →</a> &nbsp; <a class="arrow-link" href="https://github.com/santifer/career-ops" rel="noopener">The original career-ops →</a></p>
+
+      <p class="muted" style="font-size:13px; margin-top:20px;">Sources: Jobscan ATS Usage Report (2025); Harvard Business School / Accenture, "Hidden Workers" (2021); Huntr Job Search Trends (2025); Workday Global Workforce Report (2024); LinkedIn application data via NYT (2025); UK graduate-market industry reporting (2024–25); Greenhouse State of Job Hunting (2024–25); Congressional Research Service IF12977; SignalFire State of Tech Talent (2025); Federal Reserve Bank of New York, Labor Market for Recent College Graduates (Q1 2026); Stanford Digital Economy Lab / ADP, "Canaries in the Coal Mine" (2025–26).</p>
+
+      <p class="muted" style="font-size:14px; margin-top:20px;">I am a Manchester-based MSc Data Science graduate (Salford, 2026), available now for junior and mid-level analytics engineering, data engineering, and data science roles across the UK and Germany/EU. If your team wants an engineer who thinks in pipelines, <a href="/contact.html">I would like to hear about it</a>.</p>
+    </section>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><a href="mailto:marvis.osazuwa@hotmail.com">Email</a> · <a href="https://www.linkedin.com/in/marvisosazuwa">LinkedIn</a> · <a href="https://www.xing.com/profile/Marvis_Osazuwa">Xing</a> · <a href="https://github.com/marz1307">GitHub</a></p>
+      <p class="muted">Manchester, UK. Open to the UK and Germany/EU.</p>
+    </div>
+    <div class="right meta-line">© 2026 Marvis Osazuwa. Built with stubbornness.</div>
+  </div>
+</footer>
+</body>
+</html>

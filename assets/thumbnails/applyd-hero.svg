@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none" role="img" aria-labelledby="applyd-hero-title applyd-hero-desc">
+  <title id="applyd-hero-title">applyd — from a 47th-version CV to a running pipeline</title>
+  <desc id="applyd-hero-desc">Editorial illustration of the applyd system. On the left, a person hunched over a laptop late at night, with a CV document titled cv_v47_final_v2 shown on screen with red tracked-change marks, and two coffee mugs. In the centre, portal icons flow rightward on data lines toward a small gov.uk crown. On the right, a Notion-style kanban with columns Discovered, Triaged, Drafted, Applied, Interview and Offer, a circular match-score gauge showing 82 out of 100, and a gov.uk sponsor licensed badge. A wordmark reading applyd sits in the lower-right corner.</desc>
+
+  <!-- ============ LEFT: the burnout scene ============ -->
+  <g transform="translate(60, 180)" font-family="ui-sans-serif, system-ui, sans-serif">
+    <!-- desk line -->
+    <line x1="0" y1="260" x2="330" y2="260" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+
+    <!-- moon in the window (top-right of panel) -->
+    <circle cx="300" cy="20" r="14" stroke="currentColor" stroke-width="1" fill="none" opacity="0.35"/>
+    <circle cx="294" cy="16" r="12" stroke="currentColor" stroke-width="0.6" fill="none" opacity="0.25"/>
+
+    <!-- person silhouette (three-quarter back view, hunched) -->
+    <circle cx="165" cy="90" r="20" fill="currentColor" opacity="0.85"/>
+    <path d="M 145 108 C 138 130, 130 168, 128 210 L 130 260 L 210 260 L 205 210 C 200 168, 195 130, 188 108 Z" fill="currentColor" opacity="0.85"/>
+    <!-- arm curving to lower back (hand-on-back gesture) -->
+    <path d="M 205 175 C 222 175, 236 192, 232 214 C 230 224, 222 228, 214 224" stroke="currentColor" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.85"/>
+
+    <!-- laptop base -->
+    <path d="M 90 260 L 108 240 L 236 240 L 254 260 Z" fill="currentColor" opacity="0.28"/>
+    <!-- laptop screen backing -->
+    <rect x="110" y="132" width="126" height="108" rx="3" fill="currentColor" opacity="0.12"/>
+    <rect x="110" y="132" width="126" height="108" rx="3" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+
+    <!-- window/title-bar dots -->
+    <circle cx="118" cy="140" r="1.5" fill="currentColor" opacity="0.5"/>
+    <circle cx="124" cy="140" r="1.5" fill="currentColor" opacity="0.5"/>
+    <circle cx="130" cy="140" r="1.5" fill="currentColor" opacity="0.5"/>
+    <!-- filename in amber -->
+    <text x="173" y="156" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="8" fill="#D89A5C" text-anchor="middle" opacity="0.95">cv_v47_final_v2.docx</text>
+    <!-- tracked-change red-lined body text -->
+    <line x1="120" y1="170" x2="224" y2="170" stroke="#B8735C" stroke-width="1.2" opacity="0.7"/>
+    <line x1="120" y1="178" x2="208" y2="178" stroke="#B8735C" stroke-width="1.2" opacity="0.7"/>
+    <line x1="120" y1="186" x2="218" y2="186" stroke="#B8735C" stroke-width="1.2" opacity="0.7"/>
+    <line x1="120" y1="194" x2="200" y2="194" stroke="#B8735C" stroke-width="1.2" opacity="0.7"/>
+    <line x1="120" y1="202" x2="214" y2="202" stroke="#B8735C" stroke-width="1.2" opacity="0.7"/>
+    <line x1="120" y1="210" x2="184" y2="210" stroke="#B8735C" stroke-width="1.2" opacity="0.7"/>
+    <line x1="120" y1="218" x2="222" y2="218" stroke="#B8735C" stroke-width="1.2" opacity="0.7"/>
+    <line x1="120" y1="226" x2="196" y2="226" stroke="#B8735C" stroke-width="1.2" opacity="0.7"/>
+
+    <!-- coffee mug (left) with steam -->
+    <g transform="translate(15, 228)">
+      <path d="M 0 0 L 0 26 Q 0 32, 6 32 L 24 32 Q 30 32, 30 26 L 30 0 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>
+      <path d="M 30 6 Q 37 6, 37 14 Q 37 22, 30 22" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>
+      <path d="M 9 -6 Q 11 -12, 9 -18" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.4"/>
+      <path d="M 20 -6 Q 22 -12, 20 -18" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.4"/>
+    </g>
+    <!-- coffee mug (right, smaller, further back) -->
+    <g transform="translate(275, 238)">
+      <path d="M 0 0 L 0 20 Q 0 24, 4 24 L 18 24 Q 22 24, 22 20 L 22 0 Z" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+      <path d="M 22 5 Q 27 5, 27 10 Q 27 16, 22 16" fill="none" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- ============ CENTER: transition (flow lines + portal icons + gov.uk gate) ============ -->
+  <g transform="translate(420, 220)" font-family="ui-monospace, Menlo, Consolas, monospace">
+    <!-- flow lines emerging from the laptop screen and running to the dashboard -->
+    <path d="M 0 30 C 90 30, 170 15, 260 15" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.4"/>
+    <path d="M 0 65 C 90 65, 170 65, 260 65" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.4"/>
+    <path d="M 0 100 C 90 100, 170 115, 260 115" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.4"/>
+    <path d="M 0 135 C 90 135, 170 150, 260 150" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.4"/>
+
+    <!-- portal icons (Greenhouse, Lever, Ashby, Workable) along the flow -->
+    <g transform="translate(70, 5)">
+      <rect x="0" y="0" width="24" height="24" rx="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.65"/>
+      <text x="12" y="16" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.75">G</text>
+    </g>
+    <g transform="translate(150, 53)">
+      <rect x="0" y="0" width="24" height="24" rx="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.65"/>
+      <text x="12" y="16" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.75">L</text>
+    </g>
+    <g transform="translate(70, 100)">
+      <rect x="0" y="0" width="24" height="24" rx="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.65"/>
+      <text x="12" y="16" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.75">A</text>
+    </g>
+    <g transform="translate(150, 138)">
+      <rect x="0" y="0" width="24" height="24" rx="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.65"/>
+      <text x="12" y="16" font-size="11" fill="currentColor" text-anchor="middle" opacity="0.75">W</text>
+    </g>
+
+    <!-- gov.uk crown gate mid-stream (the sponsor filter, applied at ingestion) -->
+    <g transform="translate(215, 65)">
+      <rect x="0" y="0" width="26" height="26" rx="4" fill="none" stroke="#5A9B94" stroke-width="1.2" opacity="0.9"/>
+      <path d="M 4 18 L 6.5 11 L 10 16 L 13 8 L 16 16 L 19.5 11 L 22 18 L 20 20 L 6 20 Z" fill="none" stroke="#5A9B94" stroke-width="1" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- ============ RIGHT: the dashboard ============ -->
+  <g transform="translate(730, 150)" font-family="ui-sans-serif, system-ui, sans-serif">
+    <text x="0" y="0" font-size="13" fill="currentColor" font-weight="600" opacity="0.85">Pipeline</text>
+
+    <!-- kanban -->
+    <g transform="translate(0, 20)">
+      <g>
+        <rect x="0" y="0" width="72" height="140" rx="5" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+        <text x="36" y="14" font-size="9" fill="currentColor" text-anchor="middle" opacity="0.7">Discovered</text>
+        <rect x="6" y="22" width="60" height="16" rx="2" fill="#5A9B94" opacity="0.35"/>
+        <rect x="6" y="42" width="60" height="16" rx="2" fill="#5A9B94" opacity="0.35"/>
+        <rect x="6" y="62" width="60" height="16" rx="2" fill="#5A9B94" opacity="0.35"/>
+        <rect x="6" y="82" width="60" height="16" rx="2" fill="#5A9B94" opacity="0.35"/>
+        <rect x="6" y="102" width="60" height="16" rx="2" fill="#5A9B94" opacity="0.35"/>
+      </g>
+      <g transform="translate(80, 0)">
+        <rect x="0" y="0" width="72" height="140" rx="5" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+        <text x="36" y="14" font-size="9" fill="currentColor" text-anchor="middle" opacity="0.7">Triaged</text>
+        <rect x="6" y="22" width="60" height="16" rx="2" fill="#5A9B94" opacity="0.55"/>
+        <rect x="6" y="42" width="60" height="16" rx="2" fill="#5A9B94" opacity="0.55"/>
+        <rect x="6" y="62" width="60" height="16" rx="2" fill="#5A9B94" opacity="0.55"/>
+      </g>
+      <g transform="translate(160, 0)">
+        <rect x="0" y="0" width="72" height="140" rx="5" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+        <text x="36" y="14" font-size="9" fill="currentColor" text-anchor="middle" opacity="0.7">Drafted</text>
+        <rect x="6" y="22" width="60" height="16" rx="2" fill="#D89A5C" opacity="0.7"/>
+        <rect x="6" y="42" width="60" height="16" rx="2" fill="#D89A5C" opacity="0.7"/>
+      </g>
+      <g transform="translate(240, 0)">
+        <rect x="0" y="0" width="72" height="140" rx="5" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+        <text x="36" y="14" font-size="9" fill="currentColor" text-anchor="middle" opacity="0.7">Applied</text>
+        <rect x="6" y="22" width="60" height="16" rx="2" fill="#D89A5C" opacity="0.9"/>
+        <rect x="6" y="42" width="60" height="16" rx="2" fill="#D89A5C" opacity="0.9"/>
+      </g>
+      <g transform="translate(320, 0)">
+        <rect x="0" y="0" width="72" height="140" rx="5" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+        <text x="36" y="14" font-size="9" fill="currentColor" text-anchor="middle" opacity="0.7">Interview</text>
+        <rect x="6" y="22" width="60" height="16" rx="2" fill="#B8735C" opacity="0.9"/>
+      </g>
+      <g transform="translate(400, 0)">
+        <rect x="0" y="0" width="72" height="140" rx="5" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+        <text x="36" y="14" font-size="9" fill="currentColor" text-anchor="middle" opacity="0.7">Offer</text>
+      </g>
+    </g>
+
+    <!-- match-score gauge -->
+    <g transform="translate(0, 200)">
+      <circle cx="38" cy="38" r="32" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.18"/>
+      <path d="M 38 6 A 32 32 0 1 1 5 21" fill="none" stroke="#D89A5C" stroke-width="3.5" stroke-linecap="round"/>
+      <text x="38" y="42" font-size="20" fill="currentColor" font-weight="700" text-anchor="middle">82</text>
+      <text x="38" y="60" font-size="8.5" fill="currentColor" text-anchor="middle" opacity="0.7">/100 match</text>
+    </g>
+
+    <!-- gov.uk sponsor badge -->
+    <g transform="translate(96, 210)">
+      <rect x="0" y="0" width="232" height="44" rx="5" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.45"/>
+      <g transform="translate(14, 13)">
+        <path d="M 0 15 L 3 8 L 7 14 L 10 6 L 13 14 L 17 8 L 20 15 L 18 18 L 2 18 Z" fill="none" stroke="#5A9B94" stroke-width="1.2" opacity="0.9"/>
+      </g>
+      <text x="46" y="19" font-size="11.5" fill="currentColor" opacity="0.85">gov.uk sponsor:</text>
+      <text x="46" y="34" font-size="11.5" fill="#5A9B94" font-weight="700">licensed</text>
+    </g>
+  </g>
+
+  <!-- ============ WORDMARK ============ -->
+  <text x="1150" y="560" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="18" fill="currentColor" text-anchor="end" font-weight="600" opacity="0.9">applyd</text>
+</svg>
