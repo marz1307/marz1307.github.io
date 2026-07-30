@@ -25,7 +25,7 @@ Manchester, UK · +44 7349 949871 · marvis.osazuwa@hotmail.com · [linkedin.com
 
 ## Profile
 
-MSc Data Science graduate (Salford, May 2026) who has already shipped what most graduates have only studied: production data layers end to end, with ML that explains itself. I build dbt and Dagster pipelines on Kimball-modelled warehouses, gate correctness in CI, and put applied ML (survival, gradient-boosted with SHAP, causal inference) directly on top, most recently exposed to LLM agents through a Model Context Protocol (MCP) endpoint. At Force24 I owned the data layer of a team-built customer intelligence platform; my dissertation was a separate solo build, an end-to-end churn intelligence stack designed and written alone against the same live environment. UK Graduate visa: full right to work in the UK, no sponsorship needed; EU Blue Card eligible for Germany and the EU.
+Analytics Engineer and Data Scientist with production experience in B2B SaaS customer analytics. Specialist in full-lifecycle data systems: orchestrated pipelines, dimensional modelling, and applied ML with built-in explainability, in Python, SQL, and dbt. Shipped a greenfield customer intelligence data layer and independently delivered an end-to-end churn prediction stack, both in live production. MSc Data Science, University of Salford (2026). Full UK work rights (Graduate visa, no sponsorship needed). EU Blue Card eligible.
 
 ## Experience
 

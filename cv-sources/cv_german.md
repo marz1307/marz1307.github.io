@@ -36,7 +36,7 @@ header-includes:
 
 ## Profil
 
-MSc-Data-Science-Absolvent (Salford, Mai 2026), der bereits produktiv ausgeliefert hat, was die meisten Absolventen nur aus dem Studium kennen: produktive Datenschichten end-to-end, mit ML, das sich selbst erklärt. Ich baue dbt- und Dagster-Pipelines auf Kimball-modellierten Data Warehouses, sichere Korrektheit in der CI und setze angewandtes ML (Survival-Analyse, Gradient-Boosting mit SHAP, kausale Inferenz) direkt darauf, zuletzt über einen Model-Context-Protocol-(MCP)-Endpoint für LLM-Agenten zugänglich gemacht. Bei Force24 verantwortete ich die Datenschicht einer im Team gebauten Customer-Intelligence-Plattform; meine Masterarbeit war davon unabhängig ein Solo-Projekt: ein End-to-End-Churn-Intelligence-Stack, den ich allein gegen dieselbe Live-Umgebung entworfen und gebaut habe. UK Graduate Visa: volles Arbeitsrecht im Vereinigten Königreich, kein Sponsoring erforderlich. Für Deutschland und die EU EU-Blue-Card-berechtigt.
+Analytics Engineer und Data Scientist mit Produktionserfahrung in B2B-SaaS-Customer-Analytics. Spezialisiert auf Datensysteme über den gesamten Lebenszyklus: orchestrierte Pipelines, dimensionale Modellierung und angewandtes ML mit Erklärbarkeit, in Python, SQL und dbt. Greenfield-Customer-Intelligence-Datenschicht ausgeliefert und eigenständig einen End-to-End-Churn-Prediction-Stack in Produktion gebracht. MSc Data Science, University of Salford (2026). Volles UK-Arbeitsrecht (Graduate Visa, kein Sponsoring nötig). EU-Blue-Card-berechtigt.
 
 ## Berufserfahrung
 
