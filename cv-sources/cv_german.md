@@ -36,7 +36,7 @@ header-includes:
 
 ## Profil
 
-Analytics Engineer und Data Scientist mit Produktionserfahrung in B2B-SaaS-Customer-Analytics. Spezialisiert auf Datensysteme über den gesamten Lebenszyklus: orchestrierte Pipelines, dimensionale Modellierung und angewandtes ML mit Erklärbarkeit, in Python, SQL und dbt. Greenfield-Customer-Intelligence-Datenschicht ausgeliefert und eigenständig einen End-to-End-Churn-Prediction-Stack in Produktion gebracht. MSc Data Science, University of Salford (2026). Volles UK-Arbeitsrecht (Graduate Visa, kein Sponsoring nötig). EU-Blue-Card-berechtigt.
+Analytics Engineer und Data Scientist mit Produktionserfahrung in B2B-SaaS-Customer-Analytics. Spezialisiert auf Datensysteme über den gesamten Lebenszyklus: orchestrierte Pipelines, dimensionale Modellierung und angewandtes ML mit Erklärbarkeit, in Python, SQL und dbt. Greenfield-Customer-Intelligence-Datenschicht ausgeliefert und eigenständig einen End-to-End-Churn-Prediction-Stack in Produktion gebracht. MSc Data Science mit Auszeichnung. Volles UK-Arbeitsrecht (Graduate Visa, kein Sponsoring nötig). EU-Blue-Card-berechtigt.
 
 ## Berufserfahrung
 

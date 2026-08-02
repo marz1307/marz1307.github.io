@@ -25,7 +25,7 @@ Manchester, UK · +44 7349 949871 · marvis.osazuwa@hotmail.com · [linkedin.com
 
 ## Profile
 
-Analytics Engineer and Data Scientist with production experience in B2B SaaS customer analytics. Specialist in full-lifecycle data systems: orchestrated pipelines, dimensional modelling, and applied ML with built-in explainability, in Python, SQL, and dbt. Shipped a greenfield customer intelligence data layer and independently delivered an end-to-end churn prediction stack, both in live production. MSc Data Science, University of Salford (2026). Full UK work rights (Graduate visa, no sponsorship needed). EU Blue Card eligible.
+Analytics Engineer and Data Scientist with production experience in B2B SaaS customer analytics. Specialist in full-lifecycle data systems: orchestrated pipelines, dimensional modelling, and applied ML with built-in explainability, in Python, SQL, and dbt. Shipped a greenfield customer intelligence data layer and independently delivered an end-to-end churn prediction stack, both in live production. MSc Data Science graduate with Distinction. Full UK work rights (Graduate visa, no sponsorship needed). EU Blue Card eligible.
 
 ## Experience
 
